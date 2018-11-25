@@ -49,12 +49,12 @@ const Input = styled.input`
 `;
 
 
-const RollerForm = ({ query, setQuery, rollDice }) => (
+const RollerForm = ({ query, setQuery, rollDice, registerInput }) => (
     <Form onSubmit={(event) => {
         event.preventDefault();
         rollDice(query);
     }}>
-        <Input type="text" placeholder="1d20" value={query} onChange={(event) => setQuery(event.target.value)} />
+        <Input type="text" placeholder="1d20" ref={registerInput} value={query} onChange={(event) => setQuery(event.target.value)} />
         <RollerButton>Roll</RollerButton>
     </Form>
 );
