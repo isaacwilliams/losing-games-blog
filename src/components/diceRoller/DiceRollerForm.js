@@ -24,7 +24,7 @@ const RollerButton = styled.button`
         left: 5px;
         position: absolute;
         font-size: 1.5rem;
-        content: '⚃';
+        content: '⚄';
         cursor: pointer;
     }
 `

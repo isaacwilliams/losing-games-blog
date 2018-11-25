@@ -16,7 +16,13 @@ class DiceRoller extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (!prevState.result && this.state.result) {
-            setTimeout(() => this.setState({ result: null }), 3000);
+            this.t = setTimeout(() => this.setState({ result: null }), 3000);
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.t) {
+            clearTimeout(this.t);
         }
     }
 
