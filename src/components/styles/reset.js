@@ -1,4 +1,11 @@
 import { css } from 'styled-components';
+import { fontFamily } from './fonts';
+
+export const inputReset = css`
+    ${fontFamily}
+    font-size: 1rem;
+    border: none;
+`
 
 export default css`
 /* http://meyerweb.com/eric/tools/css/reset/

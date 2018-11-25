@@ -4,24 +4,7 @@ import styled from 'styled-components';
 import drawPortrait from './drawPortrait';
 import { colors } from './portraitConstants';
 
-const Button = styled.button`
-    padding: 0.25em 0.75em;
-    font-family: 'Fira Mono', monospace;
-    font-weight: 600;
-    font-size: 1rem;
-    background: black;
-    color: white;
-
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-
-    outline: none;
-
-    &: hover {
-        background: red;
-    }
-`
+import Button from '../shared/Button';
 
 const GeneratorOption = styled.div`
     display: flex;

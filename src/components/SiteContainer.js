@@ -4,7 +4,8 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
 
-import reset from './reset';
+import reset from './styles/reset';
+import { fontFamily } from './styles/fonts';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
@@ -12,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700');
 
     body {
-        font-family: 'Fira Mono', monospace;
+        ${fontFamily}
         font-size: 18px;
         line-height: 1.33;
     }

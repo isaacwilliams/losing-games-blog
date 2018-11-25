@@ -1,4 +1,3 @@
-const r = (size) => Math.floor(Math.random() * size);
 
 const createSpriteSheet = (image, spriteWidth, spriteHeight) => {
     const atlasWidth = Math.floor(image.width / spriteWidth);
