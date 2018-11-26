@@ -5,16 +5,15 @@ import { StaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
 
 import reset from './styles/reset';
-import { fontFamily } from './styles/fonts';
+import { fontImport, fontBody } from './styles/fonts';
 import * as colors from './styles/colors';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
-
-    @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700');
+    ${fontImport}
 
     body {
-        ${fontFamily}
+        ${fontBody}
         font-size: 18px;
         line-height: 1.33;
         color: ${colors.body};

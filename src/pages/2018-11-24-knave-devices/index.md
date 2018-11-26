@@ -82,7 +82,7 @@ Mostly stolen/adapted from GLOG & Knave spell lists.
 |---------------|---------------|------
 | 50’ beam      | 1 person      | [dice] hour  
 
-Form: Like a flashlight. Button triggers flickering beam of bright pink light.
+_Form: Like a flashlight. Button triggers flickering beam of bright pink light._
 
 Target person regards you as a friend and ignores the obvious effect you used on them. If 4 or more [dice] are used, the effect is permanent.
 

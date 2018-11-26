@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
-import { fontFamily } from './fonts';
+import { fontBody } from './fonts';
 
 export const inputReset = css`
-    ${fontFamily}
+    ${fontBody}
     font-size: 1rem;
     border: none;
 `

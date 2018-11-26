@@ -1,18 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import * as colors from '../components/styles/colors';
+import { fontDisplay } from '../components/styles/fonts';
 
 import PageLayout from '../components/PageLayout';
-
-const spin = keyframes`
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-`
 
 const Post = styled.div`
     padding-bottom: 1rem;
@@ -22,6 +14,7 @@ const PostTitle = styled.h2`
     position: relative;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+    ${fontDisplay}
 
     &:before {
         position: absolute;
@@ -29,11 +22,14 @@ const PostTitle = styled.h2`
         top: 0.1rem;
         line-height: 1;
         content: '✳︎';
+
+        transform: rotate(0deg);
+        transition: transform 1s ease-out;
     }
 
     &:hover {
         &:before {
-            animation: 1s ${spin} ease-out;
+            transform: rotate(180deg);
         }
     }
 `;
@@ -47,14 +43,14 @@ const BlogIndex = ({ data }) => {
     const posts = data.allMarkdownRemark.edges;
 
     return (
-        <PageLayout>
-        {posts.map(({ node: post }) => (
-            <Post key={post.id}>
-                <PostTitle><Link to={post.fields.slug}>{post.frontmatter.title || post.fields.slug}</Link></PostTitle>
-                <PostDate>{post.frontmatter.date}</PostDate>
-                {post.excerpt}
-            </Post>
-        ))}
+        <PageLayout isIndexPage>
+            {posts.map(({ node: post }) => (
+                <Post key={post.id}>
+                    <PostTitle><Link to={post.fields.slug}>{post.frontmatter.title || post.fields.slug}</Link></PostTitle>
+                    <PostDate>{post.frontmatter.date}</PostDate>
+                    {post.excerpt}
+                </Post>
+            ))}
         </PageLayout>
     );
 }
