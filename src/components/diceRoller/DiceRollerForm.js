@@ -25,14 +25,11 @@ const RollerButton = styled.button`
         font-size: 1.5rem;
         content: '⚄';
         cursor: pointer;
+        pointer-events: none;
     }
 
     &:hover {
-        color: ${colors.highlightAlt};
-
-        &:before {
-            color: ${colors.highlightAlt};
-        }
+        color: ${colors.highlight};
     }
 `
 
