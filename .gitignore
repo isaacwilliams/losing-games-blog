@@ -62,3 +62,4 @@ typings/
 
 # Gatsby cache
 .cache
+public/
