@@ -3,36 +3,11 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import * as colors from '../components/styles/colors';
 import { fontDisplay } from '../components/styles/fonts';
-
 import PageLayout from '../components/PageLayout';
 
-const Post = styled.div`
-    padding-bottom: 1rem;
-`;
+import ListingTitle from '../components/listing/ListingItemTitle';
+import ListingItem from '../components/listing/ListingItem';
 
-const PostTitle = styled.h2`
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    ${fontDisplay}
-
-    &:before {
-        position: absolute;
-        left: -1.5rem;
-        top: 0.1rem;
-        line-height: 1;
-        content: '✳︎';
-
-        transform: rotate(0deg);
-        transition: transform 1s ease-out;
-    }
-
-    &:hover {
-        &:before {
-            transform: rotate(180deg);
-        }
-    }
-`;
 
 const PostDate = styled.div`
     color: ${colors.bodyLight};
@@ -45,11 +20,11 @@ const BlogIndex = ({ data }) => {
     return (
         <PageLayout isIndexPage>
             {posts.map(({ node: post }) => (
-                <Post key={post.id}>
-                    <PostTitle><Link to={post.fields.slug}>{post.frontmatter.title || post.fields.slug}</Link></PostTitle>
+                <ListingItem key={post.id}>
+                    <ListingTitle><Link to={post.fields.slug}>{post.frontmatter.title || post.fields.slug}</Link></ListingTitle>
                     <PostDate>{post.frontmatter.date}</PostDate>
                     {post.excerpt}
-                </Post>
+                </ListingItem>
             ))}
         </PageLayout>
     );

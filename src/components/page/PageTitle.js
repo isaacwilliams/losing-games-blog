@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fontDisplay } from '../styles/fonts';
 
 export default styled.h1`
     display: flex;
@@ -6,6 +7,7 @@ export default styled.h1`
     justify-content: center;
     width: 100%;
 
+    ${fontDisplay}
     text-align: center;
     font-weight: 600;
     font-size: 2rem;

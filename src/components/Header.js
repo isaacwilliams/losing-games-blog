@@ -45,6 +45,32 @@ const HeaderAlignment = styled.div`
     justify-content: space-between;
 `
 
+const HeaderNav = styled.nav`
+    display: flex;
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            margin-right: 1em;
+            font-size: 0.8rem;
+        }
+    }
+`
+
+const NavLink = styled(Link)`
+    position: relative;
+
+    &:before {
+        position: absolute;
+        left: -1em;
+        content: '✧';
+        text-decoration: none;
+        color: black;
+    }
+`;
+
 const Header = ({ siteTitle, isIndexPage }) => {
     return (
         <HeaderContainer>
@@ -53,7 +79,15 @@ const Header = ({ siteTitle, isIndexPage }) => {
                     <SiteTitle isIndexPage={isIndexPage}>
                         <Link to="/">{siteTitle}</Link>
                     </SiteTitle>
-                    <DiceRoller />
+                    <HeaderNav>
+                        <ul>
+                            <li>
+                                <NavLink to="/tools">Tools</NavLink>
+                            </li>
+                        </ul>
+
+                        <DiceRoller />
+                    </HeaderNav>
                 </HeaderAlignment>
             </ContentContainer>
         </HeaderContainer>

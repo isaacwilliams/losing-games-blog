@@ -9,4 +9,4 @@ The generation method is fairly unsophisticated. no real attempt is made to stop
 
 Play around with the sliders for a wider range of unnatural skin colors or a more subdued palette for the clothing and hair.
 
-<iframe src="/generators/portrait/headless" width="512" height="670"></iframe>
+<iframe src="/tools/portrait/headless" width="512" height="670"></iframe>

@@ -37,7 +37,7 @@ class Portrait extends Component {
     }
 
     render() {
-        const { skinVariance, hairVariance, clothingVariance, accessories } = this.state;
+        const { skinVariance, hairVariance, clothingVariance } = this.state;
 
         return (
             <div>

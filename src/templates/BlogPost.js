@@ -3,12 +3,11 @@ import Helmet from 'react-helmet';
 import PageLayout from '../components/PageLayout'
 import styled from 'styled-components';
 
-import PageTitle from '../components/PageTitle';
-import PageHeader from '../components/PageHeader';
+import PageTitle from '../components/page/PageTitle';
+import PageHeader from '../components/page/PageHeader';
 
 const PostContainer = styled.article`
 `
-
 
 const PostDate = styled.div`
     color: grey;
