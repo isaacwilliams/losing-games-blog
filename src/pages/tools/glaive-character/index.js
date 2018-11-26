@@ -3,13 +3,13 @@ import PageLayout from '../../../components/PageLayout';
 import ToolPageTitle from '../../../components/page/ToolPageTitle';
 import PageHeader from '../../../components/page/PageHeader';
 
-import PortraitGenerator from '../../../apps/portraitGenerator/PortraitGenerator';
+import GlaiveCharacter from '../../../apps/glaiveCharacter/GlaiveCharacter';
 
 export default () => (
     <PageLayout>
         <PageHeader>
-            <ToolPageTitle>Portrait generator</ToolPageTitle>
+            <ToolPageTitle>Glaive character</ToolPageTitle>
         </PageHeader>
-        <PortraitGenerator />
+        <GlaiveCharacter />
     </PageLayout>
 );

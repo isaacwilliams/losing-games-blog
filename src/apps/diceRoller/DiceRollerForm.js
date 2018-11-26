@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { inputReset } from '../styles/reset';
-import * as colors from '../styles/colors';
+import { inputReset } from '../../components/styles/reset';
+import * as colors from '../../components/styles/colors';
 
 const RollerButton = styled.button`
     display: inline-block;

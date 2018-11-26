@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import drawPortrait from './drawPortrait';
 import { colors } from './portraitConstants';
 
-import Button from '../shared/Button';
+import Button from '../../components/shared/Button';
 
 const GeneratorOption = styled.div`
     display: flex;

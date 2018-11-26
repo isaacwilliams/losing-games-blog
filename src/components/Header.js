@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { fontDisplay } from './styles/fonts';
 
 import ContentContainer from './ContentContainer';
-import DiceRoller from './diceRoller/DiceRoller';
+import DiceRoller from '../apps/diceRoller/DiceRoller';
 
 const HeaderContainer = styled.header`
     padding: 1rem 0;

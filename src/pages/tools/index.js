@@ -20,6 +20,11 @@ const BlogIndex = ({ data }) => {
             title: 'Portrait generator',
             slug: '/tools/portrait',
             description: 'Create random character portraits',
+        },
+        {
+            title: 'Glaive character roller',
+            slug: '/tools/glaive-character',
+            description: 'Character auto-roller for my GLoG/Knave mashup',
         }
     ];
 

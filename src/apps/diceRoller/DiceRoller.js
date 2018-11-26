@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { roll } from 'droll';
 
-import { inputReset } from '../styles/reset';
+import { inputReset } from '../../components/styles/reset';
 
 import RollerForm from './DiceRollerForm';
 import RollerResult from './DiceRollerResult';

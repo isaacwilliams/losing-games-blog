@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as colors from '../styles/colors';
+import * as colors from '../../components/styles/colors';
 
 const symbol = (array) => (index) => index < array.length - 1 ? ' + ' : ' = ';
 
