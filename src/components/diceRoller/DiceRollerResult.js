@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as colors from '../styles/colors';
 
 const symbol = (array) => (index) => index < array.length - 1 ? ' + ' : ' = ';
 
@@ -10,7 +11,7 @@ width: 100%;
 `
 
 const ResultQuery = styled.span`
-color: grey;
+color: ${colors.bodyLight};
 `
 
 const ResultTotal = styled.span`

@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import reset from './styles/reset';
 import { fontFamily } from './styles/fonts';
+import * as colors from './styles/colors';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
@@ -16,13 +17,14 @@ const GlobalStyle = createGlobalStyle`
         ${fontFamily}
         font-size: 18px;
         line-height: 1.33;
+        color: ${colors.body};
     }
 
     a {
-        color: red;
+        color: ${colors.highlight};
 
         &:hover {
-            color: black;
+            color: ${colors.highlightAlt};
         }
     }
 `

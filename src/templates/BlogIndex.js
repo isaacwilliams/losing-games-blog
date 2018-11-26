@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
+import * as colors from '../components/styles/colors';
 
 import PageLayout from '../components/PageLayout';
 
@@ -38,7 +39,7 @@ const PostTitle = styled.h2`
 `;
 
 const PostDate = styled.div`
-    color: grey;
+    color: ${colors.bodyLight};
     margin-bottom: 0.5rem;
 `;
 

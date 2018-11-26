@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { inputReset } from '../styles/reset';
+import * as colors from '../styles/colors';
 
 const Button = styled.button`
     ${inputReset}
 
     padding: 0.25em 0.75em;
     font-weight: 600;
-    background: black;
+    background: ${colors.highlightAlt};
     color: white;
 
     border-radius: 3px;
@@ -15,7 +16,7 @@ const Button = styled.button`
     outline: none;
 
     &: hover {
-        background: red;
+        background: ${colors.highlight};
     }
 `
 

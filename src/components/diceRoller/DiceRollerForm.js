@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { inputReset } from '../styles/reset';
+import * as colors from '../styles/colors';
 
 const RollerButton = styled.button`
     display: inline-block;
@@ -11,11 +12,9 @@ const RollerButton = styled.button`
     background: white;
 
     width: 1.5rem;
-    height: 100%;
+    height: 1.2rem;
     padding: 0;
     margin: 0;
-
-    z-index: 2;
 
     font-size: 0;
 
@@ -26,6 +25,14 @@ const RollerButton = styled.button`
         font-size: 1.5rem;
         content: '⚄';
         cursor: pointer;
+    }
+
+    &:hover {
+        color: ${colors.highlightAlt};
+
+        &:before {
+            color: ${colors.highlightAlt};
+        }
     }
 `
 

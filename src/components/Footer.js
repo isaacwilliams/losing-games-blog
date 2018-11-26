@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import * as colors from './styles/colors';
 
 import ContentContainer from './ContentContainer';
 
 const FooterContainer = styled.footer`
     padding: 5rem 0 3rem 0;
     font-size: 0.9rem;
-    color: grey;
+    color: ${colors.bodyLight};
 
     a {
-        color: grey;
+        color: ${colors.bodyLight};
     }
 `;
 
