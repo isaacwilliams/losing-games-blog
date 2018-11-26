@@ -82,6 +82,14 @@ const PostContent = styled.div`
         margin: 1rem 0;
     }
 
+    em {
+        font-style: italic;
+    }
+
+    strong {
+        font-weight: 600;
+    }
+
     h1, h2, h3, h4, h5 {
         margin: 1.5em 0 0.5em 0;
         font-weight: 600;
@@ -122,6 +130,8 @@ const PostContent = styled.div`
         counter-reset: li;
 
         li {
+            margin: 0.3em 0;
+
             p {
                 margin: 0;
             }
@@ -131,7 +141,6 @@ const PostContent = styled.div`
 
             &:before {
                 position: absolute;
-                content: counter(li);
                 left: -2em;
                 color: #666;
             }
@@ -146,16 +155,22 @@ const PostContent = styled.div`
 
     ol {
         li: before {
-            content: counter(li);
+            content: counter(li) '.';
         }
     }
 
     table {
+        width: 100%;
+        box-sizing: content-box;
+        border-spacing: 0.5em;
+        font-size: 15px;
+        word-break: keep-all;
+
         td, th {
-            padding: 0.1 0.2em;
+            padding: 0.4em 0.5em;
         }
 
-        thead {
+        th {
             border-bottom: 1px solid grey;
         }
 
@@ -163,6 +178,13 @@ const PostContent = styled.div`
             text-align: left;
             font-weight: 700;
         }
+
+        tbody {
+            tr: nth-child(odd) {
+                background-color: #eee;
+            }
+        }
+
     }
 `;
 
