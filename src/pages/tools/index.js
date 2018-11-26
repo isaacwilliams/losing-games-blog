@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
+import { get, map, flow } from 'lodash/fp';
 import styled from 'styled-components';
 import * as colors from '../../components/styles/colors';
 import { fontDisplay } from '../../components/styles/fonts';
@@ -14,30 +15,47 @@ const ToolListingTitle = styled(ListingTitle)`
     }
 `
 
-const BlogIndex = ({ data }) => {
-    const tools = [
-        {
-            title: 'Portrait generator',
-            slug: '/tools/portrait',
-            description: 'Create random character portraits',
-        },
-        {
-            title: 'Glaive character roller',
-            slug: '/tools/glaive-character',
-            description: 'Character auto-roller for my GLoG/Knave mashup',
+const toolsQuery = graphql`{
+  allJavascriptFrontmatter(sort:{ order: DESC, fields: [frontmatter___date] }) {
+    edges {
+      node{
+        frontmatter {
+          error
+          title
+          path
+          date
+          description
         }
-    ];
+      }
+    }
+  }
+}`
 
-    return (
-        <PageLayout>
-            {tools.map((tool, i) => (
-                <ListingItem key={i}>
-                    <ToolListingTitle><Link to={tool.slug}>{tool.title}</Link></ToolListingTitle>
-                    {tool.description}
-                </ListingItem>
-            ))}
-        </PageLayout>
-    );
-}
+const getTools = flow(
+    get('allJavascriptFrontmatter.edges'),
+    map(get('node.frontmatter'))
+)
 
-export default BlogIndex
+const ToolsIndex = (props) => (
+    <PageLayout>
+        <StaticQuery
+            query={toolsQuery}
+            render={data => {
+                const tools = getTools(data);
+
+                return (
+                    <>
+                    {tools.map(({ title, path, date, description }, i) => (
+                        <ListingItem key={i}>
+                            <ToolListingTitle><Link to={path}>{title}</Link></ToolListingTitle>
+                            {description}
+                        </ListingItem>
+                    ))}
+                    </>
+                );
+            }}
+        />
+    </PageLayout>
+);
+
+export default ToolsIndex;

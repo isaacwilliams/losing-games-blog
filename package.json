@@ -18,6 +18,7 @@
     "gatsby-remark-copy-linked-files": "^2.0.6",
     "gatsby-remark-images": "^3.0.0",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-javascript-frontmatter": "^2.0.4",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "gh-pages": "^2.0.1",

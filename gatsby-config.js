@@ -12,6 +12,7 @@
                 path: `${__dirname}/src/pages`,
             },
         },
+        'gatsby-transformer-javascript-frontmatter',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-styled-components',
