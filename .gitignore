@@ -62,4 +62,5 @@ typings/
 
 # Gatsby cache
 .cache
-public/
+public/*
+!public/CNAME
