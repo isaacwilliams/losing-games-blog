@@ -1,12 +1,7 @@
 import React, { Suspense } from 'react';
+import Loadable from 'react-loadable';
 
-const LazyPortraitGenerator = React.lazy(() => import('./PortraitGenerator'));
-const PortraitLoader = () => (
-    <div>
-        <Suspense fallback={<div>Loading...</div>}>
-            <LazyPortraitGenerator />
-        </Suspense>
-    </div>
-);
-
-export default PortraitLoader;
+export default Loadable({
+  loader: () => import('./PortraitGenerator'),
+  loading: () => <div>Loading...</div>,
+});
