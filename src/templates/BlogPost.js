@@ -1,75 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import PageLayout from '../components/PageLayout'
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-class InlineCodeExecutor extends React.Component {
-    componentDidMount() {
-        if (!document) return;
-
-        const inlineScripts = document.querySelectorAll('script[data-inline-script="true"]');
-
-        inlineScripts.forEach(script => {
-            eval(script.innerText);
-        });
-    }
-
-    render() {
-        return null;
-    }
-}
+import PageTitle from '../components/PageTitle';
+import PageHeader from '../components/PageHeader';
 
 const PostContainer = styled.article`
 `
 
-const PostHeader = styled.header`
-    padding: 2rem 0;
-`
-
-const PostTitle = styled.h1`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    text-align: center;
-    font-weight: 600;
-    font-size: 2rem;
-
-    &:before,
-    &:after {
-        position: relative;
-        display: inline-block;
-        font-size: 1rem;
-
-        content: '✳︎ ✳︎ ✳︎';
-        font-weight: 400;
-
-        white-space: nowrap;
-    }
-
-    &:before {
-        margin-right: 1em;
-    }
-
-    &:after {
-        margin-left: 1em;
-    }
-
-    @media (max-width: 42rem) {
-        flex-direction: column;
-
-        &:before {
-            margin-right: 0;
-            margin-bottom: 1em;
-        }
-
-        &:after {
-            margin-left: 0;
-            margin-top: 1em;
-        }
-    }
-`
 
 const PostDate = styled.div`
     color: grey;
@@ -197,10 +136,10 @@ const Template = ({ data }) => {
                 <Helmet title={`Losing Games - ${post.frontmatter.title}`} />
 
                 <article className="blog-post">
-                    <PostHeader>
-                        <PostTitle>{post.frontmatter.title}</PostTitle>
+                    <PageHeader>
+                        <PageTitle>{post.frontmatter.title}</PageTitle>
                         <PostDate>{post.frontmatter.date}</PostDate>
-                    </PostHeader>
+                    </PageHeader>
 
                     <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
                 </article>
