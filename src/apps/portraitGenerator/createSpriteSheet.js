@@ -6,22 +6,30 @@ const createSpriteSheet = (image, spriteWidth, spriteHeight) => {
     return {
         image: image,
         size: atlasWidth * atlasHeight,
-        draw: (context, spriteId, posX, posY) => {
+        sprite: (spriteId) => {
             const locX = spriteId % atlasWidth;
             const locY = Math.floor(spriteId / atlasWidth);
 
-            context.drawImage(
+            // create offscreen buffer,
+            const buffer = document.createElement('canvas');
+            buffer.width = spriteWidth;
+            buffer.height = spriteHeight;
+            const bx = buffer.getContext('2d');
+
+            bx.drawImage(
                 image,
                 locX * spriteWidth,
                 locY * spriteHeight,
                 spriteWidth,
                 spriteHeight,
-                posX,
-                posY,
+                0,
+                0,
                 spriteWidth,
                 spriteHeight
             );
-        }
+
+            return buffer;
+        },
     };
 };
 
