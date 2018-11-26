@@ -25,6 +25,8 @@ const PostTitle = styled.h2`
     &:before {
         position: absolute;
         left: -1.5rem;
+        top: 0.1rem;
+        line-height: 1;
         content: '✳︎';
     }
 

@@ -35,13 +35,17 @@ display: flex;
 
 const Input = styled.input`
     ${inputReset}
-    border: 1px solid lightgrey;
     width: 4rem;
     font-size: 0.8rem;
     outline: none;
     margin-right: 0.5em;
     padding: 0.2em;
     text-align: right;
+    border: 1px solid white;
+
+    &:hover {
+        border-color: lightgrey;
+    }
 
     &:focus {
         border-color: black;
