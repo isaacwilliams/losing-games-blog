@@ -1,7 +1,8 @@
-module.exports = {
+ module.exports = {
     siteMetadata: {
         title: 'Losing Games',
     },
+    pathPrefix: '/',
     plugins: [
         'gatsby-plugin-react-helmet',
         {

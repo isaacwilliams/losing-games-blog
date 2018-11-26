@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -33,6 +34,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
