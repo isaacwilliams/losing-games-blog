@@ -1,12 +1,15 @@
 import createSpriteSheet from './createSpriteSheet';
 import fetchAssets from './fetchAssets';
 import recolorImage from './recolorImage';
+import drawPreloader from './drawPreloader';
 import { colors } from './portraitConstants';
 
 const r = (size) => Math.floor(Math.random() * size);
 
 const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothingVariance = 32) => {
     const ctx = canvas.getContext('2d');
+
+    const loaderInverval = drawPreloader(ctx);
 
     const [
         imgHeads,
@@ -33,6 +36,8 @@ const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothi
         require('./img/accessory-front.png'),
         require('./img/accessory-back.png'),
     ]);
+
+    clearInterval(loaderInverval);
 
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
