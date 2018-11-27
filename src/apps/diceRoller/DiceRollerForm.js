@@ -19,7 +19,7 @@ const RollerButton = styled.button`
     font-size: 0;
 
     &:before {
-        top: -5px;
+        top: -8px;
         left: 5px;
         position: absolute;
         font-size: 1.5rem;
@@ -34,7 +34,7 @@ const RollerButton = styled.button`
 `
 
 const Form = styled.form`
-display: flex;
+    display: flex;
 `
 
 const Input = styled.input`
@@ -43,6 +43,7 @@ const Input = styled.input`
     font-size: 0.8rem;
     outline: none;
     margin-right: 0.5em;
+    margin-top: -0.1em;
     padding: 0.2em;
     text-align: right;
     border: 1px solid white;

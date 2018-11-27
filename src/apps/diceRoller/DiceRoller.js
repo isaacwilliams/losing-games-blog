@@ -9,6 +9,7 @@ import RollerResult from './DiceRollerResult';
 
 const RollerContainer = styled.div`
     position: relative;
+    height: 1em;
 `;
 
 class DiceRoller extends Component {

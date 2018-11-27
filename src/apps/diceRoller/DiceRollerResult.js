@@ -5,9 +5,9 @@ import * as colors from '../../components/styles/colors';
 const symbol = (array) => (index) => index < array.length - 1 ? ' + ' : ' = ';
 
 const Result = styled.div`
-padding: 0.2rem 0.4rem;
-font-size: 0.8rem;
-width: 100%;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+    width: 100%;
 `
 
 const ResultQuery = styled.span`
