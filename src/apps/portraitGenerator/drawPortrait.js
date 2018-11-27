@@ -70,7 +70,7 @@ const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothi
     ctx.drawImage(recolorImage(heads.sprite(r(heads.size)), skinColor), 0, 0);
     ctx.drawImage(mouths.sprite(r(mouths.size)), 0, 0);
     ctx.drawImage(eyes.sprite(r(eyes.size)), 0, 0);
-    Math.random() < 0.1 && ctx.drawImage(recolorImage(hairFace.sprite(r(4)), hairColor), 0, 0);
+    Math.random() < 0.1 && ctx.drawImage(recolorImage(hairFace.sprite(r(8)), hairColor), 0, 0);
     ctx.drawImage(recolorImage(noses.sprite(r(noses.size)), skinColor), 0, 0);
     ctx.drawImage(recolorImage(hairFront.sprite(hairId), hairColor), 0, 0);
     ctx.drawImage(recolorImage(accessoryFront.sprite(accessoryId), accessoryColor), 0, 0);
