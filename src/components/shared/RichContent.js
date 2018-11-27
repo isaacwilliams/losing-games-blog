@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import { fontBody, fontDisplay } from '../styles/fonts';
 
 const RichContent = styled.div`
+    ${fontBody}
+
     p {
-        margin: 1rem 0;
+        margin: 0.5em 0 0.8em 0;
     }
 
     em {
@@ -14,7 +17,8 @@ const RichContent = styled.div`
     }
 
     h1, h2, h3, h4, h5 {
-        margin: 1.5em 0 0.5em 0;
+        ${fontDisplay}
+        margin: 1.5em 0 0.3em 0;
         font-weight: 600;
     }
 
@@ -32,7 +36,6 @@ const RichContent = styled.div`
 
     h3, h4, h5 {
         color: #666;
-        font-weight: 600;
     }
 
     blockquote {

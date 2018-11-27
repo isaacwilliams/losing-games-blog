@@ -11,7 +11,7 @@ import ListingItem from '../components/listing/ListingItem';
 
 const PostDate = styled.div`
     color: ${colors.bodyLight};
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 `;
 
 const BlogIndex = ({ data }) => {

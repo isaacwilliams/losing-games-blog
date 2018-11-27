@@ -1,17 +1,15 @@
 import { css } from 'styled-components';
 
 export const fontImport = css`
-    @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700');
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:700');
 `;
 
 export const fontBody = css`
-    /* font-family: 'Chakra Petch', sans-serif; */
-    font-family: 'Fira Mono', monospace;
+    font-family: 'Lato', sans-serif;
 `;
 
 export const fontDisplay = css`
-    /* font-family: 'Chakra Petch', sans-serif; */
-    font-family: 'Fira Mono', monospace;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 `;
 

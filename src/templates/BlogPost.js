@@ -16,7 +16,7 @@ const PostContainer = styled.article`
 const PostDate = styled.div`
     color: grey;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
 `;
 
 const renderAst = new rehypeReact({

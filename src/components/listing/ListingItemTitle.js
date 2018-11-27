@@ -3,8 +3,6 @@ import { fontDisplay } from '../styles/fonts';
 
 const ListingTitle = styled.h2`
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
     ${fontDisplay}
 
     &:before {
