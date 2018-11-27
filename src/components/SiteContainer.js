@@ -49,6 +49,7 @@ const SiteContainer = ({ children }) => (
                           { name: 'keywords', content: 'sample, something' },
                         ]}>
                     <html lang="en" />
+                    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
                 </Helmet>
                 <GlobalStyle />
                 {children({ data })}
