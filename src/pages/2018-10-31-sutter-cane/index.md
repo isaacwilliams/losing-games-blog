@@ -7,4 +7,4 @@ title: "Sutter Cane's Perilous Peninsula"
 
 [Download a PDF here](./sutter-cane.pdf).
 
-[![Map of the perilous peninsula](sutter-cane.png)](./sutter-cane.pdf).
+[![Map of the perilous peninsula](sutter-cane.png)](./sutter-cane.pdf)
