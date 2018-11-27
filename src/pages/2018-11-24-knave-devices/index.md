@@ -1,6 +1,7 @@
 ---
 date: "2018-11-24"
 title: "Devices for Knave"
+published: "false"
 ---
 Devices are ancient artefacts that possess great power. They act as spells, providing the wielder with extraordinary abilities. Devices are partly alive.
 

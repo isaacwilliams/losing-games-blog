@@ -1,6 +1,7 @@
 ---
 date: "2018-10-11"
 title: "One page game: d6D"
+published: "true"
 ---
 
 Here's one from the vault. **d6D: Bridge the Worlds** is a print-and-play [4X](https://en.wikipedia.org/wiki/4X) strategy game for 2-4 players, designed for a Ludum Dare competition in 2014. The game is played with just the print-out provided, a pencil and a set of six d6s for each player.

@@ -1,6 +1,7 @@
 ---
 date: "2018-10-31"
 title: "Sutter Cane's Perilous Peninsula"
+published: "true"
 ---
 
 [Skerples](https://coinsandscrolls.blogspot.com) released a fun trope-filled [halloween adventure](https://coinsandscrolls.blogspot.com/2018/10/osr-one-page-dungeon-sutter-canes.html). I re-drew it for extra spookiness.

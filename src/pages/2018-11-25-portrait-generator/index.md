@@ -1,6 +1,7 @@
 ---
 date: "2018-11-25"
 title: "Portrait generator"
+published: "true"
 ---
 
 Want a portrait for the random NPC you just rolled up? This generator will create a plethora of goofy-looking downloadable & printable characters.
