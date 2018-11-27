@@ -9,7 +9,7 @@ export default styled.h1`
 
     ${fontDisplay}
     text-align: center;
-    font-weight: 600;
+    font-weight: 900;
     font-size: 2.5rem;
 
     &:before,

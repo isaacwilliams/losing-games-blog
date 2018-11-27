@@ -8,6 +8,7 @@ import PageLayout from '../../components/PageLayout';
 
 import ListingTitle from '../../components/listing/ListingItemTitle';
 import ListingItem from '../../components/listing/ListingItem';
+import ListingContainer from '../../components/listing/ListingContainer';
 
 const ToolListingTitle = styled(ListingTitle)`
     &:before {
@@ -44,14 +45,14 @@ const ToolsIndex = (props) => (
                 const tools = getTools(data);
 
                 return (
-                    <>
-                    {tools.map(({ title, path, date, description }, i) => (
-                        <ListingItem key={i}>
-                            <ToolListingTitle><Link to={path}>{title}</Link></ToolListingTitle>
-                            {description}
-                        </ListingItem>
-                    ))}
-                    </>
+                    <ListingContainer>
+                        {tools.map(({ title, path, date, description }, i) => (
+                            <ListingItem key={i}>
+                                <ToolListingTitle><Link to={path}>{title}</Link></ToolListingTitle>
+                                {description}
+                            </ListingItem>
+                        ))}
+                    </ListingContainer  >
                 );
             }}
         />

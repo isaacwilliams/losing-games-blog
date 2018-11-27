@@ -32,16 +32,14 @@ const Template = ({ data }) => {
             <PostContainer>
                 <Helmet title={`Losing Games - ${post.frontmatter.title}`} />
 
-                <article className="blog-post">
-                    <PageHeader>
-                        <PageTitle>{post.frontmatter.title}</PageTitle>
-                        <PostDate>{post.frontmatter.date}</PostDate>
-                    </PageHeader>
+                <PageHeader>
+                    <PageTitle>{post.frontmatter.title}</PageTitle>
+                    <PostDate>{post.frontmatter.date}</PostDate>
+                </PageHeader>
 
-                    <RichContent>
-                        {renderAst(post.htmlAst)}
-                    </RichContent>
-                </article>
+                <RichContent>
+                    {renderAst(post.htmlAst)}
+                </RichContent>
             </PostContainer>
         </PageLayout>
     );

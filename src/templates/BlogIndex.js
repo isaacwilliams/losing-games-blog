@@ -7,11 +7,17 @@ import PageLayout from '../components/PageLayout';
 
 import ListingTitle from '../components/listing/ListingItemTitle';
 import ListingItem from '../components/listing/ListingItem';
+import ListingContainer from '../components/listing/ListingContainer';
 
+const PostTitle = styled(ListingTitle)`
+    display: inline;
+`;
 
 const PostDate = styled.div`
+    display: inline;
     color: ${colors.bodyLight};
     font-size: 0.95rem;
+    margin-left: 1em;
 `;
 
 const BlogIndex = ({ data }) => {
@@ -19,13 +25,17 @@ const BlogIndex = ({ data }) => {
 
     return (
         <PageLayout isIndexPage>
-            {posts.map(({ node: post }) => (
-                <ListingItem key={post.id}>
-                    <ListingTitle><Link to={post.fields.slug}>{post.frontmatter.title || post.fields.slug}</Link></ListingTitle>
-                    <PostDate>{post.frontmatter.date}</PostDate>
-                    {post.excerpt}
-                </ListingItem>
-            ))}
+            <ListingContainer>
+                {posts.map(({ node: post }) => (
+                    <ListingItem key={post.id}>
+                        <div>
+                            <PostTitle><Link to={post.fields.slug}>{post.frontmatter.title || post.fields.slug}</Link></PostTitle>
+                            <PostDate>{post.frontmatter.date}</PostDate>
+                        </div>
+                        {post.excerpt}
+                    </ListingItem>
+                ))}
+            </ListingContainer>
         </PageLayout>
     );
 }

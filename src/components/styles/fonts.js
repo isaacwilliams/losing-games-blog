@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const fontImport = css`
-    @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Vollkorn:400i,700');
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Vollkorn:400i,700,900');
 `;
 
 export const fontBody = css`
