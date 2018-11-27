@@ -38,6 +38,17 @@ const RichContent = styled.div`
         color: #666;
     }
 
+    a {
+        .gatsby-resp-image-wrapper {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.2s ease-in-out;
+
+            &: hover {
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
     blockquote {
         position: relative;
         font-style: italic;
