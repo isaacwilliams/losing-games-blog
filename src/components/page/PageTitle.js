@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontDisplay } from '../styles/fonts';
+import { fontBody, fontDisplay } from '../styles/fonts';
 
 export default styled.h1`
     display: flex;
@@ -10,10 +10,12 @@ export default styled.h1`
     ${fontDisplay}
     text-align: center;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.5rem;
 
     &:before,
     &:after {
+        ${fontBody}
+
         position: relative;
         display: inline-block;
         font-size: 1rem;

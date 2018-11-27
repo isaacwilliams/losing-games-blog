@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
-import { fontDisplay } from './styles/fonts';
+import { fontBody, fontDisplay } from './styles/fonts';
 
 import ContentContainer from './ContentContainer';
 import DiceRoller from '../apps/diceRoller/DiceRoller';
@@ -27,8 +27,11 @@ const SiteTitle = styled.h1`
     ${fontDisplay}
 
     &:before {
+        ${fontBody}
+
         position: absolute;
         left: -1.5rem;
+        top: -0.1rem;
         content: '✕';
         font-weight: 400;
         transform: rotate(0deg);

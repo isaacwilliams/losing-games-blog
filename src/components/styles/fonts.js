@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const fontImport = css`
-    @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:700');
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Vollkorn:400i,700');
 `;
 
 export const fontBody = css`
@@ -9,7 +9,7 @@ export const fontBody = css`
 `;
 
 export const fontDisplay = css`
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Vollkorn', serif;
     font-weight: 700;
 `;
 

@@ -23,19 +23,15 @@ const RichContent = styled.div`
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     h2 {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
 
     h3 {
-        font-size: 1rem;
-    }
-
-    h3, h4, h5 {
-        color: #666;
+        font-size: 1.3rem;
     }
 
     a {
@@ -50,6 +46,9 @@ const RichContent = styled.div`
     }
 
     blockquote {
+        ${fontDisplay}
+        font-weight: 400;
+
         position: relative;
         font-style: italic;
         margin-left: 2em;

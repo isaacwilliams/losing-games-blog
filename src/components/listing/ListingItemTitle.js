@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import { fontDisplay } from '../styles/fonts';
+import { fontBody, fontDisplay } from '../styles/fonts';
 
 const ListingTitle = styled.h2`
     position: relative;
     ${fontDisplay}
+    font-size: 1.5rem;
 
     &:before {
+        ${fontBody}
+
         position: absolute;
         left: -1.5rem;
         top: 0.1rem;
