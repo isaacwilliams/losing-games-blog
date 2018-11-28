@@ -54,8 +54,6 @@ const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothi
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    console.log(fillStyle);
-
     const pickColor = getColorPicker(fillStyle);
 
     const skinColor = pickColor(skinVariance);
