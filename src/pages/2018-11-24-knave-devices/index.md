@@ -1,5 +1,5 @@
 ---
-date: "2018-11-24"
+date: "2018-11-24T22:12"
 title: "Devices for Knave"
 published: "false"
 ---

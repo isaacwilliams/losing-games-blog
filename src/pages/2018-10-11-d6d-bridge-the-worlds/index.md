@@ -1,5 +1,5 @@
 ---
-date: "2018-10-11"
+date: "2018-10-11T15:10"
 title: "One page game: d6D"
 published: "true"
 ---

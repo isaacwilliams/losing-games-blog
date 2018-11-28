@@ -1,3 +1,13 @@
+const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
+    allMarkdownRemark.edges.map(({ node }) => ({
+        ...node.frontmatter,
+        // description: node.excerpt,
+        url: site.siteMetadata.siteUrl + node.fields.slug,
+        guid: site.siteMetadata.siteUrl + node.fields.slug,
+        custom_elements: [{ 'content:encoded': node.html }]
+    }))
+);
+
  module.exports = {
     siteMetadata: {
         title: 'Losing Games',
@@ -19,7 +29,51 @@
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-styled-components',
-        'gatsby-plugin-feed',
+        {
+            resolve: 'gatsby-plugin-feed',
+            options: {
+                query: `
+                {
+                    site {
+                        siteMetadata {
+                            title
+                            description
+                            siteUrl
+                            site_url: siteUrl
+                        }
+                    }
+                }
+                `,
+                feeds: [{
+                    serialize: serializeFeed,
+                    query: `
+                    {
+                        allMarkdownRemark(
+                            sort: { fields: [frontmatter___date], order: DESC }
+                            filter: { frontmatter: { published: { eq: "true" } } }
+                        ) {
+                            edges {
+                                node {
+                                    id
+                                    excerpt
+                                    html
+                                    fields {
+                                        slug
+                                    }
+                                    frontmatter {
+                                        date
+                                        title
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    `,
+                    output: '/feed.xml',
+                    title: 'Losing Games RSS Feed',
+                }],
+            },
+        },
         {
             resolve: "gatsby-transformer-remark",
                 options: {

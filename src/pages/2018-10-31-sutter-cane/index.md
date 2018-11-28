@@ -1,5 +1,5 @@
 ---
-date: "2018-10-31"
+date: "2018-10-31T10:10"
 title: "Sutter Cane's Perilous Peninsula"
 published: "true"
 ---
