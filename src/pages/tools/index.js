@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import { get, map, flow } from 'lodash/fp';
 import styled from 'styled-components';
 import * as colors from '../../components/styles/colors';
@@ -39,6 +40,8 @@ const getTools = flow(
 
 const ToolsIndex = (props) => (
     <PageLayout>
+        <Helmet title={`Losing Games - Tools`} />
+
         <StaticQuery
             query={toolsQuery}
             render={data => {

@@ -30,6 +30,12 @@ const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
         'gatsby-plugin-sharp',
         'gatsby-plugin-styled-components',
         {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+                trackingId: 'UA-437587-15'
+            }
+        },
+        {
             resolve: 'gatsby-plugin-feed',
             options: {
                 query: `

@@ -45,8 +45,7 @@ const SiteContainer = ({ children }) => (
             <>
                 <Helmet title={data.site.siteMetadata.title}
                         meta={[
-                          { name: 'description', content: 'Sample' },
-                          { name: 'keywords', content: 'sample, something' },
+                          { name: 'description', content: 'A blog about D&D & other games' },
                         ]}>
                     <html lang="en" />
                     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
