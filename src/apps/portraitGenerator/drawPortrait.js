@@ -1,7 +1,7 @@
-import createSpriteSheet from './createSpriteSheet';
-import fetchAssets from './fetchAssets';
-import recolorImage from './recolorImage';
-import drawPreloader from './drawPreloader';
+import createSpriteSheet from '../utils/createSpriteSheet';
+import fetchAssets from '../utils/fetchAssets';
+import recolorImage from '../utils/recolorImage';
+import drawPreloader from '../utils/drawPreloader';
 import { colors, greyscales } from './portraitConstants';
 
 const r = (size) => Math.floor(Math.random() * size);
@@ -18,10 +18,27 @@ const getColorPicker = (fillStyle) => {
     }
 };
 
+let assetsCache;
 const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothingVariance = 32, fillStyle = 'colors') => {
     const ctx = canvas.getContext('2d');
 
     const loaderInverval = drawPreloader(ctx);
+
+    const assets = assetsCache || await fetchAssets([
+        require('./img/heads.png'),
+        require('./img/eyes.png'),
+        require('./img/noses.png'),
+        require('./img/mouths.png'),
+        require('./img/hair-front.png'),
+        require('./img/hair-back.png'),
+        require('./img/hair-face.png'),
+        require('./img/bodies.png'),
+        require('./img/bodies-skin.png'),
+        require('./img/accessory-front.png'),
+        require('./img/accessory-back.png'),
+    ]);
+
+    assetsCache = assets;
 
     const [
         imgHeads,
@@ -35,19 +52,7 @@ const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothi
         imgBodiesSkin,
         imgAccessoryFront,
         imgAccessoryBack,
-    ] = await fetchAssets([
-        require('./img/heads.png'),
-        require('./img/eyes.png'),
-        require('./img/noses.png'),
-        require('./img/mouths.png'),
-        require('./img/hair-front.png'),
-        require('./img/hair-back.png'),
-        require('./img/hair-face.png'),
-        require('./img/bodies.png'),
-        require('./img/bodies-skin.png'),
-        require('./img/accessory-front.png'),
-        require('./img/accessory-back.png'),
-    ]);
+    ] = assets
 
     clearInterval(loaderInverval);
 
