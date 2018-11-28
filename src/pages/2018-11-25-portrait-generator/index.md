@@ -1,6 +1,7 @@
 ---
 date: "2018-11-28T15:00"
 title: "Portrait generator"
+image: "./portrait.png"
 published: "true"
 ---
 
