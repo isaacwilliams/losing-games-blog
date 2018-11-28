@@ -4,7 +4,7 @@ import { get, map, flow } from 'lodash/fp';
 import styled from 'styled-components';
 import * as colors from '../../components/styles/colors';
 import { fontDisplay } from '../../components/styles/fonts';
-import PageLayout from '../../components/PageLayout';
+import PageLayout from '../../components/layout/PageLayout';
 
 import ListingTitle from '../../components/listing/ListingItemTitle';
 import ListingItem from '../../components/listing/ListingItem';

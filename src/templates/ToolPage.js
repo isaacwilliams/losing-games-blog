@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PageLayout from '../components/PageLayout';
+import PageLayout from '../components/layout/PageLayout';
 import ToolPageTitle from '../components/page/ToolPageTitle';
 import PageHeader from '../components/page/PageHeader';
 

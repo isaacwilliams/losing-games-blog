@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
 
-import reset from './styles/reset';
-import { fontImport, fontBody } from './styles/fonts';
-import * as colors from './styles/colors';
+import reset from '../styles/reset';
+import { fontImport, fontBody } from '../styles/fonts';
+import * as colors from '../styles/colors';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
@@ -50,6 +50,8 @@ const SiteContainer = ({ children }) => (
                         ]}>
                     <html lang="en" />
                     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+                    <link rel="icon" type="image/png" sizes="32x32" href={require('./favicon-32x32.png')} />
+                    <link rel="icon" type="image/png" sizes="16x16" href={require('./favicon-16x16.png')} />
                 </Helmet>
                 <GlobalStyle />
                 {children({ data })}

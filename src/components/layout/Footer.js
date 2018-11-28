@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import * as colors from './styles/colors';
+import * as colors from '../styles/colors';
 
 import ContentContainer from './ContentContainer';
 

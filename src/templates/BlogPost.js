@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import PageLayout from '../components/PageLayout'
+import PageLayout from '../components/layout/PageLayout';
 import styled from 'styled-components';
 import rehypeReact from 'rehype-react';
 
