@@ -19,16 +19,16 @@ const OptionLabel = styled.label`
 `
 
 class Portrait extends Component {
-    state = { skinVariance: 12, hairVariance: 24, clothingVariance: colors.length, accessories: true }
+    state = { skinVariance: 12, hairVariance: 24, clothingVariance: colors.length, fillStyle: "colors" }
 
     componentDidMount() {
         this.draw();
     }
 
     draw() {
-        const { skinVariance, hairVariance, clothingVariance, accessories } = this.state;
+        const { skinVariance, hairVariance, clothingVariance, fillStyle } = this.state;
 
-        drawPortrait(this.canvas, skinVariance, hairVariance, clothingVariance, accessories);
+        drawPortrait(this.canvas, skinVariance, hairVariance, clothingVariance, fillStyle);
     }
 
     download() {
@@ -37,7 +37,7 @@ class Portrait extends Component {
     }
 
     render() {
-        const { skinVariance, hairVariance, clothingVariance } = this.state;
+        const { skinVariance, hairVariance, clothingVariance, fillStyle } = this.state;
 
         return (
             <div>
@@ -54,23 +54,35 @@ class Portrait extends Component {
 
                 <div>
                     <GeneratorOption>
-                        <OptionLabel>Skin color variance</OptionLabel>
-                        <input type="range" min="6" max={colors.length} step="6"
-                                value={skinVariance}
-                                onChange={(event) => this.setState({ skinVariance: parseInt(event.target.value) })} />
+                        <OptionLabel>Fill style</OptionLabel>
+                        <select checked={colors} value={fillStyle} onChange={(event) => this.setState({ fillStyle: event.target.value })}>
+                            <option value="colors">Colors</option>
+                            <option value="greyscale">Greyscale</option>
+                            <option value="lineart">Lineart</option>
+                        </select>
                     </GeneratorOption>
-                    <GeneratorOption>
-                        <OptionLabel>Hair color variance</OptionLabel>
-                        <input type="range" min="6" max={colors.length} step="6"
-                                value={hairVariance}
-                                onChange={(event) => this.setState({ hairVariance: parseInt(event.target.value) })} />
-                    </GeneratorOption>
-                    <GeneratorOption>
-                        <OptionLabel>Clothing color variance</OptionLabel>
-                        <input type="range" min="6" max={colors.length} step="6"
-                                value={clothingVariance}
-                                onChange={(event) => this.setState({ clothingVariance: parseInt(event.target.value) })} />
-                    </GeneratorOption>
+                    {fillStyle == "colors" && (
+                        <>
+                            <GeneratorOption>
+                                <OptionLabel>Skin color variance</OptionLabel>
+                                <input type="range" min="6" max={colors.length} step="6"
+                                        value={skinVariance}
+                                        onChange={(event) => this.setState({ skinVariance: parseInt(event.target.value) })} />
+                            </GeneratorOption>
+                            <GeneratorOption>
+                                <OptionLabel>Hair color variance</OptionLabel>
+                                <input type="range" min="6" max={colors.length} step="6"
+                                        value={hairVariance}
+                                        onChange={(event) => this.setState({ hairVariance: parseInt(event.target.value) })} />
+                            </GeneratorOption>
+                            <GeneratorOption>
+                                <OptionLabel>Clothing color variance</OptionLabel>
+                                <input type="range" min="6" max={colors.length} step="6"
+                                        value={clothingVariance}
+                                        onChange={(event) => this.setState({ clothingVariance: parseInt(event.target.value) })} />
+                            </GeneratorOption>
+                        </>
+                    )}
                 </div>
             </div>
         );

@@ -1,4 +1,15 @@
 
+export const greyscales = [
+    '#ffffff',
+    '#f6f6f6',
+    '#e4e4e4',
+    '#b6b6b6',
+    '#929292',
+    '#686868',
+    '#454545',
+    '#393939',
+];
+
 export const colors = [
     '#fbd1bf',
     '#cb977f',

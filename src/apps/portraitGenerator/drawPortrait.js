@@ -2,11 +2,23 @@ import createSpriteSheet from './createSpriteSheet';
 import fetchAssets from './fetchAssets';
 import recolorImage from './recolorImage';
 import drawPreloader from './drawPreloader';
-import { colors } from './portraitConstants';
+import { colors, greyscales } from './portraitConstants';
 
 const r = (size) => Math.floor(Math.random() * size);
+const pick = (array) => (max) => array[r(Math.min(max, array.length))];
 
-const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothingVariance = 32) => {
+const getColorPicker = (fillStyle) => {
+    switch (fillStyle) {
+        case 'lineart':
+            return pick(['#ffffff']);
+        case 'greyscale':
+            return pick(greyscales);
+        default:
+            return pick(colors);
+    }
+};
+
+const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothingVariance = 32, fillStyle = 'colors') => {
     const ctx = canvas.getContext('2d');
 
     const loaderInverval = drawPreloader(ctx);
@@ -42,10 +54,14 @@ const drawPortrait = async (canvas, skinVariance = 12, hairVariance = 24, clothi
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const skinColor = colors[r(skinVariance)];
-    const hairColor = colors[r(hairVariance)];
-    const clothingColor = colors[r(clothingVariance)];
-    const accessoryColor = colors[r(clothingVariance)];
+    console.log(fillStyle);
+
+    const pickColor = getColorPicker(fillStyle);
+
+    const skinColor = pickColor(skinVariance);
+    const hairColor = pickColor(hairVariance);
+    const clothingColor = pickColor(clothingVariance);
+    const accessoryColor = pickColor(clothingVariance);
 
     const heads = createSpriteSheet(imgHeads, 512, 512);
     const eyes = createSpriteSheet(imgEyes, 512, 512);
