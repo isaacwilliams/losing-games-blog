@@ -13,7 +13,9 @@ const ToolDescription = styled.div`
 
 export default ({ data: { title, description }, children }) => (
     <PageLayout>
-        <Helmet title={`Losing Games - ${title}`} />
+        <Helmet title={`Losing Games - ${title}`} meta={[
+            { name: 'description', 'content': description },
+        ]} />
 
         <PageHeader>
             <ToolPageTitle>{title}</ToolPageTitle>

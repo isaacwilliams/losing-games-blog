@@ -35,7 +35,10 @@ const Template = ({ data }) => {
     return (
         <PageLayout>
             <PostContainer>
-                <Helmet title={`Losing Games - ${post.frontmatter.title}`} meta={[{ name: 'og:image', 'content': imageUrl }]} />
+                <Helmet title={`Losing Games - ${post.frontmatter.title}`} meta={[
+                    { name: 'og:image', 'content': imageUrl },
+                    { name: 'description', 'content': post.excerpt },
+                ]} />
 
                 <PageHeader>
                     <PageTitle>{post.frontmatter.title}</PageTitle>
@@ -54,6 +57,7 @@ export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             htmlAst
+            excerpt
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 title
