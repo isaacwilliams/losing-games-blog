@@ -12,10 +12,25 @@ import createSpriteSheet from '../utils/createSpriteSheet';
 import Button from '../../components/shared/Button';
 
 const Canvas = styled.canvas`
-    width: 800px;
-    height: 600px;
+    width: 1024px;
+    height: 768px;
+    border: 1px solid grey;
+    margin-left: -180px;
+
+    @media(max-width: 1024px) {
+        width: 800px;
+        height: 600px;
+        margin-left: -70px;
+    }
+
+    @media(max-width: 800px) {
+        width: 640px;
+        height: 480px;
+        margin-left: 0px;
+    }
 
     ${media.phone`
+        margin-left: 0px;
         width: 320px;
         height: 240px;
     `}
@@ -172,7 +187,7 @@ class MapGenerator extends Component {
 
         return (
             <div>
-                <Canvas ref={(c) => { this.canvas = c; }} width="800" height="600" />
+                <Canvas ref={(c) => { this.canvas = c; }} width="1024" height="768" />
 
                 <br /><br />
                 <GeneratorButtons>
