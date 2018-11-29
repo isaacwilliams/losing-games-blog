@@ -3,6 +3,8 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import * as colors from '../components/styles/colors';
 import { fontDisplay } from '../components/styles/fonts';
+import media from '../components/styles/media';
+
 import PageLayout from '../components/layout/PageLayout';
 
 import ListingTitle from '../components/listing/ListingItemTitle';
@@ -18,6 +20,12 @@ const PostDate = styled.div`
     color: ${colors.bodyLight};
     font-size: 0.95rem;
     margin-left: 1em;
+
+    ${media.phone`
+        margin-left: 0;
+        margin-bottom: 0.5em;
+        display: block;
+    `}
 `;
 
 const BlogIndex = ({ data }) => {

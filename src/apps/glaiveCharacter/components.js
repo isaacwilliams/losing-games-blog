@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from '../../components/shared/Button';
+import media from '../../components/styles/media';
 
 export const CharacterAppWrapper = styled.div`
     p {
@@ -27,10 +28,10 @@ export const Header = styled.header`
     margin-top: 2rem;
     margin-bottom: 2rem;
 
-    @media (max-width: 42rem) {
+    ${media.phone`
         flex-direction: column;
         align-items: flex-start;
-    }
+    `}
 `
 
 export const Name = styled.h2`
@@ -66,20 +67,20 @@ export const SwitchStatsButton = styled(Button)`
 export const ColumnContainer = styled.div`
     display: flex;
 
-    @media (max-width: 42rem) {
+    ${media.phone`
         display: block;
-    }
+    `}
 `
 
 export const Column = styled.div`
     width: 50%;
     padding-right: 1rem;
 
-    @media (max-width: 42rem) {
+    ${media.phone`
         width: auto;
         margin-bottom: 2em;
         padding-right: 0;
-    }
+    `}
 `
 
 export const ColumnTitle = styled.h3`

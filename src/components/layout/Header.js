@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 
 import * as colors from '../styles/colors';
 import { fontBody, fontDisplay } from '../styles/fonts';
+import media from '../styles/media';
 
 import ContentContainer from './ContentContainer';
 import DiceRoller from '../../apps/diceRoller/DiceRoller';
@@ -47,6 +48,7 @@ const SiteTitle = styled.h1`
 const HeaderAlignment = styled.div`
     display: flex;
     justify-content: space-between;
+    ${media.phone`margin-right: -1rem;`}
 `
 
 const HeaderNav = styled.nav`
