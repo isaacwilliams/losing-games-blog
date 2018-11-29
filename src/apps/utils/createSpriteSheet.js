@@ -7,7 +7,7 @@ const createSpriteSheet = (image, spriteWidth, spriteHeight) => {
         image: image,
         size: atlasWidth * atlasHeight,
         sprite: (spriteId) => {
-            const locX = spriteId % atlasWidth;
+            const locX = Math.floor(spriteId % atlasWidth);
             const locY = Math.floor(spriteId / atlasWidth);
 
             // create offscreen buffer,
