@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import media from '../../components/styles/media';
 
 import { getSeed } from './util';
 
@@ -10,6 +11,23 @@ import createSpriteSheet from '../utils/createSpriteSheet';
 
 import Button from '../../components/shared/Button';
 
+const Canvas = styled.canvas`
+    width: 800px;
+    height: 600px;
+
+    ${media.phone`
+        width: 320px;
+        height: 240px;
+    `}
+`
+
+const GeneratorButtons = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`
+
 const GeneratorOption = styled.div`
     display: flex;
     flex-direction: row;
@@ -17,20 +35,40 @@ const GeneratorOption = styled.div`
     margin: 0.5rem 0;
 `
 
-const OptionLabel = styled.label`
+const OptionLabelRight = styled.label`
     display: inline-block;
-    width: 16rem;
+    width: 5rem;
 `
+
+const OptionLabelLeft = styled.label`
+    display: inline-block;
+    width: 5rem;
+`
+
+const OptionInput = styled.input`
+    margin-left: 1rem;
+    margin-right: 1rem;
+`
+
+const getCode = ({ seed, featureDensity, civilized, mountains, woods }) => (
+    `${featureDensity}-${civilized}-${mountains}-${woods}-${seed}`
+)
 
 class MapGenerator extends Component {
     state = {
         loaded: false,
         spriteSheets: null,
         seed: getSeed(),
-        featureDensity: 0.5,
-        civilized: 0.5,
-        mountains: 0.5,
-        woods: 0.5,
+        featureDensity: 5,
+        civilized: 5,
+        mountains: 5,
+        woods: 5,
+        savedOptions: {
+            featureDensity: 5,
+            civilized: 5,
+            mountains: 5,
+            woods: 5,
+        }
     }
 
     componentDidMount() {
@@ -81,7 +119,7 @@ class MapGenerator extends Component {
     }
 
     draw() {
-        const { seed, spriteSheets } = this.state;
+        const { seed, spriteSheets, featureDensity, civilized, mountains, woods } = this.state;
 
 
         const mapData = createMapData({
@@ -89,13 +127,29 @@ class MapGenerator extends Component {
             spriteSheets,
             width: this.canvas.width,
             height: this.canvas.height,
+            options: {
+                featureDensity: (featureDensity + 1) / 10,
+                civilized: (civilized + 1) / 10,
+                mountains: (mountains + 1) / 10,
+                woods: (woods + 1) / 10,
+            },
         });
 
         drawMap(this.canvas, mapData, spriteSheets);
     }
 
     newMap() {
-        this.setState({ seed: getSeed() });
+        const { featureDensity, civilized, mountains, woods } = this.state;
+
+        this.setState({
+            seed: getSeed(),
+            savedOptions: {
+                featureDensity,
+                civilized,
+                mountains,
+                woods,
+            },
+        });
     }
 
     download() {
@@ -110,47 +164,58 @@ class MapGenerator extends Component {
             civilized,
             mountains,
             woods,
+            seed,
+            savedOptions,
         } = this.state;
 
         if (!loaded) return <div>Loading...</div>;
 
         return (
             <div>
-                <canvas ref={(c) => { this.canvas = c; }} width="800" height="600" />
+                <Canvas ref={(c) => { this.canvas = c; }} width="800" height="600" />
 
                 <br /><br />
-                <p>
-                    <Button onClick={() => this.newMap()}>New map</Button>
-                    {' '}
-                    <a ref={(c) => { this.downloadLink = c; }} download="portrait.png">
-                        <Button onClick={() => this.download()}>Download</Button>
-                    </a>
-                </p>
+                <GeneratorButtons>
+                    <div>
+                        <Button onClick={() => this.newMap()}>New map</Button>
+                        {' '}
+                        <a ref={(c) => { this.downloadLink = c; }} download="portrait.png">
+                            <Button onClick={() => this.download()}>Download</Button>
+                        </a>
+                    </div>
+                    <div>
+                        Seed: {getCode({ ...savedOptions, seed })}
+                    </div>
+                </GeneratorButtons>
 
                 <div>
                     <GeneratorOption>
-                        <OptionLabel>Empty — Populated</OptionLabel>
-                        <input type="range" min="0" max="1" step="0.1"
+                        <OptionLabelLeft>Empty</OptionLabelLeft>
+                        <OptionInput type="range" min="0" max="9"
                                 value={featureDensity}
                                 onChange={(event) => this.setState({ featureDensity: parseFloat(event.target.value) })} />
+                        <OptionLabelRight>Populated</OptionLabelRight>
                     </GeneratorOption>
                     <GeneratorOption>
-                        <OptionLabel>Civilized — Wild</OptionLabel>
-                        <input type="range" min="0" max="1" step="0.1"
+                        <OptionLabelLeft>Wild</OptionLabelLeft>
+                        <OptionInput type="range" min="0" max="9"
                                 value={civilized}
                                 onChange={(event) => this.setState({ civilized: parseFloat(event.target.value) })} />
+                        <OptionLabelRight>Civilized</OptionLabelRight>
                     </GeneratorOption>
                     <GeneratorOption>
-                        <OptionLabel>Mountainous — Marshy</OptionLabel>
-                        <input type="range" min="0" max="1" step="0.1"
+                        <OptionLabelLeft>Marshy</OptionLabelLeft>
+                        <OptionInput type="range" min="0" max="9"
                                 value={mountains}
                                 onChange={(event) => this.setState({ mountains: parseFloat(event.target.value) })} />
+                        <OptionLabelRight>Mountainous</OptionLabelRight>
                     </GeneratorOption>
                     <GeneratorOption>
-                        <OptionLabel>Wooded — Plains</OptionLabel>
-                        <input type="range" min="0" max="1" step="0.1"
+                        <OptionLabelLeft>Plains</OptionLabelLeft>
+                        <OptionInput type="range" min="0" max="9"
                                 value={woods}
                                 onChange={(event) => this.setState({ woods: parseFloat(event.target.value) })} />
+                        <OptionLabelRight>Woods</OptionLabelRight>
                     </GeneratorOption>
                 </div>
             </div>

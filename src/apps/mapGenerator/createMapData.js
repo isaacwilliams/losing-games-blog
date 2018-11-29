@@ -126,19 +126,44 @@ const minDist = (x, y, features) => {
         dist = Math.min(dist, d);
     });
     return dist;
+};
+
+const selectFeatureType = (civilizedWeighting) => {
+    switch (civilizedWeighting) {
+        case 1:
+        case 0.9:
+            return selectRand(['castle', 'castle', 'village', 'village', 'village', 'village']);
+        case 0.8:
+        case 0.7:
+            return selectRand(['castle', 'castle',  'village', 'village', 'village', 'ruin']);
+        case 0.6:
+        case 0.5:
+            return selectRand(['castle', 'castle',  'village', 'village', 'ruin', 'ruin']);
+        case 0.4:
+        case 0.3:
+            return selectRand(['castle', 'castle',  'village', 'ruin', 'ruin', 'ruin']);
+        case 0.4:
+        case 0.3:
+            return selectRand(['castle', 'village',  'ruin', 'ruin', 'ruin', 'ruin']);
+        case 0.2:
+        case 0.1:
+            return selectRand(['castle', 'ruin',  'ruin', 'ruin', 'ruin', 'ruin']);
+        case 0:
+            return 'ruin';
+        default:
+            return selectRand(['castle', 'castle',  'village', 'village', 'ruin', 'ruin']);
+    }
 }
 
 const makeFeature = (data, spriteSheet) => {
-    if (chance(0.6)) return data;
+    const { width, height, features, options } = data;
 
-    const { width, height, features } = data;
-
-    const type = selectRand(FEATURE_TYPES);
+    const type = selectFeatureType(options.civilized);
     const name = makeName(type);
     const sprite = selectRand(FEATURE_SPRITES[type]);
 
-    let x = rand(20, width - 80);
-    let y = rand(64, height - 32);
+    let x = rand(10, width - 80);
+    let y = rand(32, height - 32);
 
     if (features.length) {
         let tries = 0;
@@ -200,45 +225,21 @@ const makeRoad = (data) => {
 
     const roadType = selectRand([
         {
-            wanderChance: 0.1,
+            wanderChance: 0.0,
             wanderFactor: 0.12,
             width: 2,
             color: '#000',
             dash: [3],
             maxLenth: 70,
-        },
-        {
-            wanderChance: 0.15,
-            wanderFactor: 0.3,
-            width: 2,
-            color: '#000',
-            dash: [5],
-            maxLenth: 60,
-        },
-        {
-            wanderChance: 0.3,
-            wanderFactor: 0.25,
-            width: 2,
-            color: '#666',
-            dash: [5],
-            maxLenth: 50,
-        },
-        {
-            wanderChance: 0.4,
-            wanderFactor: 0.25,
-            width: 1,
-            color: '#999',
-            dash: [3],
-            maxLenth: 60,
         }
     ]);
 
     const def = {
         ...roadType,
-        startX: f1.x + 32,
-        startY: f1.y,
-        endX: f2.x + 32,
-        endY: f2.y,
+        startX: f1.x + 64,
+        startY: f1.y + 64,
+        endX: f2.x + 64,
+        endY: f2.y + 64,
     };
 
     return {
@@ -287,7 +288,7 @@ const makeRiver = (data) => {
     };
 };
 
-const createMapData = ({ spriteSheets, width, height, seed = 'xxx' }) => {
+const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) => {
     setSeed(seed);
 
     let mapData = {
@@ -297,15 +298,31 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx' }) => {
         features: [],
         elements: [],
         paths: [],
+        options,
     };
 
+    const {
+        featureDensity,
+        civilized,
+        mountains,
+        woods,
+    } = options;
+
     const area = (width * height) / 1000;
-    // console.log(area);
-    const fieldsCount = area / 40;
-    const hillsCount = area / 20;
-    const forestCount = area / 20;
-    const swampCount = area / 40;
-    const featureCount = area / 20;
+
+    const fieldsCount = (area / 40) * civilized;
+    const hillsCount = (area / 20) * mountains;
+    const forestCount = (area / 30) * woods;
+    const swampCount = (area / 40) * (1 - mountains);
+
+    const featureRatio = featureDensity * ((civilized + 0.5));
+    const featureCount = rand(
+        featureDensity * 8 - 3,
+        featureDensity * 8
+    );
+
+    console.log(featureDensity * 8, featureCount);
+
     let i;
 
     for (i = 0; i < fieldsCount; i++) {
@@ -333,9 +350,7 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx' }) => {
     };
 
     for (i = 0; i < mapData.features.length + 1; i++) {
-        if (chance(0.5)) {
-            mapData = makeRoad(mapData);
-        }
+        mapData = makeRoad(mapData);
     }
 
 
