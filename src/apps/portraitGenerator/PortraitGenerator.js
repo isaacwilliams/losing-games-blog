@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import media from '../../components/styles/media';
 
 import drawPortrait from './drawPortrait';
 import { colors } from './portraitConstants';
 
 import Button from '../../components/shared/Button';
 
+const Canvas = styled.canvas`
+    width: 512px;
+    height: 512px;
+
+    ${media.phone`
+        width: 300px;
+        height: 300px;
+    `}
+`
+
 const GeneratorOption = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0.5rem 0;
+
+    ${media.phone`
+        font-size: 0.9rem;
+    `}
 `
 
 const OptionLabel = styled.label`
@@ -41,7 +57,7 @@ class Portrait extends Component {
 
         return (
             <div>
-                <canvas ref={(c) => { this.canvas = c; }} width="512" height="512" />
+                <Canvas ref={(c) => { this.canvas = c; }} width="512" height="512" />
 
                 <br /><br />
                 <p>
