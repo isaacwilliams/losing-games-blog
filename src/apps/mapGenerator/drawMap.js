@@ -23,8 +23,6 @@ import {
     FEATURE_SPRITES,
 } from './lists';
 
-// const font = opentype.loadSync(__dirname + '/blackmoor.ttf');
-
 const renderLine = (ctx, def) => {
     const {
         startX,
@@ -93,6 +91,18 @@ const renderElement = ({ width, height }, ctx, def) => {
     ctx.drawImage(spriteSheet.sprite(def.sprite), def.x, def.y);
 }
 
+const sizeFontForWidth = (ctx, text, maxSize, width) => {
+    var size = maxSize;
+    ctx.font = `${size}px Arial`;
+
+    while (ctx.measureText(text).width > width) {
+        size -= 1;
+        ctx.font = `${size}px Arial`;
+    }
+
+    return ctx
+}
+
 const renderFeature = (data, ctx, def) => {
     const spriteSheet = def.spriteSheet;
 
@@ -118,6 +128,16 @@ const renderFeature = (data, ctx, def) => {
         maxSize: 16,
     }
 
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 6;
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "center";
+    ctx.font = "16px Arial";
+
+    sizeFontForWidth(ctx, def.name, 16, 128)
+
+    ctx.strokeText(def.name, def.x + 64, def.y + 130);
+    ctx.fillText(def.name, def.x + 64, def.y + 130);
     // drawText(ctx, def.name, font, nameRect, opts);
 }
 

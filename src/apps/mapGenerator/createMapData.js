@@ -48,12 +48,12 @@ const makeForest = (data, spriteSheet) => {
 
     const { width, height } = data;
 
-    const rect = randRect(-50, width - 50, -50, height - 50, 10, 200, 10, 200);
-    const def = Object.assign({
+    const def = {
         density: rand(8, 12),
         count: rand(0.1, 0.2),
         type: 'forest',
-    }, rect);
+        ...randRect(-50, width - 50, -50, height - 50, 10, 200, 10, 200)
+    };
 
     return {
         ...data,
@@ -67,17 +67,17 @@ const makeSwamp = (data, spriteSheet) => {
 
     const { width, height } = data;
 
-    const rect = randRect(-50, width - 50, -50, height - 50, 10, 150, 10, 150);
-    const def = Object.assign({
-        density: rand(2, 10),
+    const def = {
+        density: rand(4, 10),
         count: rand(0.1, 0.2),
         type: 'swamp',
-    }, rect);
+        ...randRect(-50, width - 50, -50, height - 50, 10, 150, 10, 150)
+    }
 
     return {
         ...data,
         areas: [...data.areas, def],
-        elements: [...data.elements, ...makeCluster(def, spriteSheet, 2)],
+        elements: [...data.elements, ...makeCluster(def, spriteSheet, 1)],
     };
 }
 
@@ -86,12 +86,12 @@ const makeFields = (data, spriteSheet) => {
 
     const { width, height } = data;
 
-    const rect = randRect(-50, width - 50, -50, height - 50, 50, 200, 50, 150);
-    const def = Object.assign({
+    const def = {
         density: rand(30, 60),
         count: rand(0.2, 0.5),
         type: 'farm',
-    }, rect);
+        ...randRect(-50, width - 50, -50, height - 50, 50, 200, 50, 150)
+    };
 
     return {
         ...data,
@@ -105,12 +105,12 @@ const makeHills = (data, spriteSheet) => {
 
     const { width, height } = data;
 
-    const rect = randRect(-50, width - 50, -50, height - 50, 50, 120, 50, 100);
-    const def = Object.assign({
+    const def = {
         density: 50,
         count: 1,
         type: 'hills',
-    }, rect);
+        ...randRect(-50, width - 50, -50, height - 50, 50, 120, 50, 100),
+    };
 
     return {
         ...data,
@@ -163,7 +163,7 @@ const makeFeature = (data, spriteSheet) => {
     const sprite = selectRand(FEATURE_SPRITES[type]);
 
     let x = rand(10, width - 80);
-    let y = rand(32, height - 32);
+    let y = rand(0, height - 32);
 
     if (features.length) {
         let tries = 0;
@@ -191,6 +191,18 @@ const makeFeature = (data, spriteSheet) => {
     };
 };
 
+const dist = (f1, f2) => Math.sqrt((f1.x - f2.x) * (f1.x - f2.x) + (f1.y - f2.y) * (f1.y - f2.y));
+
+const findClosest = (f1) => (features) => features.reduce((currentClosestFeature, feature) => {
+    if (feature === f1) return currentClosestFeature;
+
+    const distance = dist(f1, feature);
+    const currDistance = dist(f1, currentClosestFeature);
+
+    if (distance < currDistance) return feature;
+    return currentClosestFeature;
+}, features.find((f2) => f2 !== f1))
+
 const makeRoad = (data) => {
     const { features, width, height } = data;
 
@@ -201,8 +213,8 @@ const makeRoad = (data) => {
         f1 = selectRand(features);
     }
 
-    if ((f1 && features.length >= 2) || chance(0.1)) {
-        f2 = selectRandNot(features, f1);
+    if (f1 && features.length >= 2 || chance(0.1)) {
+        f2 = findClosest(f1)(features);
     }
 
     if (!f1) {
@@ -219,27 +231,50 @@ const makeRoad = (data) => {
         }
     }
 
-    const dist = Math.sqrt((f1.x - f2.x) * (f1.x - f2.x) + (f1.y - f2.y) * (f1.y - f2.y));
 
     if (dist < 50) return data;
 
     const roadType = selectRand([
         {
-            wanderChance: 0.0,
+            wanderChance: 0.1,
             wanderFactor: 0.12,
             width: 2,
             color: '#000',
             dash: [3],
             maxLenth: 70,
+        },
+        {
+            wanderChance: 0.15,
+            wanderFactor: 0.3,
+            width: 2,
+            color: '#000',
+            dash: [5],
+            maxLenth: 60,
+        },
+        {
+            wanderChance: 0.3,
+            wanderFactor: 0.25,
+            width: 2,
+            color: '#666',
+            dash: [5],
+            maxLenth: 50,
+        },
+        {
+            wanderChance: 0.4,
+            wanderFactor: 0.25,
+            width: 1,
+            color: '#999',
+            dash: [3],
+            maxLenth: 60,
         }
     ]);
 
     const def = {
         ...roadType,
         startX: f1.x + 64,
-        startY: f1.y + 64,
+        startY: f1.y + 96,
         endX: f2.x + 64,
-        endY: f2.y + 64,
+        endY: f2.y + 96,
     };
 
     return {
@@ -321,7 +356,7 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
         featureDensity * 8
     );
 
-    console.log(featureDensity * 8, featureCount);
+    const roadCount = (featureCount * civilized) + 1;
 
     let i;
 
@@ -349,7 +384,7 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
         mapData = makeRiver(mapData)
     };
 
-    for (i = 0; i < mapData.features.length + 1; i++) {
+    for (i = 0; i < roadCount; i++) {
         mapData = makeRoad(mapData);
     }
 
