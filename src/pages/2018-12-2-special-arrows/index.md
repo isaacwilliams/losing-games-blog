@@ -5,13 +5,15 @@ image: "./portrait.png"
 published: "true"
 ---
 
-These are special arrows — minor magical or mechanical items that give bow-wielding characters a tactical edge. They are written with Knave in mind, but should work the OSR game of your choice.
+These are special arrows — minor magical or mechanical items that give bow-wielding characters a tactical edge. They are written with Knave in mind, but should work for the OSR game of your choice.
 
-These arrows do the same damage as the bow they are fired from, plus any additional effects. Unless it seems really obvious that it should be otherwise, assume that each is arrow is only good for a single successful hit. Each missed special arrow shot has a 50% chance of being recoverable.
+Special arrows do the same damage as the bow they are fired from, plus any additional effects. Unless it seems really obvious that it should be otherwise, assume that each is arrow is only good for a single successful hit. Each missed special arrow shot has a 50% chance of being recoverable, except in the case of arrows like the Bomb Arrow, which explodes.
 
-Three special arrows can fit in an invetory slot.
+Three special arrows can fit in an inventory slot.
 
 **Tying arrows together to get multiple effects**: totally works and is encouraged. Only roll for weapon damage once, but apply all additional damage/effects from the bundled arrows.
+
+![Now I'm sad my list doesn't have this.](atomic-warhead-arrow.jpg)
 
 ### Table of d100 Arrows
 
