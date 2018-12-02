@@ -1,10 +1,9 @@
 const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
     allMarkdownRemark.edges.map(({ node }) => ({
         ...node.frontmatter,
-        // description: node.excerpt,
+        description: node.html,
         url: site.siteMetadata.siteUrl + node.fields.slug,
         guid: site.siteMetadata.siteUrl + node.fields.slug,
-        custom_elements: [{ 'content:encoded': node.html }]
     }))
 );
 
