@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { roll } from 'droll';
-
-import { inputReset } from '../../components/styles/reset';
 
 import RollerForm from './DiceRollerForm';
 import RollerResult from './DiceRollerResult';
@@ -31,10 +29,6 @@ class DiceRoller extends Component {
     }
 
     render() {
-        const toggleShowRoller = (event) => (
-            this.setState(({ show, ...state }) => ({ ...state, show: !show }))
-        );
-
         const setQuery = (query) => this.setState({ query });
 
         const rollDice = (query) => {

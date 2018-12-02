@@ -1,5 +1,5 @@
 ---
-date: "2018-12-1T18:00"
+date: "2018-12-01T18:00"
 title: "50 Special Arrows"
 image: "./portrait.png"
 published: "false"
@@ -10,6 +10,12 @@ Here's a collection of special arrows — minor magical or mechanical items that
 These arrows do the same damage as their bow they are fired from, plus an additional effects. Unless it seems really obvious that it should be otherwise, assume that each is arrow is good for only a single use. Some a quite powerful, most are useful in specific circumstances and useless in others.
 
 Special arrows take up one inventory slot for up to three arrows of the same type.
+
+### Table of Arrows
+
+<table-roller table="arrows" filter="d50"></table-roller>
+
+<div data-table-marker="arrows"></div>
 
 d50 | Type | Effect
 ----|------|----------------------------------------------

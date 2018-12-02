@@ -9,6 +9,7 @@ import PageTitle from '../components/page/PageTitle';
 import PageHeader from '../components/page/PageHeader';
 import RichContent from '../components/shared/RichContent';
 
+import TableRoller from '../apps/tableRoller/TableRoller';
 import LazyPortraitGenerator from '../apps/portraitGenerator/LazyPortraitGenerator';
 
 const getImageUrl = get(['frontmatter', 'image', 'childImageSharp', 'fluid', 'src']);
@@ -24,7 +25,10 @@ const PostDate = styled.div`
 
 const renderAst = new rehypeReact({
     createElement: React.createElement,
-    components: { "portrait-generator": LazyPortraitGenerator }
+    components: {
+        'portrait-generator': LazyPortraitGenerator,
+        'table-roller': TableRoller,
+     }
 }).Compiler;
 
 const Template = ({ data }) => {

@@ -1,8 +1,6 @@
 import React from 'react';
 import BlogIndex from '../templates/BlogIndex';
 
-const IndexPage = (props) => <BlogIndex {...props} />;
-
 export const pageQuery = graphql`
 query IndexQuery {
     site {
@@ -31,4 +29,4 @@ query IndexQuery {
 }
 `
 
-export default IndexPage;
+export default BlogIndex;

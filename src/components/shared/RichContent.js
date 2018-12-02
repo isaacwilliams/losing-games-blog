@@ -97,6 +97,7 @@ const RichContent = styled.div`
 
     table {
         width: 100%;
+        margin: 1em 0;
         box-sizing: content-box;
         border-spacing: 0.5em;
         font-size: 15px;
