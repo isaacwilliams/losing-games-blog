@@ -1,7 +1,7 @@
 ---
 date: "2018-12-02T18:00"
 title: "100 Special Arrows"
-image: "./portrait.png"
+image: "./atomic-warhead-arrow.jpg"
 published: "true"
 ---
 
