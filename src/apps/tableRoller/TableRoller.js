@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { toPairs } from 'lodash';
+import droll from 'droll';
 
 import parseTable from './parseTable';
 import Button from '../../components/shared/Button';
-
-const r = (max) => Math.floor(Math.random() * max);
-const pick = (array) => array[r(array.length)];
 
 const findTable = (markerId) => {
     const tableMarker = document.querySelector('*[data-table-marker]');
@@ -14,20 +12,19 @@ const findTable = (markerId) => {
 };
 
 const StyledTableRoller = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    padding: 0.5rem;
+    margin: 2rem 0;
     border: 1px solid lightgrey;
 `
 
+const StyledButtonsContainer = styled.div`
+    padding: 0.5rem;
+`
 
 const StyledResult = styled.div`
-    margin-left: 0.5rem;
-    padding-left: 0.5rem;
+    padding: 0.5rem;
 
-    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    background: #eee;
 `
 
 const StyledResultValue = styled.div`
@@ -36,7 +33,16 @@ const StyledResultValue = styled.div`
 
 const StyledResultTitle = styled.span`
     font-weight: 600;
+    margin-right: 0.5rem;
 `
+
+const TableRollerButtons = ({ buttons, rollResult }) => (
+    <StyledButtonsContainer>
+        {buttons.map(([title, dice], i) => (
+            <Button key={i} onClick={() => rollResult(dice)}>{title}</Button>
+        ))}
+    </StyledButtonsContainer>
+);
 
 const TableRollerResult = ({ result, filterKeys = [] }) => (
     <StyledResult>
@@ -61,25 +67,28 @@ class TableRoller extends Component {
         this.setState({ tableData });
     }
 
-    rollResult() {
+    rollResult(dice) {
         const { tableData } = this.state;
 
+        const diceRoll = droll.roll(dice);
+
         this.setState({
-            result: pick(tableData),
+            result: tableData[diceRoll.total - 1],
         });
     }
 
     render() {
-        const { filter, title = 'Roll' } = this.props;
+        const { filter, buttons } = this.props;
         const { tableData, result } = this.state;
 
         if (!tableData) return null;
 
         const filterKeyArray = filter && filter.split(',');
+        const buttonsArray = buttons && JSON.parse(buttons) || ['Roll', `d${tableData.length}`];
 
         return (
             <StyledTableRoller>
-                <Button onClick={() => this.rollResult()}>{title}</Button>
+                <TableRollerButtons buttons={buttonsArray} rollResult={(dice) => this.rollResult(dice)} />
                 {result && <TableRollerResult result={result} filterKeys={filterKeyArray} />}
 
             </StyledTableRoller>
