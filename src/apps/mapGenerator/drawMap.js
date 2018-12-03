@@ -138,7 +138,7 @@ const renderFeature = (data, ctx, def) => {
         minSize: 16,
         maxSize: 16,
     }
-    //
+
     // ctx.strokeStyle = "#fff";
     // ctx.lineWidth = 6;
     // ctx.fillStyle = "#000";
@@ -149,7 +149,6 @@ const renderFeature = (data, ctx, def) => {
     //
     // ctx.strokeText(def.name, def.x + 64, def.y + 130);
     // ctx.fillText(def.name, def.x + 64, def.y + 130);
-    // drawText(ctx, def.name, font, nameRect, opts);
 }
 
 const makeRegionName = () => makeName('region');

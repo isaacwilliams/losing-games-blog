@@ -187,7 +187,6 @@ const makeFeature = (data, spriteSheet) => {
         sprite,
         x,
         y,
-        connectionCount: 0,
         layer: 10,
         spriteSheet,
     }
@@ -219,12 +218,10 @@ const makeRoad = (data, startFeature) => {
 
     if (features.length > 0 || chance(0.1)) {
         f1 = startFeature;
-        f1.connectionCount++;
     }
 
     if (f1 && features.length >= 2 || chance(0.1)) {
         f2 = findClosest(f1)(features.filter(() => chance(0.7)));
-        f2 && f2.connectionCount++;
     }
 
     if (!f1) {
@@ -400,7 +397,6 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
     mapData.features.forEach((feature) => {
         mapData = makeRoad(mapData, feature);
     });
-
 
     return mapData;
 };
