@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { toPairs } from 'lodash';
+import { toPairs, omit, mapKeys, sample, reduce } from 'lodash/fp';
 import droll from 'droll';
 
 import parseTable from './parseTable';
@@ -17,7 +17,16 @@ const StyledTableRoller = styled.div`
 `
 
 const StyledButtonsContainer = styled.div`
+    position: relative;
     padding: 0.5rem;
+
+    &:after {
+        position: absolute;
+        top: -0.12rem;
+        right: 0.8rem;
+        content: '⚄';
+        font-size: 2rem;
+    }
 `
 
 const RollerButton = styled(Button)`
@@ -48,10 +57,9 @@ const TableRollerButtons = ({ buttons, rollResult }) => (
     </StyledButtonsContainer>
 );
 
-const TableRollerResult = ({ result, filterKeys = [] }) => (
+const TableRollerResult = ({ result }) => (
     <StyledResult>
         {toPairs(result)
-            .filter(([key]) => filterKeys.indexOf(key))
             .map(([key, value], i) => (
             <StyledResultValue key={i}>
                 <StyledResultTitle>{key}: </StyledResultTitle>
@@ -61,50 +69,81 @@ const TableRollerResult = ({ result, filterKeys = [] }) => (
     </StyledResult>
 );
 
+const reduceFields = reduce((acc, [key, fieldValue]) => ({
+    ...acc,
+    [key]: parseAdditionalValue(fieldValue),
+}))
+
+const parseAdditionalValue = (value) => {
+    if (value.indexOf('|') > 0) {
+        return sample(value.split('|'));
+    }
+
+    return droll.roll(value).total;
+}
+
 class TableRoller extends Component {
     state = {};
 
     componentDidMount() {
         const table = findTable(this.props.table);
-        const tableData = parseTable(table);
+        const { headers, tableData } = parseTable(table);
 
-        this.setState({ tableData });
+        this.setState({ headers, tableData });
     }
 
-    rollResult(dice, additionalFields) {
+    getResultLinked(dice) {
         const { tableData } = this.state;
 
-        const diceRoll = droll.roll(dice);
+        const result = tableData[droll.roll(dice) - 1];
 
-        const result = tableData[diceRoll.total - 1];
-        const additionalResults = additionalFields ?
-            additionalFields.reduce((acc, [key, roll]) => ({
-                ...acc,
-                [key]: droll.roll(roll).total,
-            }), {}) :
-            {};
+        return result;
+    }
+
+    getResultUnlinked(dice) {
+        const { headers, tableData } = this.state;
+
+        const result = headers.reduce((acc, key) => ({
+            ...acc,
+            [key]: tableData[droll.roll(dice) - 1][key]
+        }), {});
+
+        return result;
+    }
+
+    rollResult(dice, additionalFields = []) {
+        const { type = 'linked', filter } = this.props;
+        const { tableData } = this.state;
+
+        const filterKeyArray = filter && filter.split(',') || [];
+        const result = type === 'linked' ? this.getResultLinked(dice) : this.getResultUnlinked(dice);
+
+        const filteredResult = omit(filterKeyArray, result);
+
+        const beforeFields = reduceFields({}, additionalFields.filter(([_a, _b, placement]) => placement === 'before'));
+        const afterFields = reduceFields({}, additionalFields.filter(([_a, _b, placement]) => placement !== 'before'));
 
         this.setState({
             result: {
-                ...result,
-                ...additionalResults
+                ...beforeFields,
+                ...filteredResult,
+                ...afterFields
             },
         });
     }
 
     render() {
-        const { filter, buttons } = this.props;
+        const { buttons } = this.props;
         const { tableData, result } = this.state;
 
         if (!tableData) return null;
 
-        const filterKeyArray = filter && filter.split(',');
         const buttonsArray = buttons && JSON.parse(buttons) || ['Roll', `d${tableData.length}`];
 
         return (
             <StyledTableRoller>
                 <TableRollerButtons buttons={buttonsArray} rollResult={(dice, additionalFields) => this.rollResult(dice, additionalFields)} />
-                {result && <TableRollerResult result={result} filterKeys={filterKeyArray} />}
+                {result && <TableRollerResult result={result} />}
 
             </StyledTableRoller>
         );
