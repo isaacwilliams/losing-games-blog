@@ -76,6 +76,8 @@ class TableRoller extends Component {
     state = {};
 
     componentDidMount() {
+        if (!this.props.table) return;
+
         const table = findTable(this.props.table);
         const { headers, tableData } = parseTable(table);
 
@@ -85,7 +87,7 @@ class TableRoller extends Component {
     rollResult(fields) {
         try {
             const { filter } = this.props;
-            const { tableData, headers } = this.state;
+            const { tableData = [{}], headers = [] } = this.state;
             const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
 
             const result = getResult({ tableData, fields: fieldsWithDefault });
@@ -103,8 +105,6 @@ class TableRoller extends Component {
         const { tableData, result, error } = this.state;
 
         if (error) return <ErrorContainer>{error.toString()}</ErrorContainer>;
-
-        if (!tableData) return null;
 
         const buttonsArray = buttons && JSON.parse(buttons);
 

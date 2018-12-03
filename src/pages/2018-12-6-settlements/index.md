@@ -4,6 +4,8 @@ title: "Settlements and their gods"
 published: "false"
 ---
 
+## Settlements
+
 <table-roller table="settlements" buttons='[["What is this place?", {
     "Size": "Farm/manor – 1-3 families|Crossroads – 3-4 families|Hamlet – 50-150 people|Village – 150-300 people|Town – 300-1000 people|City – 1000+ people",
     "Environs": "d20:Environs",
@@ -13,13 +15,20 @@ published: "false"
     "Event": "d20:Event"
 }]]'></table-roller>
 
-<table-roller table="gods" buttons='[["What do they worship?", {
+## Gods
+
+Minor spirits dot the land,
+
+<table-roller table="gods" buttons='[["What god do they worship?", {
     "Domain": "d10:Domain (d10)",
     "Form": "d8:Form (d8)",
-    "Ritual building": "d6:Ritual (d6)",
+    "Ritual": "d6:Ritual (d6)",
     "Ritual items": "d12:Ritual items (d12)"
 }]]'></table-roller>
 
+<table-roller buttons='[["Random animals", {
+    "Animal": "Cow|Chicken|Duck|Fish|Elephant|Monkey|Crocodile|Ape|Deer|Stag|Wolf|Frog|Toad|Snake|Eel|Squid"
+}]]'></table-roller>
 
 ### Table of Gods
 
@@ -30,7 +39,7 @@ published: "false"
 | 1    | Water, Sea, River     | Human, animal features      | Sacrifice    | Land               |
 | 2    | Sky, Stars            | Human, twisted proportions  | Congration   | Liquor             |
 | 3    | Darkness, Night       | Human, shaped by domain     | Acquisition  | Sex                |
-| 4    | Light, Sun            | Animal, human features      | Abstaining   | Tools              |
+| 4    | Light, Sun            | Animal, human features      | Abstinence   | Tools              |
 | 5    | Storm, Wind           | Animal, twisted proportions | Consecration | People             |
 | 6    | Earth, Forest         | Animal, shaped by domain    | Desecration  | Animals            |
 | 7    | War, Power            | Monstrous                   |              | Food               |
