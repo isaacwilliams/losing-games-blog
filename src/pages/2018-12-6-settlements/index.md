@@ -4,9 +4,43 @@ title: "Settlements and their gods"
 published: "false"
 ---
 
-## 5d20 Settlements
+<table-roller table="settlements" filter="d20" buttons='[["What is this place?", {
+    "Size": "Farm/manor – 1-3 families|Crossroads – 3-4 families|Hamlet – 50-150 people|Village – 150-300 people|Town – 300-1000 people|City – 1000+ people",
+    "Environs": "d20:Environs",
+    "Custom": "d20:Custom",
+    "Notable building": "d20:Building",
+    "Primary industry": "d20:Industry",
+    "Event": "d20:Event"
+}]]'></table-roller>
 
-<table-roller table="settlements" type="unlinked" filter="d20" buttons='[["What is this place?", "d20", [["Size", "Farm/manor – 1-3 families|Crossroads – 3-4 families|Hamlet – 50-150 people|Village – 150-300 people|Town – 300-1000 people|City – 1000+ people", "before"]]]]'></table-roller>
+<table-roller table="gods" filter="Roll" buttons='[["What do they worship?", {
+    "Domain": "d10:Domain (d10)",
+    "Form": "d8:Form (d8)",
+    "Ritual building": "d6:Ritual (d6)",
+    "Ritual items": "d12:Ritual items (d12)"
+}]]'></table-roller>
+
+
+### Table of Gods
+
+<div data-table-marker="gods"></div>
+
+| Roll | Domain (d10)          | Form (d8)                   | Ritual (d6)  | Ritual items (d12) |
+|------|-----------------------|-----------------------------|--------------|--------------------|
+| 1    | Water, Sea, River     | Human, animal features      | Sacrifice    | Land               |
+| 2    | Sky, Stars            | Human, twisted proportions  | Congration   | Liquor             |
+| 3    | Darkness, Night       | Human, shaped by domain     | Acquisition  | Sex                |
+| 4    | Light, Sun            | Animal, human features      | Abstaining   | Tools              |
+| 5    | Storm, Wind           | Animal, twisted proportions | Consecration | People             |
+| 6    | Earth, Forest         | Animal, shaped by domain    | Desecration  | Animals            |
+| 7    | War, Power            | Monstrous                   |              | Food               |
+| 8    | Agriculture, Business | Formless                    |              | Gold               |
+| 9    | Food, Fertility       |                             |              | Water              |
+| 10   | Wisdom, Learning      |                             |              | Knowledge          |
+| 11   |                       |                             |              | Music              |
+| 12   |                       |                             |              | Time               |
+
+### Table of Settlements
 
 <div data-table-marker="settlements"></div>
 

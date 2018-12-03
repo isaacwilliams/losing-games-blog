@@ -1,58 +1,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { toPairs, omit, mapKeys, sample, reduce } from 'lodash/fp';
+import { toPairs, omit, mapKeys, mapValues, sample, reduce } from 'lodash/fp';
 import droll from 'droll';
 
 import parseTable from './parseTable';
-import Button from '../../components/shared/Button';
 
-const findTable = (markerId) => {
-    const tableMarker = document.querySelector('*[data-table-marker]');
-    return tableMarker.nextElementSibling;
-};
-
-const StyledTableRoller = styled.div`
-    margin: 2rem 0;
-    border: 1px solid lightgrey;
-`
-
-const StyledButtonsContainer = styled.div`
-    position: relative;
-    padding: 0.5rem;
-
-    &:after {
-        position: absolute;
-        top: -0.12rem;
-        right: 0.8rem;
-        content: '⚄';
-        font-size: 2rem;
-    }
-`
-
-const RollerButton = styled(Button)`
-    margin-right: 0.5rem;
-`
-
-const StyledResult = styled.div`
-    padding: 0.5rem;
-
-    border-top: 1px solid lightgrey;
-    background: #eee;
-`
-
-const StyledResultValue = styled.div`
-    margin-bottom: 0.25rem;
-`
-
-const StyledResultTitle = styled.span`
-    font-weight: 600;
-    margin-right: 0.5rem;
-`
+import {
+    StyledTableRoller,
+    StyledButtonsContainer,
+    RollerButton,
+    StyledResult,
+    StyledResultValue,
+    StyledResultTitle,
+} from './components';
 
 const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
-        {buttons.map(([title, dice, additionalFields], i) => (
-            <RollerButton key={i} onClick={() => rollResult(dice, additionalFields)}>{title}</RollerButton>
+        {buttons.map(([title, fields], i) => (
+            <RollerButton key={i} onClick={() => rollResult(fields)}>{title}</RollerButton>
         ))}
     </StyledButtonsContainer>
 );
@@ -69,18 +34,36 @@ const TableRollerResult = ({ result }) => (
     </StyledResult>
 );
 
-const reduceFields = reduce((acc, [key, fieldValue]) => ({
-    ...acc,
-    [key]: parseAdditionalValue(fieldValue),
-}))
+const hasPipe = (string) => string.indexOf('|') > 0;
+const splitPipe = (string) => string.split('|');
 
-const parseAdditionalValue = (value) => {
-    if (value.indexOf('|') > 0) {
-        return sample(value.split('|'));
+const hasColon = (string) => string.indexOf(':') > 0;
+const splitColon = (string) => string.split(':');
+
+const findTable = (markerId) => {
+    const tableMarker = document.querySelector(`*[data-table-marker="${markerId}"]`);
+    return tableMarker.nextElementSibling;
+};
+
+const rollField = (defaultResult, tableData) => (value) => {
+    if (defaultResult[value]) return defaultResult[value];
+
+    if (hasColon(value)) {
+        const [dice, key] = splitColon(value);
+        const roll = droll.roll(dice).total - 1;
+        return tableData[roll][key];
+    }
+
+    if (hasPipe(value)) {
+        return sample(splitPipe(value));
     }
 
     return droll.roll(value).total;
-}
+};
+
+const getResult = ({ tableData, fields }) => {
+    return mapValues(rollField(sample(tableData), tableData))(fields);
+};
 
 class TableRoller extends Component {
     state = {};
@@ -92,43 +75,15 @@ class TableRoller extends Component {
         this.setState({ headers, tableData });
     }
 
-    getResultLinked(dice) {
-        const { tableData } = this.state;
+    rollResult(fields) {
+        const { filter } = this.props;
+        const { tableData, headers } = this.state;
+        const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
 
-        const result = tableData[droll.roll(dice) - 1];
-
-        return result;
-    }
-
-    getResultUnlinked(dice) {
-        const { headers, tableData } = this.state;
-
-        const result = headers.reduce((acc, key) => ({
-            ...acc,
-            [key]: tableData[droll.roll(dice) - 1][key]
-        }), {});
-
-        return result;
-    }
-
-    rollResult(dice, additionalFields = []) {
-        const { type = 'linked', filter } = this.props;
-        const { tableData } = this.state;
-
-        const filterKeyArray = filter && filter.split(',') || [];
-        const result = type === 'linked' ? this.getResultLinked(dice) : this.getResultUnlinked(dice);
-
-        const filteredResult = omit(filterKeyArray, result);
-
-        const beforeFields = reduceFields({}, additionalFields.filter(([_a, _b, placement]) => placement === 'before'));
-        const afterFields = reduceFields({}, additionalFields.filter(([_a, _b, placement]) => placement !== 'before'));
+        const result = getResult({ tableData, fields: fieldsWithDefault });
 
         this.setState({
-            result: {
-                ...beforeFields,
-                ...filteredResult,
-                ...afterFields
-            },
+            result: result,
         });
     }
 
@@ -142,7 +97,7 @@ class TableRoller extends Component {
 
         return (
             <StyledTableRoller>
-                <TableRollerButtons buttons={buttonsArray} rollResult={(dice, additionalFields) => this.rollResult(dice, additionalFields)} />
+                <TableRollerButtons buttons={buttonsArray} rollResult={(fields) => this.rollResult(fields)} />
                 {result && <TableRollerResult result={result} />}
 
             </StyledTableRoller>
