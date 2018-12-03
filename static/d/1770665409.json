@@ -1,1 +1,0 @@
-{"errors":[{"message":"Expected value of type \"JavascriptFrontmatter\" but got: [object Object].","locations":[{"line":2,"column":3}],"path":["javascriptFrontmatter"]}],"data":{"javascriptFrontmatter":null}}
