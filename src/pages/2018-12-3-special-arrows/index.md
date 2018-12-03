@@ -2,7 +2,7 @@
 date: "2018-12-03T18:00"
 title: "100 Special Arrows"
 image: "./atomic-warhead-arrow.jpg"
-published: "false"
+published: "true"
 ---
 
 These are special arrows — minor magical or mechanical items that give bow-wielding characters a tactical edge. They are written with Knave in mind, but should work for the OSR game of your choice.
