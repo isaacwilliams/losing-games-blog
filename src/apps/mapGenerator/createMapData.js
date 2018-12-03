@@ -81,16 +81,23 @@ const makeSwamp = (data, spriteSheet) => {
     };
 }
 
-const makeFields = (data, spriteSheet) => {
-    if (chance(0.5)) return data;
+const makeFields = (data, spriteSheet, feature) => {
+    if (chance(0.25)) return data;
 
     const { width, height } = data;
+
+    const fieldSize = {
+        width: rand(50, 200),
+        height: rand(50, 150),
+    };
 
     const def = {
         density: rand(30, 60),
         count: rand(0.2, 0.5),
         type: 'farm',
-        ...randRect(-50, width - 50, -50, height - 50, 50, 200, 50, 150)
+        x: feature.x - fieldSize.width / 2 + 64,
+        y: feature.y - fieldSize.height / 2 + 64,
+        ...fieldSize,
     };
 
     return {
@@ -349,9 +356,9 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
     const area = (width * height) / 1000;
 
     const fieldsCount = (area / 40) * civilized;
-    const hillsCount = (area / 20) * mountains;
+    const hillsCount = (area / 20) * (mountains - 0.1);
     const forestCount = (area / 30) * woods;
-    const swampCount = (area / 40) * (1 - mountains);
+    const swampCount = (area / 40) * (1 - (mountains - 0.1));
 
     const featureRatio = featureDensity * ((civilized + 0.5));
     const featureCount = rand(
@@ -367,10 +374,6 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
         mapData = makeHills(mapData, spriteSheets.hills);
     }
 
-    for (i = 0; i < fieldsCount; i++) {
-        mapData = makeFields(mapData, spriteSheets.fields);
-    }
-
     for (i = 0; i < forestCount; i++) {
         mapData = makeForest(mapData, spriteSheets.trees);
     }
@@ -383,13 +386,19 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
         mapData = makeFeature(mapData, spriteSheets.feature);
     }
 
+    const villages = mapData.features.filter(f => f.type === 'village');
+
+    villages.forEach((village) => {
+        mapData = makeFields(mapData, spriteSheets.fields, village);
+    });
+
     if (chance(0.25)) {
         mapData = makeRiver(mapData)
     };
 
-    for (i = 0; i < featureCount; i++) {
-        mapData = makeRoad(mapData, mapData.features[i]);
-    }
+    mapData.features.forEach((feature) => {
+        mapData = makeRoad(mapData, feature);
+    });
 
 
     return mapData;
