@@ -19,7 +19,16 @@ Three special arrows can fit in an inventory slot.
 
 Arrows 1-10 are fairly common, and can sometimes be found in stores. Arrows 11+ are rare, and can only be found by adventuring. Some are useless, some are very powerful.
 
-<table-roller table="arrows" filter="d100" buttons='[["Common arrow", "d10", [["Quantity", "d4"]]],["Rare arrow", "d100", [["Quantity", "d2"]]]]'></table-roller>
+<table-roller table="arrows" buttons='[["Common arrow", {
+    "~~roll": "d10",
+    "Type": "Type",
+    "Effect": "Effect",
+    "Quantity": "d4"
+}], ["Rare arrow", {
+    "Type": "Type",
+    "Effect": "Effect",
+    "Quantity": "d2"
+}]]'></table-roller>
 
 <div data-table-marker="arrows"></div>
 

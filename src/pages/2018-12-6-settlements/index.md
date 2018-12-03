@@ -4,7 +4,7 @@ title: "Settlements and their gods"
 published: "false"
 ---
 
-<table-roller table="settlements" filter="d20" buttons='[["What is this place?", {
+<table-roller table="settlements" buttons='[["What is this place?", {
     "Size": "Farm/manor – 1-3 families|Crossroads – 3-4 families|Hamlet – 50-150 people|Village – 150-300 people|Town – 300-1000 people|City – 1000+ people",
     "Environs": "d20:Environs",
     "Custom": "d20:Custom",
@@ -13,7 +13,7 @@ published: "false"
     "Event": "d20:Event"
 }]]'></table-roller>
 
-<table-roller table="gods" filter="Roll" buttons='[["What do they worship?", {
+<table-roller table="gods" buttons='[["What do they worship?", {
     "Domain": "d10:Domain (d10)",
     "Form": "d8:Form (d8)",
     "Ritual building": "d6:Ritual (d6)",

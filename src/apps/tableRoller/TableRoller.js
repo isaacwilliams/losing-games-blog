@@ -14,6 +14,8 @@ import {
     StyledResultTitle,
 } from './components';
 
+import AppErrorBoundary, { ErrorContainer } from '../AppErrorBoundry';
+
 const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
         {buttons.map(([title, fields], i) => (
@@ -40,6 +42,8 @@ const splitPipe = (string) => string.split('|');
 const hasColon = (string) => string.indexOf(':') > 0;
 const splitColon = (string) => string.split(':');
 
+const omitDefaultRoll = omit('~~roll');
+
 const findTable = (markerId) => {
     const tableMarker = document.querySelector(`*[data-table-marker="${markerId}"]`);
     return tableMarker.nextElementSibling;
@@ -62,7 +66,10 @@ const rollField = (defaultResult, tableData) => (value) => {
 };
 
 const getResult = ({ tableData, fields }) => {
-    return mapValues(rollField(sample(tableData), tableData))(fields);
+    const defultRoll = fields['~~roll'] || `d${tableData.length}`;
+    const defaultValue = tableData[droll.roll(defultRoll).total - 1];
+
+    return mapValues(rollField(defaultValue, tableData))(omitDefaultRoll(fields));
 };
 
 class TableRoller extends Component {
@@ -76,24 +83,30 @@ class TableRoller extends Component {
     }
 
     rollResult(fields) {
-        const { filter } = this.props;
-        const { tableData, headers } = this.state;
-        const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
+        try {
+            const { filter } = this.props;
+            const { tableData, headers } = this.state;
+            const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
 
-        const result = getResult({ tableData, fields: fieldsWithDefault });
+            const result = getResult({ tableData, fields: fieldsWithDefault });
 
-        this.setState({
-            result: result,
-        });
+            this.setState({
+                result: result,
+            });
+        } catch (error) {
+            this.setState({ error });
+        }
     }
 
     render() {
         const { buttons } = this.props;
-        const { tableData, result } = this.state;
+        const { tableData, result, error } = this.state;
+
+        if (error) return <ErrorContainer>{error.toString()}</ErrorContainer>;
 
         if (!tableData) return null;
 
-        const buttonsArray = buttons && JSON.parse(buttons) || ['Roll', `d${tableData.length}`];
+        const buttonsArray = buttons && JSON.parse(buttons);
 
         return (
             <StyledTableRoller>
@@ -105,4 +118,4 @@ class TableRoller extends Component {
     }
 }
 
-export default TableRoller;
+export default (props) => <AppErrorBoundary><TableRoller {...props} /></AppErrorBoundary>;
