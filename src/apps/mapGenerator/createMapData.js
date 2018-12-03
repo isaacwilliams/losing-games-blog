@@ -162,14 +162,14 @@ const makeFeature = (data, spriteSheet) => {
     const name = makeName(type);
     const sprite = selectRand(FEATURE_SPRITES[type]);
 
-    let x = rand(10, width - 80);
-    let y = rand(0, height - 32);
+    let x = rand(20, width - 80);
+    let y = rand(20, height - 128);
 
     if (features.length) {
         let tries = 0;
         while (minDist(x, y, features) < 64 && tries < 10) {
             x = rand(20, width - 80);
-            y = rand(64, height - 32);
+            y = rand(20, height - 128);
             tries = tries + 1;
         }
     }
@@ -180,6 +180,7 @@ const makeFeature = (data, spriteSheet) => {
         sprite,
         x,
         y,
+        connectionCount: 0,
         layer: 10,
         spriteSheet,
     }
@@ -203,18 +204,20 @@ const findClosest = (f1) => (features) => features.reduce((currentClosestFeature
     return currentClosestFeature;
 }, features.find((f2) => f2 !== f1))
 
-const makeRoad = (data) => {
+const makeRoad = (data, startFeature) => {
     const { features, width, height } = data;
 
     let f1;
     let f2;
 
     if (features.length > 0 || chance(0.1)) {
-        f1 = selectRand(features);
+        f1 = startFeature;
+        f1.connectionCount++;
     }
 
     if (f1 && features.length >= 2 || chance(0.1)) {
-        f2 = findClosest(f1)(features);
+        f2 = findClosest(f1)(features.filter(() => chance(0.7)));
+        f2 && f2.connectionCount++;
     }
 
     if (!f1) {
@@ -384,8 +387,8 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
         mapData = makeRiver(mapData)
     };
 
-    for (i = 0; i < roadCount; i++) {
-        mapData = makeRoad(mapData);
+    for (i = 0; i < featureCount; i++) {
+        mapData = makeRoad(mapData, mapData.features[i]);
     }
 
 
