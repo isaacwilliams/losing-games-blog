@@ -241,7 +241,7 @@ const makeRoad = (data) => {
             width: 2,
             color: '#000',
             dash: [3],
-            maxLenth: 70,
+            maxLenth: 100,
         },
         {
             wanderChance: 0.15,
@@ -249,7 +249,7 @@ const makeRoad = (data) => {
             width: 2,
             color: '#000',
             dash: [5],
-            maxLenth: 60,
+            maxLenth: 80,
         },
         {
             wanderChance: 0.3,
@@ -257,7 +257,7 @@ const makeRoad = (data) => {
             width: 2,
             color: '#666',
             dash: [5],
-            maxLenth: 50,
+            maxLenth: 70,
         },
         {
             wanderChance: 0.4,
@@ -265,7 +265,7 @@ const makeRoad = (data) => {
             width: 1,
             color: '#999',
             dash: [3],
-            maxLenth: 60,
+            maxLenth: 80,
         }
     ]);
 
@@ -295,8 +295,8 @@ const makeRiver = (data) => {
             startY: -10,
             endX: rand(0, width),
             endY: height + 10,
-            wanderChance: 0.2,
-            wanderFactor: 0.25,
+            wanderChance: 0.1,
+            wanderFactor: 0.15,
             width: 3,
             color: '#999',
             dash: [],
@@ -308,8 +308,8 @@ const makeRiver = (data) => {
             startY: rand(0, height),
             endX: height + 10,
             endY: rand(0, height),
-            wanderChance: 0.2,
-            wanderFactor: 0.25,
+            wanderChance: 0.1,
+            wanderFactor: 0.15,
             width: 3,
             color: '#999',
             dash: [],
@@ -356,16 +356,16 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
         featureDensity * 8
     );
 
-    const roadCount = (featureCount * civilized) + 1;
+    const roadCount = (featureCount * civilized);
 
     let i;
 
-    for (i = 0; i < fieldsCount; i++) {
-        mapData = makeFields(mapData, spriteSheets.fields);
-    }
-
     for (i = 0; i < hillsCount; i++) {
         mapData = makeHills(mapData, spriteSheets.hills);
+    }
+
+    for (i = 0; i < fieldsCount; i++) {
+        mapData = makeFields(mapData, spriteSheets.fields);
     }
 
     for (i = 0; i < forestCount; i++) {

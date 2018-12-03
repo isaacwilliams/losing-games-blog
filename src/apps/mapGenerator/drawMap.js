@@ -23,6 +23,9 @@ import {
     FEATURE_SPRITES,
 } from './lists';
 
+const getDist = (startX, startY, endX, endY) => Math.sqrt((startX - endX) * (startX - endX) + (startY - endY) * (startY - endY));
+const getAngle = (startX, startY, endX, endY) => Math.atan2(endY - startY, endX - startX);
+
 const renderLine = (ctx, def) => {
     const {
         startX,
@@ -37,11 +40,11 @@ const renderLine = (ctx, def) => {
         maxLenth = 1000,
     } = def;
 
-    const dist = Math.sqrt((startX - endX) * (startX - endX) + (startY - endY) * (startY - endY));
+    const dist = getDist(startX, startY, endX, endY);
 
     let px = startX;
     let py = startY;
-    let dir = Math.atan2(endY - startY, endX - startX);
+    let dir = getAngle(startX, startY, endX, endY);
     let steps = 0;
     let pDist = dist;
 
@@ -50,21 +53,30 @@ const renderLine = (ctx, def) => {
     ctx.beginPath();
     ctx.moveTo(startX, startY);
 
-    while (pDist > 16 && steps < maxLenth) {
-
+    while (pDist > 32 && steps < maxLenth) {
         px = px + Math.cos(dir) * 10;
         py = py + Math.sin(dir) * 10;
 
         ctx.lineTo(px, py);
+        pDist = getDist(px, py, endX, endY);
 
-        const wander = rand(0, 1);
-        if (wander < wanderChance) {
-            dir -= wanderFactor;
-        } else if (wander > 1 - wanderChance) {
-            dir += wanderFactor;
+
+        const currentAngle = getAngle(px, py, endX, endY);
+        if (Math.floor(currentAngle - dir) > 0.05) {
+            if (currentAngle < dir) {
+                dir -= wanderFactor * 2;
+            } else {
+                dir += wanderFactor * 2;
+            }
+        } else {
+            const wander = rand(0, 1);
+            if (wander < wanderChance) {
+                dir -= wanderFactor;
+            } else if (wander > 1 - wanderChance) {
+                dir += wanderFactor;
+            }
         }
 
-        pDist = Math.sqrt((px - endX) * (px - endX) + (py - endY) * (py - endY))
         steps++;
     }
 
@@ -127,17 +139,17 @@ const renderFeature = (data, ctx, def) => {
         minSize: 16,
         maxSize: 16,
     }
-
-    ctx.strokeStyle = "#fff";
-    ctx.lineWidth = 6;
-    ctx.fillStyle = "#000";
-    ctx.textAlign = "center";
-    ctx.font = "16px Arial";
-
-    sizeFontForWidth(ctx, def.name, 16, 128)
-
-    ctx.strokeText(def.name, def.x + 64, def.y + 130);
-    ctx.fillText(def.name, def.x + 64, def.y + 130);
+    //
+    // ctx.strokeStyle = "#fff";
+    // ctx.lineWidth = 6;
+    // ctx.fillStyle = "#000";
+    // ctx.textAlign = "center";
+    // ctx.font = "16px Arial";
+    //
+    // sizeFontForWidth(ctx, def.name, 16, 128)
+    //
+    // ctx.strokeText(def.name, def.x + 64, def.y + 130);
+    // ctx.fillText(def.name, def.x + 64, def.y + 130);
     // drawText(ctx, def.name, font, nameRect, opts);
 }
 
