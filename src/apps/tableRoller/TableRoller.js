@@ -20,6 +20,10 @@ const StyledButtonsContainer = styled.div`
     padding: 0.5rem;
 `
 
+const RollerButton = styled(Button)`
+    margin-right: 0.5rem;
+`
+
 const StyledResult = styled.div`
     padding: 0.5rem;
 
@@ -39,7 +43,7 @@ const StyledResultTitle = styled.span`
 const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
         {buttons.map(([title, dice], i) => (
-            <Button key={i} onClick={() => rollResult(dice)}>{title}</Button>
+            <RollerButton key={i} onClick={() => rollResult(dice)}>{title}</RollerButton>
         ))}
     </StyledButtonsContainer>
 );

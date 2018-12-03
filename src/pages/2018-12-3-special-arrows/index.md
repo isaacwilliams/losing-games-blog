@@ -7,7 +7,7 @@ published: "false"
 
 These are special arrows — minor magical or mechanical items that give bow-wielding characters a tactical edge. They are written with Knave in mind, but should work for the OSR game of your choice.
 
-Special arrows do the same damage as the bow they are fired from, plus any additional effects. Unless it seems really obvious that it should be otherwise, assume that each is arrow is only good for a single successful hit. Each missed special arrow shot has a 50% chance of being recoverable, except in the case of arrows like the Bomb Arrow, which explodes.
+Special arrows do the same damage as the bow they are fired from, plus any additional effects. Each arrow is good for one successful hit (unless it seems obvious that it should be otherwise). Each missed special arrow shot has a 50% chance of being recoverable, except in the case of arrows like the Bomb Arrow, which explodes.
 
 Three special arrows can fit in an inventory slot.
 
