@@ -19,7 +19,7 @@ Three special arrows can fit in an inventory slot.
 
 Arrows 1-10 are fairly common, and can sometimes be found in stores. Arrows 11+ are rare, and can only be found by adventuring. Some are useless, some are very powerful.
 
-<table-roller table="arrows" filter="d100" buttons='[["Common arrow", "d10"],["Rare arrow", "d100"]]'></table-roller>
+<table-roller table="arrows" filter="d100" buttons='[["Common arrow", "d10", [["Quantity", "d4"]]],["Rare arrow", "d100", [["Quantity", "d2"]]]]'></table-roller>
 
 <div data-table-marker="arrows"></div>
 
@@ -33,9 +33,9 @@ d100 | Type | Effect
 6 |  Marking arrow | If you hit with this arrow, all further attacks against the same target have advantage until the arrow is removed.
 7 |  Water arrow | Bursts into a 5' radius sphere of water on hit.
 8 |  Moss arrow | Covers the hit location in a 10' radius of soft green moss.
-9 |  Bomb arrow | Does an additional 2d6 damage to all within 10' of the target. Save for half.
+9 |  Electric arrow |  Coes an additional 1d6 electric damage, target must save or be stunned for 1d6 rounds.
 10 |  Oil arrow | Covers a 5' radius in slippery, flammable oil.
-11 |  Electric arrow | Coes an additional 1d6 electric damage, target must save or be stunned for 1d6 rounds.
+11 |  Bomb arrow | Does an additional 2d6 damage to all within 10' of the target. Save for half.
 12 |  Web arrow | Spins out a thin, strong span of web behind it. On impact, covers a 10' area in thick, sticky webs.
 13 |  Poison arrow | Does an additional 1d12 poison damage. Save to negate.
 14 |  Black arrow | Advantage on to-hit rolls, always does maximum damage.

@@ -42,8 +42,8 @@ const StyledResultTitle = styled.span`
 
 const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
-        {buttons.map(([title, dice], i) => (
-            <RollerButton key={i} onClick={() => rollResult(dice)}>{title}</RollerButton>
+        {buttons.map(([title, dice, additionalFields], i) => (
+            <RollerButton key={i} onClick={() => rollResult(dice, additionalFields)}>{title}</RollerButton>
         ))}
     </StyledButtonsContainer>
 );
@@ -71,13 +71,24 @@ class TableRoller extends Component {
         this.setState({ tableData });
     }
 
-    rollResult(dice) {
+    rollResult(dice, additionalFields) {
         const { tableData } = this.state;
 
         const diceRoll = droll.roll(dice);
 
+        const result = tableData[diceRoll.total - 1];
+        const additionalResults = additionalFields ?
+            additionalFields.reduce((acc, [key, roll]) => ({
+                ...acc,
+                [key]: droll.roll(roll).total,
+            }), {}) :
+            {};
+
         this.setState({
-            result: tableData[diceRoll.total - 1],
+            result: {
+                ...result,
+                ...additionalResults
+            },
         });
     }
 
@@ -92,7 +103,7 @@ class TableRoller extends Component {
 
         return (
             <StyledTableRoller>
-                <TableRollerButtons buttons={buttonsArray} rollResult={(dice) => this.rollResult(dice)} />
+                <TableRollerButtons buttons={buttonsArray} rollResult={(dice, additionalFields) => this.rollResult(dice, additionalFields)} />
                 {result && <TableRollerResult result={result} filterKeys={filterKeyArray} />}
 
             </StyledTableRoller>
