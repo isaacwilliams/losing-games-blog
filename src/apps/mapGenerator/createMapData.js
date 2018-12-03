@@ -360,10 +360,11 @@ const createMapData = ({ spriteSheets, width, height, seed = 'xxx', options }) =
     const forestCount = (area / 30) * woods;
     const swampCount = (area / 40) * (1 - (mountains - 0.1));
 
+    const featureBase = area / 100;
     const featureRatio = featureDensity * ((civilized + 0.5));
     const featureCount = rand(
-        featureDensity * 8 - 3,
-        featureDensity * 8
+        featureDensity * featureBase - 3,
+        featureDensity * featureBase
     );
 
     const roadCount = (featureCount * civilized);

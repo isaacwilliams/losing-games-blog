@@ -65,10 +65,6 @@ const OptionInput = styled.input`
     margin-right: 1rem;
 `
 
-const getCode = ({ seed, featureDensity, civilized, mountains, woods }) => (
-    `${featureDensity}-${civilized}-${mountains}-${woods}-${seed}`
-)
-
 class MapGenerator extends Component {
     state = {
         loaded: false,
@@ -197,9 +193,6 @@ class MapGenerator extends Component {
                         <a ref={(c) => { this.downloadLink = c; }} download="portrait.png">
                             <Button onClick={() => this.download()}>Download</Button>
                         </a>
-                    </div>
-                    <div>
-                        Seed: {getCode({ ...savedOptions, seed })}
                     </div>
                 </GeneratorButtons>
 
