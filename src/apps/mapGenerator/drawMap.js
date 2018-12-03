@@ -60,9 +60,8 @@ const renderLine = (ctx, def) => {
         ctx.lineTo(px, py);
         pDist = getDist(px, py, endX, endY);
 
-
         const currentAngle = getAngle(px, py, endX, endY);
-        if (Math.floor(currentAngle - dir) > 0.05) {
+        if (Math.abs(currentAngle - dir) > 0.5) {
             if (currentAngle < dir) {
                 dir -= wanderFactor * 2;
             } else {
