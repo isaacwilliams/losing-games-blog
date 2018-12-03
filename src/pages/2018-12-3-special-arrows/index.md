@@ -7,7 +7,7 @@ published: "false"
 
 These are special arrows — minor magical or mechanical items that give bow-wielding characters a tactical edge. They are written with Knave in mind, but should work for the OSR game of your choice.
 
-Special arrows do the same damage as the bow they are fired from, plus any additional effects. Each arrow is good for one successful hit (unless it seems obvious that it should be otherwise). Each missed special arrow shot has a 50% chance of being recoverable, except in the case of arrows like the Bomb Arrow, which explodes.
+Special arrows do the same damage as the bow they are fired from, plus any additional effects. Each arrow is good for one successful hit (unless it seems obvious that it should be otherwise). Missed special arrow shots can usually be recovered, except in the case of arrows like the Bomb Arrow, which explodes.
 
 Three special arrows can fit in an inventory slot.
 
@@ -17,7 +17,7 @@ Three special arrows can fit in an inventory slot.
 
 ### Table of d100 Arrows
 
-Arrows 1-10 are fairly common, and can sometimes be found in stores. Arrows 11+ are rare, and can only be found by adventuring.
+Arrows 1-10 are fairly common, and can sometimes be found in stores. Arrows 11+ are rare, and can only be found by adventuring. Some are useless, some are very powerful.
 
 <table-roller table="arrows" filter="d100" buttons='[["Common arrow", "d10"],["Rare arrow", "d100"]]'></table-roller>
 
