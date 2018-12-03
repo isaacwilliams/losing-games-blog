@@ -1,11 +1,14 @@
 const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
-    allMarkdownRemark.edges.map(({ node }) => ({
-        ...node.frontmatter,
-        // description: node.excerpt,
-        url: site.siteMetadata.siteUrl + node.fields.slug,
-        guid: site.siteMetadata.siteUrl + node.fields.slug,
-        custom_elements: [{ 'content:encoded': node.html }]
-    }))
+    allMarkdownRemark.edges.map(({ node }) => {
+        const postUrl = site.siteMetadata.siteUrl + node.fields.slug;
+
+        return {
+            ...node.frontmatter,
+            description: `${node.excerpt} <br /><br /> <a href="${postUrl}">Read full article...</a>`,
+            url: postUrl,
+            guid: postUrl,
+        };
+    })
 );
 
  module.exports = {
@@ -15,7 +18,6 @@ const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
         description: 'Losing at D&D & other games',
         siteUrl: 'https://losing.games',
     },
-    pathPrefix: '/',
     plugins: [
         'gatsby-plugin-react-helmet',
         {
@@ -61,7 +63,7 @@ const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
                             edges {
                                 node {
                                     id
-                                    excerpt
+                                    excerpt(pruneLength: 400)
                                     html
                                     fields {
                                         slug
@@ -82,20 +84,20 @@ const serializeFeed = ({ query: { site, allMarkdownRemark } }) => (
         },
         {
             resolve: "gatsby-transformer-remark",
-                options: {
-                    plugins: [
-                        'gatsby-remark-component',
-                        'gatsby-remark-copy-linked-files',
-                        {
-                            resolve: `gatsby-remark-images`,
-                            options: {
-                                maxWidth: 656,
-                                linkImagesToOriginal: false,
-                                showCaptions: true
-                            },
+            options: {
+                plugins: [
+                    'gatsby-remark-component',
+                    'gatsby-remark-copy-linked-files',
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 656,
+                            linkImagesToOriginal: false,
+                            showCaptions: true
                         },
-                    ],
-                },
+                    },
+                ],
+            },
         },
     ],
 }
