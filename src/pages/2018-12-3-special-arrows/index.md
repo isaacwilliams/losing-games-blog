@@ -31,9 +31,9 @@ d100 | Type | Effect
 4 |  Rope arrow | Spins out up to 50' of rope behind itself. The rope lasts for 10 minutes before crumbing into dust.
 5 |  Flare arrow | Produces a blindingly bright light and a trail of red smoke.
 6 |  Marking arrow | If you hit with this arrow, all further attacks against the same target have advantage until the arrow is removed.
-7 |  Water arrow | Bursts into a 5' radius sphere of water on hit.
+7 |  Water arrow | On hit, bursts into a 5' radius sphere of water.
 8 |  Moss arrow | Covers the hit location in a 10' radius of soft green moss.
-9 |  Electric arrow |  Coes an additional 1d6 electric damage, target must save or be stunned for 1d6 rounds.
+9 |  Electric arrow | Does an additional 1d6 electric damage, target must save or be stunned for 1d6 rounds.
 10 |  Oil arrow | Covers a 5' radius in slippery, flammable oil.
 11 |  Bomb arrow | Does an additional 2d6 damage to all within 10' of the target. Save for half.
 12 |  Web arrow | Spins out a thin, strong span of web behind it. On impact, covers a 10' area in thick, sticky webs.
