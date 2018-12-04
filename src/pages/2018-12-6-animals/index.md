@@ -4,14 +4,17 @@ title: "Animals in the Southern Lands"
 published: "true"
 ---
 
-In the Southern Lands, no animal is truly mundane. For the most part they look and smell and behave as you would expect, acting as the background detail for an adventure setting. Normal animals, but if the half-forgotten folk-tale about them was true.
+In the Southern Lands, no animal is truly mundane. For the most part they look and smell and behave as you would expect, acting as the background detail for an adventure setting. But each has twist, sometimes obvious, sometimes secret. Normal animals, but if the half-forgotten folk-tale about them was true.
+
+<div class="image-container right">
+    <img src="./fox.jpg" title="<a href='https://www.behance.net/gallery/57215101/Two-Foxes'>Juliette Oberndorfer</a>" />
+</div>
 
 The list takes a lot of inspiration from Arnold K's [mundane animals](http://goblinpunch.blogspot.com/2015/10/the-secrets-of-mundane-animals.html). The goals are similar but not identical. This list exists for several purposes:
 
-- Create a snapshot of an ecology. If you need an animal in the Southern Lands, pick or roll on this table.
-- Convey setting and tone. The types of animals and how they differ from the real world say something about the place.
-- Provide small adventure hooks. Each of these animals have a gameable detail that players can interact with.
-
+- Portray a snapshot of an ecology, like the random encounter table of a dungeon. If you need an animal in the Southern Lands, pick or roll on this table.
+- Convey setting and tone. The types of animals and how they differ from the real world should say something about the place.
+- Provide small adventure hooks. Each of these animals have a game-able detail that could be become an encounter or used in player shenanigans.
 
 <table-roller table="animals" buttons='[["Random animal", {
     "Animal": "Animal",

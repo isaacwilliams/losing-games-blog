@@ -47,11 +47,36 @@ const RichContent = styled.div`
         }
     }
 
-    .sidebar {
+    .gatsby-resp-image-figcaption {
+        padding: 0.3rem 0.5rem;
+        text-align: center;
         font-size: 15px;
-        background: #eee;
-        width: 30%;
-        padding: 0 1rem;
+        color: grey;
+        border: 1px solid lightgrey;
+        border-top: 0;
+
+        a {
+            color: grey;
+        }
+    }
+
+    .image-container {
+        position: relative;
+
+        &.right {
+            float: right;
+            width: 50%;
+            margin-top: 0;
+            margin-right: -5rem;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            z-index: 100;
+        }
+    }
+
+    aside.image {
+        margin: 0 1rem;
+        width: 50%;
         float: right;
     }
 

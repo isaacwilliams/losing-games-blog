@@ -1,7 +1,7 @@
 ---
 date: "2018-12-10T18:00"
 title: "Settlements and their gods"
-published: "true"
+published: "false"
 ---
 
 ## Settlements
