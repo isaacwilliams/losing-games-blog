@@ -3,6 +3,8 @@ import { fontBody, fontDisplay } from '../styles/fonts';
 
 const RichContent = styled.div`
     ${fontBody}
+    font-size: 18px;
+    line-height: 1.5;
 
     p {
         margin: 0.5em 0 0.8em 0;
@@ -45,6 +47,14 @@ const RichContent = styled.div`
         }
     }
 
+    .sidebar {
+        font-size: 15px;
+        background: #eee;
+        width: 30%;
+        padding: 0 1rem;
+        float: right;
+    }
+
     blockquote {
         ${fontDisplay}
         font-weight: 400;
@@ -85,7 +95,7 @@ const RichContent = styled.div`
 
     ul {
         li: before {
-            content: '-';
+            content: '•';
         }
     }
 
