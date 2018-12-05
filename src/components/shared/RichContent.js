@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { fontBody, fontDisplay } from '../styles/fonts';
+import media from '../styles/media';
 
 const RichContent = styled.div`
     ${fontBody}
@@ -64,16 +65,28 @@ const RichContent = styled.div`
 
     .image-container {
         position: relative;
+        margin: 1rem 15%;
+
+        ${media.desktop`
+        &.right, &.left {
+            width: 50%;
+            z-index: 100;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        &.left {
+            float: left;
+            margin-left: -5rem;
+            margin-right: 1.5rem;
+        }
 
         &.right {
             float: right;
-            width: 50%;
-            margin-top: 0;
             margin-right: -5rem;
             margin-left: 1.5rem;
-            margin-bottom: 1rem;
-            z-index: 100;
-        }
+        }`}
+
     }
 
     aside.image {
