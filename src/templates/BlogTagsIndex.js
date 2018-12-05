@@ -12,12 +12,12 @@ import ListingContainer from '../components/listing/ListingContainer';
 
 const TagTitle = styled(ListingTitle)`
     &:before {
-        content: '✠';
+        content: '⨳';
     }
 `
 
 const BlogTagsIndex = ({ data }) => {
-    const tags = data.allMarkdownRemark.group.sort((a, b) => b.totalCount - a.totalCount);
+    const tags = data.allMarkdownRemark.group;
 
     return (
         <PageLayout isIndexPage>

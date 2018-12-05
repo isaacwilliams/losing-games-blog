@@ -11,8 +11,6 @@ import PageLayout from '../components/layout/PageLayout';
 import ListingTitle from '../components/listing/ListingItemTitle';
 import ListingItem from '../components/listing/ListingItem';
 import ListingContainer from '../components/listing/ListingContainer';
-import PageTitle from '../components/page/PageTitle';
-import PageHeader from '../components/page/PageHeader';
 
 const PostTitle = styled(ListingTitle)`
     display: inline;
@@ -37,9 +35,6 @@ const BlogIndex = ({ data, pageTitle }) => {
     return (
         <PageLayout isIndexPage>
             <ListingContainer>
-                {pageTitle && (
-                    <PageTitle>{capitalize(pageTitle)}</PageTitle>
-                )}
                 {posts.map(({ node: post }) => (
                     <ListingItem key={post.id}>
                         <div>
@@ -54,4 +49,4 @@ const BlogIndex = ({ data, pageTitle }) => {
     );
 }
 
-export default BlogIndex
+export default BlogIndex;
