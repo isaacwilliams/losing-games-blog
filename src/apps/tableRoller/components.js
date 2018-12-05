@@ -35,5 +35,5 @@ export const StyledResultValue = styled.div`
 
 export const StyledResultTitle = styled.span`
     font-weight: 600;
-    margin-right: 0.5rem;
+    margin-right: 0.25rem;
 `

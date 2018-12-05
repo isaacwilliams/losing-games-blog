@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { toPairs, omit, mapKeys, mapValues, sample, reduce } from 'lodash/fp';
+import { toPairs, omit, mapKeys, mapValues, sample, reduce, omitBy, startsWith } from 'lodash/fp';
 import droll from 'droll';
 
 import parseTable from './parseTable';
@@ -42,7 +42,7 @@ const splitPipe = (string) => string.split('|');
 const hasColon = (string) => string.indexOf(':') > 0;
 const splitColon = (string) => string.split(':');
 
-const omitDefaultRoll = omit('~~roll');
+const omitMetaValues = omitBy((_, key) => startsWith('~~', key));
 
 const findTable = (markerId) => {
     const tableMarker = document.querySelector(`*[data-table-marker="${markerId}"]`);
@@ -69,11 +69,11 @@ const getResult = ({ tableData, fields }) => {
     const defultRoll = fields['~~roll'] || `d${tableData.length}`;
     const defaultValue = tableData[droll.roll(defultRoll).total - 1];
 
-    return mapValues(rollField(defaultValue, tableData))(omitDefaultRoll(fields));
+    return mapValues(rollField(defaultValue, tableData))(fields);
 };
 
 class TableRoller extends Component {
-    state = {};
+    state = { results: [] };
 
     componentDidMount() {
         if (!this.props.table) return;
@@ -86,14 +86,18 @@ class TableRoller extends Component {
 
     rollResult(fields) {
         try {
-            const { filter } = this.props;
-            const { tableData = [{}], headers = [] } = this.state;
+            const { tableData = [{}], headers = [], results } = this.state;
+
             const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
 
-            const result = getResult({ tableData, fields: fieldsWithDefault });
+            const resultType = fields['~~resultType'] || 'replace';
+            const result = omitMetaValues(getResult({ tableData, fields: fieldsWithDefault }));
+
 
             this.setState({
-                result: result,
+                results: resultType === 'append' ?
+                    [...results, result] :
+                    [result],
             });
         } catch (error) {
             this.setState({ error });
@@ -102,7 +106,7 @@ class TableRoller extends Component {
 
     render() {
         const { buttons } = this.props;
-        const { tableData, result, error } = this.state;
+        const { tableData, results, error } = this.state;
 
         if (error) return <ErrorContainer>{error.toString()}</ErrorContainer>;
 
@@ -111,8 +115,9 @@ class TableRoller extends Component {
         return (
             <StyledTableRoller>
                 <TableRollerButtons buttons={buttonsArray} rollResult={(fields) => this.rollResult(fields)} />
-                {result && <TableRollerResult result={result} />}
-
+                {results.map((result, i) => (
+                    <TableRollerResult key={i} result={result} />
+                ))}
             </StyledTableRoller>
         );
     }

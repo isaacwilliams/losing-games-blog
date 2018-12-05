@@ -1,6 +1,6 @@
 ---
 date: "2018-12-10T18:00"
-title: "Settlements and their gods"
+title: "Settlements and gods"
 published: "false"
 ---
 
@@ -26,11 +26,9 @@ Minor spirits dot the Southern Lands, and each settlement will have a shrine to 
     "Form": "d8:Form (d8)",
     "Ritual": "d6:Ritual (d6)",
     "Ritual focus": "d12:Ritual focus (d12)"
-}]]'></table-roller>
-
-<table-roller buttons='[["Random animal", {
-    "Animal": "Animal",
-    "Detail": "Detail"
+}], ["Random animal", {
+    "~~resultType": "append",
+    "Animal": "Ox|Chicken|Duck|Carp|Horse|Monkey|Crocodile|Ape|Deer|Eagle|Raven|Frog|Crab|Snake|Eel|Fox|Dog|Cat|Bat|Crane"
 }]]'></table-roller>
 
 Animals from [here](/2018-12-6-animals).
