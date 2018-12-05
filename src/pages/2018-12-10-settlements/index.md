@@ -1,7 +1,7 @@
 ---
 date: "2018-12-10T18:00"
-title: "Settlements of the Southern Lands"
-tags: ["random tables", "southern lands", "setting"]
+title: "Gloaming Lands 2: Settlements"
+tags: ["random tables", "gloaming lands", "setting"]
 published: "false"
 ---
 
@@ -9,7 +9,7 @@ published: "false"
     <img src="./tokyo-rain.jpg" title="<a href='https://en.wikipedia.org/wiki/Hasui_Kawase'>Hasui Kawase</a>" />
 </div>
 
-The Southern Lands are a wild place, a place deeply etched with disaster. The peoples that populate it keep to the safety of their settlements. Most people will never travel further than the next two or three villages along. Wanderers are looked upon with distrust.
+The Gloaming Lands are a wild place, a place deeply etched with disaster. The peoples that populate it keep to the safety of their settlements. Most people will never travel further than the next two or three villages along. Wanderers are looked upon with distrust.
 
 Like the table of animals, this generator is designed to create interesting, gameable situations with a minimum of reading.
 
