@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         ${fontBody}
-        font-size: 18px;
+        font-size: 1rem;
         line-height: 1.33;
         color: ${colors.body};
     }
@@ -45,7 +45,9 @@ const SiteContainer = ({ children }) => (
             <>
                 <Helmet title={data.site.siteMetadata.title}
                         meta={[
-                          { name: 'description', content: 'A blog about D&D & other games' },
+                            { name: 'description', content: 'A blog about D&D and other games' },
+                            { name: 'og:description', content: 'A blog about D&D and other games' },
+                            { name: 'og:title', content: data.site.siteMetadata.title },
                         ]}>
                     <html lang="en" />
                     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />

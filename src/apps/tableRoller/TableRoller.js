@@ -1,57 +1,32 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { toPairs } from 'lodash';
+import { toPairs, omit, mapKeys, mapValues, sample, reduce, omitBy, startsWith } from 'lodash/fp';
 import droll from 'droll';
 
 import parseTable from './parseTable';
-import Button from '../../components/shared/Button';
 
-const findTable = (markerId) => {
-    const tableMarker = document.querySelector('*[data-table-marker]');
-    return tableMarker.nextElementSibling;
-};
+import {
+    StyledTableRoller,
+    StyledButtonsContainer,
+    RollerButton,
+    StyledResult,
+    StyledResultValue,
+    StyledResultTitle,
+} from './components';
 
-const StyledTableRoller = styled.div`
-    margin: 2rem 0;
-    border: 1px solid lightgrey;
-`
-
-const StyledButtonsContainer = styled.div`
-    padding: 0.5rem;
-`
-
-const RollerButton = styled(Button)`
-    margin-right: 0.5rem;
-`
-
-const StyledResult = styled.div`
-    padding: 0.5rem;
-
-    border-top: 1px solid lightgrey;
-    background: #eee;
-`
-
-const StyledResultValue = styled.div`
-    margin-bottom: 0.25rem;
-`
-
-const StyledResultTitle = styled.span`
-    font-weight: 600;
-    margin-right: 0.5rem;
-`
+import AppErrorBoundary, { ErrorContainer } from '../AppErrorBoundry';
 
 const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
-        {buttons.map(([title, dice, additionalFields], i) => (
-            <RollerButton key={i} onClick={() => rollResult(dice, additionalFields)}>{title}</RollerButton>
+        {buttons.map(([title, fields], i) => (
+            <RollerButton key={i} onClick={() => rollResult(fields)}>{title}</RollerButton>
         ))}
     </StyledButtonsContainer>
 );
 
-const TableRollerResult = ({ result, filterKeys = [] }) => (
+const TableRollerResult = ({ result }) => (
     <StyledResult>
         {toPairs(result)
-            .filter(([key]) => filterKeys.indexOf(key))
             .map(([key, value], i) => (
             <StyledResultValue key={i}>
                 <StyledResultTitle>{key}: </StyledResultTitle>
@@ -61,54 +36,91 @@ const TableRollerResult = ({ result, filterKeys = [] }) => (
     </StyledResult>
 );
 
-class TableRoller extends Component {
-    state = {};
+const hasPipe = (string) => string.indexOf('|') > 0;
+const splitPipe = (string) => string.split('|');
 
-    componentDidMount() {
-        const table = findTable(this.props.table);
-        const tableData = parseTable(table);
+const hasColon = (string) => string.indexOf(':') > 0;
+const splitColon = (string) => string.split(':');
 
-        this.setState({ tableData });
+const omitMetaValues = omitBy((_, key) => startsWith('~~', key));
+
+const findTable = (markerId) => {
+    const tableMarker = document.querySelector(`*[data-table-marker="${markerId}"]`);
+    return tableMarker.nextElementSibling;
+};
+
+const rollField = (defaultResult, tableData) => (value) => {
+    if (defaultResult[value]) return defaultResult[value];
+
+    if (hasColon(value)) {
+        const [dice, key] = splitColon(value);
+        const roll = droll.roll(dice).total - 1;
+        return tableData[roll][key];
     }
 
-    rollResult(dice, additionalFields) {
-        const { tableData } = this.state;
+    if (hasPipe(value)) {
+        return sample(splitPipe(value));
+    }
 
-        const diceRoll = droll.roll(dice);
+    return droll.roll(value).total;
+};
 
-        const result = tableData[diceRoll.total - 1];
-        const additionalResults = additionalFields ?
-            additionalFields.reduce((acc, [key, roll]) => ({
-                ...acc,
-                [key]: droll.roll(roll).total,
-            }), {}) :
-            {};
+const getResult = ({ tableData, fields }) => {
+    const defultRoll = fields['~~roll'] || `d${tableData.length}`;
+    const defaultValue = tableData[droll.roll(defultRoll).total - 1];
 
-        this.setState({
-            result: {
-                ...result,
-                ...additionalResults
-            },
-        });
+    return mapValues(rollField(defaultValue, tableData))(fields);
+};
+
+class TableRoller extends Component {
+    state = { results: [] };
+
+    componentDidMount() {
+        if (!this.props.table) return;
+
+        const table = findTable(this.props.table);
+        const { headers, tableData } = parseTable(table);
+
+        this.setState({ headers, tableData });
+    }
+
+    rollResult(fields) {
+        try {
+            const { tableData = [{}], headers = [], results } = this.state;
+
+            const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
+
+            const resultType = fields['~~resultType'] || 'replace';
+            const result = omitMetaValues(getResult({ tableData, fields: fieldsWithDefault }));
+
+
+            this.setState({
+                results: resultType === 'append' ?
+                    [...results, result] :
+                    [result],
+            });
+        } catch (error) {
+            this.setState({ error });
+        }
     }
 
     render() {
-        const { filter, buttons } = this.props;
-        const { tableData, result } = this.state;
+        const { buttons } = this.props;
+        const { tableData, results, error } = this.state;
 
-        if (!tableData) return null;
+        if (error) return <ErrorContainer>{error.toString()}</ErrorContainer>;
 
-        const filterKeyArray = filter && filter.split(',');
-        const buttonsArray = buttons && JSON.parse(buttons) || ['Roll', `d${tableData.length}`];
+        const buttonsArray = buttons && JSON.parse(buttons);
 
         return (
             <StyledTableRoller>
-                <TableRollerButtons buttons={buttonsArray} rollResult={(dice, additionalFields) => this.rollResult(dice, additionalFields)} />
-                {result && <TableRollerResult result={result} filterKeys={filterKeyArray} />}
-
+                <TableRollerButtons buttons={buttonsArray} rollResult={(fields) => this.rollResult(fields)} />
+                {results.map((result, i) => (
+                    <TableRollerResult key={i} result={result} />
+                ))}
             </StyledTableRoller>
         );
     }
 }
 
-export default TableRoller;
+export default (props) => <AppErrorBoundary><TableRoller {...props} /></AppErrorBoundary>;

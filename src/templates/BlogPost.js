@@ -41,6 +41,10 @@ const Template = ({ data }) => {
             <PostContainer>
                 <Helmet title={`Losing Games - ${post.frontmatter.title}`} meta={[
                     { name: 'og:image', 'content': imageUrl },
+                    { name: 'og:title', content: `Losing Games - ${post.frontmatter.title}` },
+                    { name: 'twitter:card', content: 'summary' },
+                    { name: 'twitter:creator', content: '@isaacwilliams' },
+                    { name: 'og:description', 'content': post.excerpt },
                     { name: 'description', 'content': post.excerpt },
                 ]} />
 

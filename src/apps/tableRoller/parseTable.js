@@ -11,7 +11,10 @@ const childNodesToArray = (parentContainer) => {
 const parseTable = (tableDom) => {
     const headers = childNodesToArray(tableDom.querySelector('thead tr'));
     const bodyRows = nodeListToArray(tableDom.querySelectorAll('tbody tr')).map(childNodesToArray);
-    return bodyRows.map((bodyRow) => zipObject(headers, bodyRow));
+    return {
+        headers,
+        tableData: bodyRows.map((bodyRow) => zipObject(headers, bodyRow)),
+    };
 };
 
 export default parseTable;
