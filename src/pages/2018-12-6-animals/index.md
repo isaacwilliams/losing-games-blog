@@ -29,7 +29,7 @@ The list takes a lot of inspiration from Arnold K's [mundane animals](http://gob
 
 | d20 | Animal      | Detail
 |-----|-------------|----------------------
-| 1   | Ox          | Oxen are not owned, but hired to perform the skilled work of plowing a field. Small herds of oxen travel between villages plying their trade.
+| 1   | Ox          | Oxen are not owned, but paid to perform the skilled work of plowing a field. Small herds of oxen travel between villages plying their trade, guarded by hired men.
 | 2   | Chicken     | Rogue spirits are often exorcised into a chicken. Still-moving whole-roasted devil-chicken is a special delicacy at grand feasts.
 | 3   | Duck        | Always know the direction of due north. Often carried by navigators.
 | 4   | Carp        | Guard river crossings and extort coins (which they hoard) in exchange for safe passage. Will destroy bridges to keep their protection racket going.
