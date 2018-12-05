@@ -3,7 +3,7 @@ import { fontBody, fontDisplay } from '../styles/fonts';
 
 const RichContent = styled.div`
     ${fontBody}
-    font-size: 18px;
+    font-size: 1rem;
     line-height: 1.5;
 
     p {
@@ -26,14 +26,16 @@ const RichContent = styled.div`
 
     h1 {
         font-size: 1.8rem;
+        text-align: center;
     }
 
     h2 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        color: #444;
     }
 
     a {
@@ -50,7 +52,7 @@ const RichContent = styled.div`
     .gatsby-resp-image-figcaption {
         padding: 0.3rem 0.5rem;
         text-align: center;
-        font-size: 15px;
+        font-size: 0.9rem;
         color: grey;
         border: 1px solid lightgrey;
         border-top: 0;
@@ -135,7 +137,7 @@ const RichContent = styled.div`
         margin: 1em 0;
         box-sizing: content-box;
         border-spacing: 0.5em;
-        font-size: 15px;
+        font-size: 0.9rem;
         word-break: keep-all;
 
         td, th {

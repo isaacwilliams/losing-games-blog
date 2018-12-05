@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         ${fontBody}
-        font-size: 18px;
+        font-size: 1rem;
         line-height: 1.33;
         color: ${colors.body};
     }

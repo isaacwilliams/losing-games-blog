@@ -11,7 +11,7 @@ export default styled.h1`
     ${fontDisplay}
     text-align: center;
     font-weight: 900;
-    font-size: 2.5rem;
+    font-size: 2.1rem;
 
     &:before,
     &:after {

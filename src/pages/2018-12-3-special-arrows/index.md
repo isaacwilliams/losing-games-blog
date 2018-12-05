@@ -15,8 +15,6 @@ Three special arrows can fit in an inventory slot.
 
 ![Now I'm sad my list doesn't have this.](atomic-warhead-arrow.jpg)
 
-### Table of d100 Arrows
-
 Arrows 1-10 are fairly common, and can sometimes be found in stores. Arrows 11+ are rare, and can only be found by adventuring. Some are useless, some are very powerful.
 
 <table-roller table="arrows" buttons='[["Common arrow", {
@@ -29,6 +27,8 @@ Arrows 1-10 are fairly common, and can sometimes be found in stores. Arrows 11+ 
     "Effect": "Effect",
     "Quantity": "d2"
 }]]'></table-roller>
+
+## Table of d100 Arrows
 
 <div data-table-marker="arrows"></div>
 

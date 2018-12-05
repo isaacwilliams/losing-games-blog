@@ -27,6 +27,7 @@ const SiteTitle = styled.h1`
     position: relative;
     font-weight: 600;
     ${fontDisplay}
+    font-size: 1.1rem;
 
     &:before {
         ${fontBody}

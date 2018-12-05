@@ -11,10 +11,11 @@ export const StyledButtonsContainer = styled.div`
 
     &:after {
         position: absolute;
-        top: -0.12rem;
+        top: -0.35rem;
         right: 0.8rem;
         content: '⚄';
         font-size: 2rem;
+        color: grey;
     }
 `
 export const RollerButton = styled(Button)`
