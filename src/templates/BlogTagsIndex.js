@@ -17,7 +17,7 @@ const TagTitle = styled(ListingTitle)`
 `
 
 const BlogTagsIndex = ({ data }) => {
-    const tags = data.allMarkdownRemark.group;
+    const tags = data.allMarkdownRemark.group.sort((a, b) => b.totalCount - a.totalCount);
 
     return (
         <PageLayout isIndexPage>
