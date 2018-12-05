@@ -1,7 +1,8 @@
 ---
 date: "2018-12-06T18:00"
-title: "Animals in the Southern Lands"
-published: "true"
+title: "Mundane Animals of the Southern Lands"
+image: "./fox.jpg"
+published: "false"
 ---
 
 In the Southern Lands, no animal is truly mundane. For the most part they look and smell and behave as you would expect, acting as the background detail for an adventure setting. But each has twist, sometimes obvious, sometimes secret. Normal animals, but if the half-forgotten folk-tale about them was true.

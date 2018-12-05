@@ -23,6 +23,10 @@ const RichContent = styled.div`
         ${fontDisplay}
         margin: 1.5em 0 0.3em 0;
         font-weight: 600;
+
+        &:first-child {
+            margin-top: 0;
+        }
     }
 
     h1 {
@@ -87,12 +91,6 @@ const RichContent = styled.div`
             margin-left: 1.5rem;
         }`}
 
-    }
-
-    aside.image {
-        margin: 0 1rem;
-        width: 50%;
-        float: right;
     }
 
     blockquote {

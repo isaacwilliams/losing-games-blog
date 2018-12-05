@@ -1,12 +1,18 @@
 ---
 date: "2018-12-10T18:00"
-title: "Settlements and gods"
+title: "Settlements of the Southern Lands"
 published: "false"
 ---
 
-## Settlements
+<div class="image-container right">
+    <img src="./tokyo-rain.jpg" title="<a href='https://en.wikipedia.org/wiki/Hasui_Kawase'>Hasui Kawase</a>" />
+</div>
 
-The Southern Lands are a wild place, and the peoples that populate it keep to the safety of their settlements. Most people will never travel further than the next two or three villages along. Wanderers are looked upon with distrust.
+The Southern Lands are a wild place, a place deeply etched with disaster. The peoples that populate it keep to the safety of their settlements. Most people will never travel further than the next two or three villages along. Wanderers are looked upon with distrust.
+
+Like the table of animals, this generator is designed to create interesting, gameable situations with a minimum of reading.
+
+<br/><br/>
 
 <table-roller table="settlements" buttons='[["What is this place?", {
     "Size": "Farm/manor – 1-3 families|Crossroads – 3-4 families|Hamlet – 50-150 people|Village – 150-300 people|Town – 300-1000 people|City – 1000+ people",
@@ -17,47 +23,12 @@ The Southern Lands are a wild place, and the peoples that populate it keep to th
     "Event": "d20:Event"
 }]]'></table-roller>
 
-## Gods
-
-Minor spirits dot the Southern Lands, and each settlement will have a shrine to their local god. Gods can be fickle creatures, so appeasing them through ritual is important.
-
-<table-roller table="gods" buttons='[["What god do they worship?", {
-    "Domain": "d10:Domain (d10)",
-    "Form": "d8:Form (d8)",
-    "Ritual": "d6:Ritual (d6)",
-    "Ritual focus": "d12:Ritual focus (d12)"
-}], ["Random animal", {
-    "~~resultType": "append",
-    "Animal": "Ox|Chicken|Duck|Carp|Horse|Monkey|Crocodile|Ape|Deer|Eagle|Raven|Frog|Crab|Snake|Eel|Fox|Dog|Cat|Bat|Crane"
-}]]'></table-roller>
-
-Animals from [here](/2018-12-6-animals).
-
-### Table of Gods
-
-<div data-table-marker="gods"></div>
-
-| d12  | Domain (d10)          | Form (d8)                   | Ritual (d6)  | Ritual focus (d12)
-|------|-----------------------|-----------------------------|--------------|--------------------
-| 1    | Water, Sea, River     | Human, animal features      | Sacrifice    | Land               
-| 2    | Sky, Stars            | Human, twisted proportions  | Congregation | Liquor             
-| 3    | Darkness, Night       | Human, shaped by domain     | Acquisition  | Sex                
-| 4    | Light, Sun            | Animal, human features      | Abstinence   | Tools              
-| 5    | Storm, Wind           | Animal, twisted proportions | Consecration | People             
-| 6    | Earth, Forest         | Animal, shaped by domain    | Desecration  | Animals            
-| 7    | War, Power            | Monstrous                   |              | Food               
-| 8    | Agriculture, Business | Formless                    |              | Gold               
-| 9    | Food, Fertility       |                             |              | Water              
-| 10   | Wisdom, Learning      |                             |              | Knowledge          
-| 11   |                       |                             |              | Music              
-| 12   |                       |                             |              | Time               
-
-### Table of Settlements
+## 5d20 Settlements
 
 <div data-table-marker="settlements"></div>
 
 | d20 | Environs | People | Building | Industry | Event |
-|-----|----------------------------------------------------------------------|------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------|---------------------------------------------------------------|
+|-----|----------|--------|----------|----------|-------|
 | 1 | In the ruins of an ancient temple | Extremely suspicious of outsiders | Imposing defensive walls | Fields of maize, yellow in the sun | A grand wedding |
 | 2 | In the ruins of an ancient castle | Often intoxicated by strange mushrooms | Unmaintained wooden palisades | Rows of cabbage | Festival for the local god |
 | 3 | Amongst the bones of a great beast | Fervent followers of their strange god | Ancient castle | Shallow ponds of green rice | Meeting of elders from afar |
