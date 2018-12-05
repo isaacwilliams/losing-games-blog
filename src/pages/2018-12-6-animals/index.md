@@ -14,7 +14,7 @@ The list takes a lot of inspiration from Arnold K's [mundane animals](http://gob
 
 - Portray a snapshot of an ecology, like the random encounter table of a dungeon. If you need an animal in the Southern Lands, pick or roll on this table.
 - Convey setting and tone. The types of animals and how they differ from the real world should say something about the place.
-- Provide small adventure hooks. Each of these animals have a game-able detail that could be become an encounter or used in player shenanigans.
+- Provide small adventure hooks. Each of these animals have a gameable detail that could be become an encounter or used in player shenanigans.
 
 <table-roller table="animals" buttons='[["Random animal", {
     "Animal": "Animal",
