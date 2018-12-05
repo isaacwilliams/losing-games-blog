@@ -2,6 +2,7 @@
 date: "2018-12-03T18:00"
 title: "100 Special Arrows"
 image: "./atomic-warhead-arrow.jpg"
+tags: ["random tables", "rules"]
 published: "true"
 ---
 

@@ -6,11 +6,15 @@
 
 const path = require("path");
 const { createFilePath } = require('gatsby-source-filesystem');
+const { get, uniq, kebabCase } = require('lodash/fp');
+
+const getTags = get('node.frontmatter.tags');
 
 exports.createPages = async ({ actions, graphql }) => {
     const { createPage } = actions
 
     const blogPostTemplate = path.resolve(`src/templates/BlogPost.js`);
+    const tagTemplate = path.resolve("src/templates/BlogTags.js")
 
     const { data, errors } = await graphql(`
     {
@@ -25,6 +29,8 @@ exports.createPages = async ({ actions, graphql }) => {
                     }
                     frontmatter {
                         title
+                        tags
+                        published
                     }
                 }
             }
@@ -34,15 +40,35 @@ exports.createPages = async ({ actions, graphql }) => {
 
     if (errors) throw errors;
 
-    data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const posts = data.allMarkdownRemark.edges;
+
+    posts.forEach(({ node }) => {
         createPage({
             path: node.fields.slug,
             component: blogPostTemplate,
             context: {
                 slug: node.fields.slug,
-            }, // additional data can be passed via context
+            },
         })
     })
+
+    // Tag pages
+    const tags = uniq(
+        posts
+            .filter(({ node }) => node.frontmatter.published === "true")
+            .flatMap(({ node }) => node.frontmatter.tags)
+    ).filter(tag => !!tag);
+
+    tags.forEach(tag => {
+        createPage({
+            path: `/tags/${kebabCase(tag)}/`,
+            component: tagTemplate,
+            context: {
+                tag,
+            },
+        });
+    })
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

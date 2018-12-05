@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { capitalize } from 'lodash';
 import styled from 'styled-components';
 import * as colors from '../components/styles/colors';
 import { fontDisplay } from '../components/styles/fonts';
@@ -10,12 +11,14 @@ import PageLayout from '../components/layout/PageLayout';
 import ListingTitle from '../components/listing/ListingItemTitle';
 import ListingItem from '../components/listing/ListingItem';
 import ListingContainer from '../components/listing/ListingContainer';
+import PageTitle from '../components/page/PageTitle';
+import PageHeader from '../components/page/PageHeader';
 
 const PostTitle = styled(ListingTitle)`
     display: inline;
 `;
 
-const PostDate = styled.div`
+export const PostDate = styled.div`
     display: inline;
     color: ${colors.bodyLight};
     font-size: 0.95rem;
@@ -28,12 +31,15 @@ const PostDate = styled.div`
     `}
 `;
 
-const BlogIndex = ({ data }) => {
+const BlogIndex = ({ data, pageTitle }) => {
     const posts = data.allMarkdownRemark.edges;
 
     return (
         <PageLayout isIndexPage>
             <ListingContainer>
+                {pageTitle && (
+                    <PageTitle>{capitalize(pageTitle)}</PageTitle>
+                )}
                 {posts.map(({ node: post }) => (
                     <ListingItem key={post.id}>
                         <div>

@@ -1,6 +1,7 @@
 ---
 date: "2018-12-10T18:00"
 title: "Settlements of the Southern Lands"
+tags: ["random tables", "southern lands", "setting"]
 published: "false"
 ---
 

@@ -2,6 +2,7 @@
 date: "2018-12-06T18:00"
 title: "Mundane Animals of the Southern Lands"
 image: "./fox.jpg"
+tags: ["random tables", "southern lands", "setting"]
 published: "false"
 ---
 
