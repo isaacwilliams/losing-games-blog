@@ -1,6 +1,10 @@
 ---
-title: "Minor Gods"
+date: "2018-12-14T18:00"
+title: "Gloaming Lands 3: Gods"
+tags: ["random tables", "gloaming lands", "setting"]
+published: "false"
 ---
+
 
 Minor spirits dot the Southern Lands, and each settlement will have a shrine to their local god. Gods can be fickle creatures, so appeasing them through ritual is important.
 

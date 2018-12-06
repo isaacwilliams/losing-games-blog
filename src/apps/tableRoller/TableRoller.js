@@ -36,11 +36,16 @@ const TableRollerResult = ({ result }) => (
     </StyledResult>
 );
 
-const hasPipe = (string) => string.indexOf('|') > 0;
+const contains = (value) => (array) => array.indexOf(value) > -1;
+
+const hasPipe = contains('|');
 const splitPipe = (string) => string.split('|');
 
-const hasColon = (string) => string.indexOf(':') > 0;
+const hasColon = contains(':')
 const splitColon = (string) => string.split(':');
+
+const hasCurlyBrace = contains('{');
+
 
 const omitMetaValues = omitBy((_, key) => startsWith('~~', key));
 
@@ -49,50 +54,91 @@ const findTable = (markerId) => {
     return tableMarker.nextElementSibling;
 };
 
-const rollField = (defaultResult, tableData) => (value) => {
-    if (defaultResult[value]) return defaultResult[value];
+const rollFieldValue = ({ defaultResult, tableData, headers }) => (value) => {
+    if (contains(value)(headers)) {
+        return tableData[value][defaultResult];
+    }
 
     if (hasColon(value)) {
         const [dice, key] = splitColon(value);
         const roll = droll.roll(dice).total - 1;
-        return tableData[roll][key];
+        return tableData[key][roll];
     }
 
-    if (hasPipe(value)) {
-        return sample(splitPipe(value));
-    }
-
-    return droll.roll(value).total;
+    const diceRoll = droll.roll(value).total;
+    if (diceRoll) return diceRoll.toString();
 };
 
-const getResult = ({ tableData, fields }) => {
-    const defultRoll = fields['~~roll'] || `d${tableData.length}`;
-    const defaultValue = tableData[droll.roll(defultRoll).total - 1];
+const iterpolateField = ({ defaultResult, tableData, fields, headers }) => (value) => {
+    const parts = value.split(/{([^}]+)}/g).filter((s) => !!s);
 
-    return mapValues(rollField(defaultValue, tableData))(fields);
+    return parts.map(part => {
+        if (!contains(part)(headers)) return `${part}`;
+
+        const fieldArray = tableData[part];
+        if (!fieldArray) return part;
+
+        const rolledValue = rollField({ defaultResult, tableData, headers })(`d${fieldArray.length}:${part}`);
+
+        return rolledValue || part;
+    })
+    .join('');
+};
+
+const rollField = ({ defaultResult, tableData, fields, headers }) => (value) => {
+    const fieldValue = rollFieldValue({ defaultResult, tableData, headers })(value);
+
+    if (fieldValue && hasCurlyBrace(fieldValue)) {
+        return iterpolateField({ defaultResult, tableData, fields, headers })(fieldValue);
+    }
+
+    return fieldValue;
+};
+
+const getResult = ({ tableData, fields, headers }) => {
+    const defultRoll = fields['~~roll'] || `d${tableData[headers[0]].length}`;
+    const defaultResult = droll.roll(defultRoll).total - 1;
+
+    return mapValues(rollField({ defaultResult, tableData, fields, headers }))(omitMetaValues(fields));
 };
 
 class TableRoller extends Component {
     state = { results: [] };
 
     componentDidMount() {
-        if (!this.props.table) return;
+        const { table = '', data } = this.props;
 
-        const table = findTable(this.props.table);
-        const { headers, tableData } = parseTable(table);
+        let allHeaders = [];
+        let allData = {};
 
-        this.setState({ headers, tableData });
+        const tablesIds = table.split(',');
+        tablesIds.forEach((tableId) => {
+            const tableDom = findTable(tableId);
+            const { headers, tableData } = parseTable(tableDom);
+
+            allHeaders = [...allHeaders, ...headers];
+            allData = {...allData, ...tableData};
+        })
+
+        const additionalData = data && JSON.parse(data) || {};
+
+        allHeaders = [...allHeaders, ...Object.keys(additionalData)];
+        allData = {...allData, ...additionalData};
+
+        this.setState({
+            headers: allHeaders,
+            tableData: allData,
+        });
     }
 
     rollResult(fields) {
         try {
-            const { tableData = [{}], headers = [], results } = this.state;
+            const { tableData = {}, headers = [], results } = this.state;
 
             const fieldsWithDefault = fields || headers.reduce((acc, header) => ({ ...acc, [header]: header }), {});
 
             const resultType = fields['~~resultType'] || 'replace';
-            const result = omitMetaValues(getResult({ tableData, fields: fieldsWithDefault }));
-
+            const result = getResult({ tableData, headers, fields: fieldsWithDefault });
 
             this.setState({
                 results: resultType === 'append' ?
@@ -100,6 +146,7 @@ class TableRoller extends Component {
                     [result],
             });
         } catch (error) {
+            console.error(error);
             this.setState({ error });
         }
     }

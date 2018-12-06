@@ -15,14 +15,19 @@ Like the table of animals, this generator is designed to create interesting, gam
 
 <br/><br/>
 
-<table-roller table="settlements" buttons='[["What is this place?", {
-    "Size": "Farm/manor – 1-3 families|Crossroads – 3-4 families|Hamlet – 50-150 people|Village – 150-300 people|Town – 300-1000 people|City – 1000+ people",
+<table-roller table="settlements,names,name-extras" buttons='[["What is this place?", {
+    "Size": "d6:Size",
     "Environs": "d20:Environs",
     "People": "d20:People",
     "Notable building": "d20:Building",
     "Primary industry": "d20:Industry",
     "Event": "d20:Event"
-}]]'></table-roller>
+}], ["What is it called?", {
+    "~~resultType": "append",
+    "Name": "d6:Structure (d6)"
+}]]' data='{
+    "Size": ["Farm/manor – 1-3 families","Crossroads – 3-4 families","Hamlet – 50-150 people","Village – 150-300 people","Town – 300-1000 people","City – 1000+ people"]
+}'></table-roller>
 
 ## 5d20 Settlements
 
@@ -50,3 +55,47 @@ Like the table of animals, this generator is designed to create interesting, gam
 | 18 | Between high white karst hills, bursting out of the forest | Make pungent cheese, cured for years | Unnervingly tall and twisted wooden tower | Tannery, stinking of blood and piss | A wizard's walking tower has planted itself nearby |
 | 19 | On the banks of a wide, slow river | Are mostly children | Strong, squat tower of stone | Kiln for lacquered porcelain | Seasonal festival, shirtless revelers and drunkenness |
 | 20 | Atop the ruins of an ancient factory | Are mostly elders | Repurposed tower of glass and steel, built by the ancients | Wizard's tower, travelers coming to seek help | Baronial levy is called, tax collectors stalk the streets |
+
+## Bonus table: Settlement names
+
+<div data-table-marker="names"></div>
+
+| d20 | Structure (d6)            | History         | Thing            | Place     |
+|-----|---------------------------|-----------------|------------------|-----------|
+| 1   | {Thing} {Place}           | New             | Tree             | River     |
+| 2   | {History} {Place}         | Old             | Oak              | Pond      |
+| 3   | {History} {Thing} {Place} | Broken          | Jasmine          | Lake      |
+| 4   | {Place} {Place}           | Gallows         | Jade             | Beach     |
+| 5   | {Thing} {Thing} {Place}   | Shield          | Rice             | Spring    |
+| 6   | {History} {Thing} {Place} | Bloody          | Sword            | Mountain  |
+| 7   |                           | Hidden          | Arrow            | Hill      |
+| 8   |                           | White           | Petal            | Creek     |
+| 9   |                           | Blue            | Pine             | Swamp     |
+| 10  |                           | Yellow          | Maple            | Boulder   |
+| 11  |                           | Banner          | Blossom          | Field     |
+| 12  |                           | Typhoon         | Cherry           | Village   |
+| 13  |                           | Friendship      | Mill             | Bridge    |
+| 14  |                           | Sunset          | Stone            | Farm      |
+| 15  |                           | Dawn            | Rock             | Tower     |
+| 16  |                           | Ancient         | Iron             | Road      |
+| 17  |                           | Silver          | Gold             | Bluff     |
+| 18  |                           | Skull           | Glass            | Harbor    |
+| 19  |                           | {Direction}     | {Animal}         | Town      |
+| 20  |                           | {Festival}      | {Monster}        | Castle    |
+
+### Table of extra bits
+
+... this got bigger than I planned...
+
+<div data-table-marker="name-extras"></div>
+
+| d6  | Monster    | Animal     | Direction  | Festival     
+|-----|------------|------------|------------|-------------
+| 1   | Dragon     | Crab       | North      | Harvest      
+| 2   | Ogre       | Ox         | East       | Sowing       
+| 3   | Yon        | Eagle      | South      | Midsummer    
+| 4   | Ghost      | Duck       | West       | Solstice     
+| 5   | Banshee    | Eel        | Upper      | Midwinter    
+| 6   | Goblin     | Carp       | Lower      | All-gods     
+
+
