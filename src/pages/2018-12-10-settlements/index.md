@@ -15,7 +15,7 @@ Like the table of animals, this generator is designed to create interesting, gam
 
 <br/><br/>
 
-<table-roller table="settlements,names" buttons='[["What is this place?", {
+<table-roller table="settlements,sizes,names" buttons='[["What is this place?", {
     "Name": "Structure",
     "Size": "d6:Size",
     "Environs": "d20:Environs",
@@ -26,13 +26,11 @@ Like the table of animals, this generator is designed to create interesting, gam
 }], ["Just a name", {
     "~~resultType": "append",
     "Name": "Structure"
-}]]' data='{
-    "Size": ["Farm/manor – 1-3 families","Crossroads – 3-4 families","Hamlet – 50-150 people","Village – 150-300 people","Town – 300-1000 people","City – 1000+ people"]
-}'></table-roller>
+}]]'></table-roller>
 
 ## 5d20 Settlements
 
-<div data-table-marker="settlements"></div>
+<div data-table-marker="settlements" class="table-wide"></div>
 
 | d20 | Environs | People | Building | Industry | Event |
 |-----|----------|--------|----------|----------|-------|
@@ -58,6 +56,8 @@ Like the table of animals, this generator is designed to create interesting, gam
 | 20 | Atop the ruins of an ancient factory | Are mostly elders | Repurposed tower of glass and steel, built by the ancients | Wizard's tower, travelers coming to seek help | Baronial levy is called, tax collectors stalk the streets |
 
 ### Settlement size
+
+<div data-table-marker="sizes"></div>
 
 | d6  | Size    
 |-----|---------------
@@ -89,8 +89,8 @@ Like the table of animals, this generator is designed to create interesting, gam
 | 13  | {Thing A} {Thing B} {Place A}     | Typhoon    | Midsummer | Crab    | Witch     | Bridge    | Copse   |
 | 14  | {Thing B} {Thing A} {Place B}     | Friendship | Solstice  | Stone   | Wizard    | Farm      | Stand   |
 | 15  | {History A} {Thing B} {Place B}   | Sunset     | All-gods  | Cloud   | Willow    | Tower     | Village |
-| 16  | {History A} {Thing A} {Place A}   | Dawn       | Harvest   | Iron    | Pit       | Road      | Cliff   |
-| 17  | {History B} {Thing B} {Place A}   | Ancient    | Wishing   | Gold    | Mineral   | Bluff     | Cave    |
+| 16  | {History A} {Thing A} {Place A}   | Dawn       | Harvest   | Iron    | Machine   | Road      | Cliff   |
+| 17  | {History B} {Thing B} {Place A}   | Ancient    | Wailing   | Gold    | Mineral   | Bluff     | Cave    |
 | 18  | {History A} {History B} {Place A} | Lost       | Wailing   | Glass   | Copper    | Harbor    | Gate    |
-| 19  | {History A} {Place A} {Place B}   | Wounded    | Icy       | Tea     | Hoard     | Rock      | Bell    |
-| 20  | {History B} {Place B} {Place A}   | Singing    | Winding   | Crystal | Amber     | Castle    | Ring    |
+| 19  | {History A} {Place A} {Place B}   | Wounded    | Glowing   | Tea     | Hoard     | Rock      | Bell    |
+| 20  | {History B} {Place B} {Place A}   | Singing    | Winding   | Crystal | Amber     | Castle    | Works   |

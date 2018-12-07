@@ -144,7 +144,6 @@ const RichContent = styled.div`
     }
 
     table {
-        width: 100%;
         margin: 1em 0;
         box-sizing: content-box;
         border-spacing: 0.5em;
@@ -167,6 +166,10 @@ const RichContent = styled.div`
         tbody {
             tr: nth-child(odd) {
                 background-color: #eee;
+            }
+
+            tr:last-child {
+                border-bottom: 1px solid #eee;
             }
         }
 
