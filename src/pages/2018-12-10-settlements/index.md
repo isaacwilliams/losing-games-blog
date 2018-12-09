@@ -17,7 +17,7 @@ Like the table of animals, this generator is designed to create interesting, gam
 
 <table-roller table="settlements,sizes,names" buttons='[["What is this place?", {
     "Name": "Structure",
-    "Size": "d6:Size",
+    "Size": "2d6:lowest:Size",
     "Environs": "d20:Environs",
     "People": "d20:People",
     "Notable building": "d20:Building",
@@ -56,6 +56,8 @@ Like the table of animals, this generator is designed to create interesting, gam
 | 20 | Atop the ruins of an ancient factory | Are mostly elders | Repurposed tower of glass and steel, built by the ancients | Wizard's tower, travelers coming to seek help | Baronial levy is called, tax collectors stalk the streets |
 
 ### Settlement size
+
+Roll 2d6 and take the lowest value.
 
 <div data-table-marker="sizes"></div>
 

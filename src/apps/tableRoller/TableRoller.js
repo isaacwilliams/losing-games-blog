@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { toPairs, omit, mapKeys, mapValues, sample, reduce, omitBy, startsWith } from 'lodash/fp';
+import {
+    toPairs,
+    omit,
+    mapKeys,
+    mapValues,
+    sample,
+    reduce,
+    omitBy,
+    startsWith,
+    min,
+    max,
+} from 'lodash/fp';
+
 import droll from 'droll';
 
 import parseTable from './parseTable';
@@ -46,7 +58,6 @@ const splitColon = (string) => string.split(':');
 
 const hasCurlyBrace = contains('{');
 
-
 const omitMetaValues = omitBy((_, key) => startsWith('~~', key));
 
 const findTable = (markerId) => {
@@ -54,14 +65,30 @@ const findTable = (markerId) => {
     return tableMarker.nextElementSibling;
 };
 
+const rollDice = (dice, directive) => {
+    const roll = droll.roll(dice);
+
+    switch (directive) {
+        case 'lowest':
+            return min(roll.rolls);
+        case 'highest':
+            return max(roll.rolls);
+        default:
+            return roll.total;
+    }
+}
+
 const rollFieldValue = ({ defaultResult, tableData, headers }) => (value) => {
     if (contains(value)(headers)) {
         return tableData[value][defaultResult];
     }
 
     if (hasColon(value)) {
-        const [dice, key] = splitColon(value);
-        const roll = droll.roll(dice).total - 1;
+        const [dice, val1, val2] = splitColon(value);
+        const key = val2 || val1;
+        const directive = val2 ? val1 : undefined;
+
+        const roll = rollDice(dice, directive) - 1;
         return tableData[key][roll];
     }
 
