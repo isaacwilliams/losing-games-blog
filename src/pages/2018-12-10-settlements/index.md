@@ -1,5 +1,5 @@
 ---
-date: "2018-12-10T18:00"
+date: "2018-12-10T13:15"
 title: "Gloaming Lands 2: Settlements"
 tags: ["random tables", "gloaming lands", "setting", "rules"]
 published: "true"
