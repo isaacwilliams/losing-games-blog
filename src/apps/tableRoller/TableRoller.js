@@ -97,18 +97,23 @@ const rollFieldValue = ({ defaultResult, tableData, headers }) => (value) => {
 
     const diceRoll = droll.roll(value).total;
     if (diceRoll) return diceRoll.toString();
+
+    return value;
 };
 
 const iterpolateField = ({ defaultResult, tableData, fields, headers }) => (value) => {
     const parts = value.split(/{([^}]+)}/g).filter((s) => !!s);
 
     return parts.map(part => {
-        if (!contains(part)(headers)) return `${part}`;
+        if (!contains(part)(headers)) {
+            const rolledValue = rollFieldValue({ defaultResult, tableData, headers })(part);
+            if (rolledValue) return rolledValue;
+        };
 
         const fieldArray = tableData[part];
         if (!fieldArray) return part;
 
-        const rolledValue = rollField({ defaultResult, tableData, headers })(`d${fieldArray.length}:${part}`);
+        const rolledValue = rollFieldValue({ defaultResult, tableData, headers })(`d${fieldArray.length}:${part}`);
 
         return rolledValue || part;
     })
