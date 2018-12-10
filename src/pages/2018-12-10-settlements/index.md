@@ -1,34 +1,69 @@
 ---
 date: "2018-12-10T18:00"
 title: "Gloaming Lands 2: Settlements"
-tags: ["random tables", "gloaming lands", "setting"]
-published: "false"
+tags: ["random tables", "gloaming lands", "setting", "rules"]
+published: "true"
 ---
 
 <div class="image-container right">
     <img src="./tokyo-rain.jpg" title="<a href='https://en.wikipedia.org/wiki/Hasui_Kawase'>Hasui Kawase</a>" />
 </div>
 
-The Gloaming Lands are a wild place, a place deeply etched with disaster. The peoples that populate it keep to the safety of their settlements. Most people will never travel further than the next two or three villages along. Wanderers are looked upon with distrust.
+The Gloaming Lands are a place deeply etched with disaster. It is (like [many OSR settings](http://udan-adan.blogspot.com/2016/09/osr-aesthetics-of-ruin.html)) a post apocalyptic setting. The cycle of civilisation and destruction creates room for mystery and adventure that can be easily understood (and exploited) by players.
 
-Like the table of animals, this generator is designed to create interesting, gameable situations with a minimum of reading.
+It is, however, not a bleak, picked-over post-apocalypse. The last true disaster is now but a distant story kept alive by the lorespeakers. Lush forests grow between massive shards nuclear-frozen glass. Herds of deer drink from clear crater lakes. Peoples dot the land, working away in the safety of their settlements.
 
-<br/><br/>
+These tables provide a set of tools for creating those settlements. The settlements themselves are lightly detailed, hopefully providing the GM and players with just enough to describe a location and hint at a hook or two.
+
+A future post will detail a quick procedure for generating a pointcrawl between settlements. 
 
 <table-roller table="settlements,sizes,names" buttons='[["What is this place?", {
-    "Name": "Structure",
+    "Name": "d10:Structure (d10)",
     "Size": "2d6:lowest:Size",
     "Environs": "d20:Environs",
     "People": "d20:People",
     "Notable building": "d20:Building",
     "Primary industry": "d20:Industry",
     "Event": "d20:Event"
-}], ["Just a name", {
+}], ["Add building", {
     "~~resultType": "append",
-    "Name": "Structure"
+    "~~buttonStyle": "secondary",
+    "Notable building": "d20:Building"
+}], ["Add industry", {
+    "~~resultType": "append",
+    "~~buttonStyle": "secondary",
+    "Secondary industry": "d20:Industry"
+}], ["Add event", {
+    "~~resultType": "append",
+    "~~buttonStyle": "secondary",
+    "Event": "d20:Event"
 }]]'></table-roller>
 
-## 5d20 Settlements
+## Settlement tables
+
+### Settlement size
+
+Roll 2d6 and take the lowest value.
+
+[Very few](https://anydice.com/program/c91) settlements are larger than a few hundred people. Smaller settlements pay dues to—and are protected by—a baron or nearby city. Cities are often large enough to support their own standing milita, and some even buy full independence from the system of baronial rent.
+
+<div data-table-marker="sizes"></div>
+
+| d6  | Size    
+|-----|---------------
+| 1   | Farm/manor – 1-3 families
+| 2   | Crossroads – 3-5 families
+| 3   | Hamlet – 50-150 people
+| 4   | Village – 150-300 people
+| 5   | Town – 300-1000 people
+| 6   | City – 1000+ people
+
+### Settlement details
+
+For all settlements, Roll 1d20 for each column.
+
+- **Towns:** Roll an additional time on either the **Building**, **Industry** or **Event** column.
+- **Cities:** Roll an additional time on each of the **Building**, **Industry** and **Event** columns.
 
 <div data-table-marker="settlements" class="table-wide"></div>
 
@@ -50,49 +85,36 @@ Like the table of animals, this generator is designed to create interesting, gam
 | 14 | Overgrown with rare flowers | All descended from a single matriarch | Ornate wooden bridge, guarded by statues | Glassblower's workshop | Local baron holding a recruitment drive for their milita |
 | 15 | Amongst giant, moss-covered boulders | Believe cutting their hair is bad luck | Ancient bridge of concrete and steel, reinforced with wood | Workshop for fine wooden crafts | A public execution is taking place |
 | 16 | Nearby animals are strangely intelligent | Keep regimented hours of work and prayer | Shell or skull of a massive beast | Wool mill, draped in brightly-dyed cutoffs | A public trial is taking place |
-| 17 | On a baronial border - half the folk pledge loyalty to another baron | Wear finely-embroidered clothes | Grand hall built on stilts over a lake | Silk mill and tailor of fine clothes | A flying machine slowly drifts far above the clouds |
+| 17 | A field of enormous glass shards, blindingly bright at sunset and dawn | Wear finely-embroidered clothes | Grand hall built on stilts over a lake | Silk mill and tailor of fine clothes | A flying machine slowly drifts far above the clouds |
 | 18 | Between high white karst hills, bursting out of the forest | Make pungent cheese, cured for years | Unnervingly tall and twisted wooden tower | Tannery, stinking of blood and piss | A wizard's walking tower has planted itself nearby |
 | 19 | On the banks of a wide, slow river | Are mostly children | Strong, squat tower of stone | Kiln for lacquered porcelain | Seasonal festival, shirtless revelers and drunkenness |
 | 20 | Atop the ruins of an ancient factory | Are mostly elders | Repurposed tower of glass and steel, built by the ancients | Wizard's tower, travelers coming to seek help | Baronial levy is called, tax collectors stalk the streets |
 
-### Settlement size
-
-Roll 2d6 and take the lowest value.
-
-<div data-table-marker="sizes"></div>
-
-| d6  | Size    
-|-----|---------------
-| 1   | Farm/manor – 1-3 families
-| 2   | Crossroads – 3-4 families
-| 3   | Hamlet – 50-150 people
-| 4   | Village – 150-300 people
-| 5   | Town – 300-1000 people
-| 6   | City – 1000+ people
-
 ### Settlement names
+
+Roll d10 for the structure of the name, then a d20 for each column indicated by the structure. Names will probably need a bit of massaging for mouthfeel. 
 
 <div data-table-marker="names"></div>
 
-| d20 | Structure                         | History A  | History B | Thing A | Thing B   | Place A   | Place B |
-|-----|-----------------------------------|------------|-----------|---------|-----------|-----------|---------|
-| 1   | {Thing A} {Place A}               | New        | North     | Tree    | Ox        | River     | Falls   |
-| 2   | {Thing A} {Place B}               | Old        | East      | Oak     | Eagle     | Pond      | Heights |
-| 3   | {Thing B} {Place A}               | Broken     | South     | Jasmine | Crab      | Lake      | Ruins   |
-| 4   | {Thing B} {Place B}               | Gallows    | West      | Jade    | Eel       | Beach     | Keep    |
-| 5   | {History A} {Place A}             | Shield     | Upper     | Rice    | Carp      | Spring    | House   |
-| 6   | {History A} {Place B}             | Bloody     | Lower     | Rose    | Ape       | Mountain  | Manor   |
-| 7   | {History B} {Place A}             | Hidden     | Dragon    | Arrow   | Monkey    | Hill      | Well    |
-| 8   | {History B} {Place B}             | White      | Ogre      | Petal   | Skull     | Creek     | Hole    |
-| 9   | {History A} {Thing A}             | Blue       | Lord's    | Pine    | Forge     | Swamp     | Trail   |
-| 10  | {History B} {Thing B}             | Yellow     | Ghostly   | Maple   | Sword     | Boulder   | Baths   |
-| 11  | {Place A} {Place B}               | Green      | Hell's    | Blossom | Horseshoe | Field     | Woods   |
-| 12  | {History A} {History B}           | Banner     | Heavenly  | Cherry  | Anvil     | Peninsula | Forest  |
-| 13  | {Thing A} {Thing B} {Place A}     | Typhoon    | Midsummer | Crab    | Witch     | Bridge    | Copse   |
-| 14  | {Thing B} {Thing A} {Place B}     | Friendship | Solstice  | Stone   | Wizard    | Farm      | Stand   |
-| 15  | {History A} {Thing B} {Place B}   | Sunset     | All-gods  | Cloud   | Willow    | Tower     | Village |
-| 16  | {History A} {Thing A} {Place A}   | Dawn       | Harvest   | Iron    | Machine   | Road      | Cliff   |
-| 17  | {History B} {Thing B} {Place A}   | Ancient    | Wailing   | Gold    | Mineral   | Bluff     | Cave    |
-| 18  | {History A} {History B} {Place A} | Lost       | Wailing   | Glass   | Copper    | Harbor    | Gate    |
-| 19  | {History A} {Place A} {Place B}   | Wounded    | Glowing   | Tea     | Hoard     | Rock      | Bell    |
-| 20  | {History B} {Place B} {Place A}   | Singing    | Winding   | Crystal | Amber     | Castle    | Works   |
+| d20 | Structure (d10)               | History A  | History B | Thing A | Thing B   | Place    |
+|-----|-------------------------------|------------|-----------|---------|-----------|----------|
+| 1   | {Thing A} {Place}             | New        | North     | Tree    | Ox        | River    |
+| 2   | {Thing B} {Place}             | Old        | East      | Oak     | Eagle     | Pond     |
+| 3   | {History A} {Place}           | Broken     | South     | Jasmine | Crab      | Lake     |
+| 4   | {History B} {Place}           | Gallows    | West      | Jade    | Eel       | Manor    |
+| 5   | {History A} {Thing A}         | Shield     | Upper     | Rice    | Carp      | Spring   |
+| 6   | {History B} {Thing B}         | Bloody     | Lower     | Rose    | Ape       | Mountain |
+| 7   | {Thing A} {Thing B} {Place}   | Hidden     | Dragon    | Arrow   | Monkey    | Hill     |
+| 8   | {Thing B} {Thing A} {Place}   | White      | Ogre      | Petal   | Skull     | Creek    |
+| 9   | {History A} {Thing A} {Place} | Blue       | Lord's    | Pine    | Forge     | Swamp    |
+| 10  | {History B} {Thing B} {Place} | Yellow     | Ghostly   | Maple   | Sword     | Gate     |
+| 11  |                               | Green      | Hell's    | Blossom | Horseshoe | Field    |
+| 12  |                               | Banner     | Heavenly  | Cherry  | Anvil     | Woods    |
+| 13  |                               | Typhoon    | Midsummer | Crab    | Witch     | Bridge   |
+| 14  |                               | Friendship | Solstice  | Stone   | Wizard    | Farm     |
+| 15  |                               | Sunset     | All-gods  | Cloud   | Willow    | Tower    |
+| 16  |                               | Dawn       | Harvest   | Iron    | Machine   | Road     |
+| 17  |                               | Ancient    | Wailing   | Gold    | Mineral   | Bluff    |
+| 18  |                               | Lost       | Wailing   | Glass   | Copper    | Harbor   |
+| 19  |                               | Wounded    | Glowing   | Tea     | Hoard     | Rock     |
+| 20  |                               | Singing    | Winding   | Crystal | Amber     | Castle   |
