@@ -20,6 +20,14 @@ export const StyledButtonsContainer = styled.div`
 `
 export const RollerButton = styled(Button)`
     margin-right: 0.5rem;
+
+    &.secondary {
+        background: grey;
+
+        &:hover {
+            background: red;
+        }
+    }
 `
 
 export const StyledResult = styled.div`

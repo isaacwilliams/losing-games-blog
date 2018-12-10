@@ -30,9 +30,12 @@ import AppErrorBoundary, { ErrorContainer } from '../AppErrorBoundry';
 
 const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
-        {buttons.map(([title, fields], i) => (
-            <RollerButton key={i} onClick={() => rollResult(fields)}>{title}</RollerButton>
-        ))}
+        {buttons.map(([title, fields], i) => {
+            const buttonClass = fields['~~buttonStyle'];
+            return (
+                <RollerButton key={i} onClick={() => rollResult(fields)} className={buttonClass}>{title}</RollerButton>
+            );
+        })}
     </StyledButtonsContainer>
 );
 
