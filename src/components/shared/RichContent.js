@@ -152,6 +152,10 @@ const RichContent = styled.div`
 
         td, th {
             padding: 0.4em 0.5em;
+
+            &:first-child {
+                white-space: nowrap;
+            }
         }
 
         th {

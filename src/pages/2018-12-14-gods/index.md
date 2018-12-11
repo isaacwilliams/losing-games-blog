@@ -39,7 +39,7 @@ Stat a god as a magic user of level equivalent to it's HD.
 |-------|---------------|--------------------------------------|-----------------------------------|
 | 3     | Dog           | Annual bacchanal                     | Ruined or forgotten               |
 | 4-5   | Man           | Seasonal festivals                   | Poorly maintained                 |
-| 6-8   | Bear          | Rituals timed the cycles of the moon | Small, not notable                |
+| 6-8   | Bear          | Timed with cycles of the moon        | Small, not notable                |
 | 9-12  | Wagon         | Weekly rituals                       | Well maintained                   |
 | 13-15 | House         | Daily rituals                        | Large and ornate                  |
 | 16-17 | Castle        | Deeply ingrained into everyday life  | On every corner                   |
@@ -49,7 +49,7 @@ Stat a god as a magic user of level equivalent to it's HD.
 
 #### Rituals
 
-Each god has a ritual, and a focus of that ritual. The exact meaning and details of this should be interpreted by the GM when required.
+Each god has a ritual, and a focus of that ritual. The exact details of this ritual and how it is practiced should be interpreted by the GM when required.
 
 <div data-table-marker="gods"></div>
 
