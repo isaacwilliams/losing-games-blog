@@ -1,7 +1,7 @@
 ---
 date: "2018-12-14T18:00"
 title: "Gloaming Lands 3: Gods"
-tags: ["random tables", "gloaming lands", "setting"]
+tags: ["random tables", "gloaming lands", "setting", "rules"]
 published: "false"
 ---
 
@@ -25,23 +25,31 @@ Minor gods dot the Gloaming Lands. Each [settlement](/2018-12-10-settlements) wi
     "Attitude": ["","Wrathful","Hostile","Hostile","Hostile","Ambivalent","Ambivalent","Ambivalent","Benign","Benign","Benign","Friendly"]
 }'></table-roller>
 
-Animals from [here](/2018-12-6-animals).
-
 ## Table of Gods
 
 ### God Power
 
-Roll 3d6 for a god's Power.
+Roll 3d6 for a god's HD.
 
-The Power of a god defines several things about it — it's Hit Dice, the size it presents itself to people, and the level of devotion it expects from the people within its realm.
+The HD of a god defines several things about it — it's power to act, the size it presents itself to people, and the level of devotion it expects from the people within its realm.
 
-| 2d6      | Power level    | Rituals
-|----------|----------------|--------
-| 3-7      | Personal       | Rare. Practiced at seasonal festivals.
-| 8-13     |                | 
-| 14-18    |                | Constant. Deeply ingrained into life. 
+Stat a god as a magic user of level equivalent to it's HD.
+
+| HD    | Physical size | Rituals                              | Shrines                           |
+|-------|---------------|--------------------------------------|-----------------------------------|
+| 3     | Dog           | Annual bacchanal                     | Ruined or forgotten               |
+| 4-5   | Man           | Seasonal festivals                   | Poorly maintained                 |
+| 6-8   | Bear          | Rituals timed the cycles of the moon | Small, not notable                |
+| 9-12  | Wagon         | Weekly rituals                       | Well maintained                   |
+| 13-15 | House         | Daily rituals                        | Large and ornate                  |
+| 16-17 | Castle        | Deeply ingrained into everyday life  | On every corner                   |
+| 18    | Mountain      | Unceasing rituals                    | Settlements are just huge shrines |
 
 ### God details
+
+#### Rituals
+
+Each god has a ritual, and a focus of that ritual. The exact meaning and details of this should be interpreted by the GM when required.
 
 <div data-table-marker="gods"></div>
 
@@ -66,16 +74,44 @@ This is the god's base attitude to the peoples and settlements within the area i
 
 Roll with a -1 modifier if there are any cities or heavy industry within the area.
 
-Roll with a +1 modifier if the people in the area are particularly pious.
+Roll with a +1 modifier if the people in the area are particularly pious (beyond the base demanded by the god's HD).
 
 | 2d6  | Attitude          | Detail
 |------|-------------------|-------------------------
 | 2    | Wrathful          | The realm is blighted by the god's domain.
 | 3-5  | Hostile           | The god will blight the realm when their rituals are not observed.
-| 6-8  | Ambivalent        | -
+| 6-8  | Ambivalent        | The god mostly ignores the people of it's realm.
 | 9-11 | Benign            | The god will grant blessings when their rituals are observed.
 | 12   | Friendly          | The realm is blessed by the god's domain.
 
-## Killing a god
+## Example gods
 
-Stat a god as a magic user of equivalent level to it's HD, with physical stats.
+### Fuun, who keeps the stars
+
+**Power:** 12 HD  
+**Attitude:** Friendly  
+**Domain:** Sky, Stars  
+**Form:** Deer, shaped by domain  
+**Ritual:** Consecration  
+**Ritual focus:** Water  
+
+**Fuun, who keeps the stars** appears as a deer as big as a wagon, with a shimmering night-black pelt and antlers that fizz and spit like a shooting star caught in mid-flight.
+
+The people within the realm of **Fuun** hold weekly rituals, at midnight on the seventh day, in well-maintained shrines at the forest's edge.
+
+Each shrine contains a large, still pool of holy water, which is filled fresh from the river and consecrated with sacred smoke. The people watch in silence as **Fuun** drinks from the holy pool. In return for their devotion, the people are blessed with the ability to read the stars with great accuracy, and are renowned for their abilities as fortune tellers.
+
+### Kree-ook, devourer of all
+
+**Power:** 9 HD  
+**Attitude:** Hostile  
+**Domain:** Food, Fertility  
+**Form:** Frog, twisted proportions  
+**Ritual:** Acquisition  
+**Ritual focus:** Liquor  
+
+**Kree-ook, devourer of all** appears as a massive drunken frog, as big as a cart. His tongue is ridiculously long, and he keeps it wrapped around his body like a scarf.
+
+The shrines within **Kree-ook's** realm resemble beautiful, ornate, loading docks, built all around at the edges of White Monkey Lake. Every week the people of the realm bring forth vast quantities of rice wine and roll the bottles down into the lake.
+
+If the people fail to bring **Kree-ook** the wine he demands, plagues of frogs ascend from the lake, destroying crops in their wake.
