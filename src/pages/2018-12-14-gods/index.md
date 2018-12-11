@@ -2,12 +2,16 @@
 date: "2018-12-14T18:00"
 title: "Gloaming Lands 3: Gods"
 tags: ["random tables", "gloaming lands", "setting", "rules"]
-published: "false"
+published: "true"
 ---
+
+<div class="image-container right">
+    <img src="./gods-forest.jpg" title="<a href='https://www.rafaelvarona.com/'>Rafael Varona</a>" />
+</div>
 
 Gods are the rulers of the places between where men dwell. The deep forests, caves and ruins.
 
-Minor gods dot the Gloaming Lands. Each [settlement](/2018-12-10-settlements) will have a shrine and practice rituals to appease their local spirit and keep it at bay. Some gods have sympathy for the plight of man. Some are hostile. Most are ambivalent. They are concerned with the preservation of their own power.
+Minor gods dot the Gloaming Lands. Each [settlement](/2018-12-10-settlements) will have a shrine and practice rituals to appease their local spirit and keep it at bay. Some gods have sympathy for the plight of man. Some are hostile. Most are ambivalent, concerned only with the preservation of their own power.
 
 <table-roller table="gods" buttons='[["What god is here?", {
     "Power": "{3d6} HD",
@@ -31,7 +35,7 @@ Minor gods dot the Gloaming Lands. Each [settlement](/2018-12-10-settlements) wi
 
 Roll 3d6 for a god's HD.
 
-The HD of a god defines several things about it — it's power to act, the size it presents itself to people, and the level of devotion it expects from the people within its realm.
+The HD of a god defines several things about it — it's power to act, the physical size it presents itself to people, the size of the realm it controls and the level of devotion it expects from the people within its realm.
 
 Stat a god as a magic user of level equivalent to it's HD.
 
@@ -86,7 +90,11 @@ Roll with a +1 modifier if the people in the area are particularly pious (beyond
 
 ## Example gods
 
-### Fuun, who keeps the stars
+### Fulun, who keeps the stars
+
+<div class="image-container right">
+    <img src="./deer-god.jpg" title="<a href='https://www.rafaelvarona.com/'>Rafael Varona</a>" />
+</div>
 
 **Power:** 12 HD  
 **Attitude:** Friendly  
@@ -95,11 +103,11 @@ Roll with a +1 modifier if the people in the area are particularly pious (beyond
 **Ritual:** Consecration  
 **Ritual focus:** Water  
 
-**Fuun, who keeps the stars** appears as a deer as big as a wagon, with a shimmering night-black pelt and antlers that fizz and spit like a shooting star caught in mid-flight.
+**Fulun, who keeps the stars** appears as a deer as big as a wagon, with a shimmering night-black pelt and antlers that fizz and spit like a shooting star caught in mid-flight.
 
-The people within the realm of **Fuun** hold weekly rituals, at midnight on the seventh day, in well-maintained shrines at the forest's edge.
+The people within the realm of **Fulun** hold weekly rituals, at midnight on the seventh day, in well-maintained shrines at the forest's edge.
 
-Each shrine contains a large, still pool of holy water, which is filled fresh from the river and consecrated with sacred smoke. The people watch in silence as **Fuun** drinks from the holy pool. In return for their devotion, the people are blessed with the ability to read the stars with great accuracy, and are renowned for their abilities as fortune tellers.
+Each shrine contains a large, still pool of holy water, which is filled fresh from the river and consecrated with sacred smoke. The people watch in silence as **Fulun** drinks from the holy pool. In return for their devotion, the people are blessed with the ability to read the stars with great accuracy, and are renowned for their abilities as fortune tellers.
 
 ### Kree-ook, devourer of all
 
