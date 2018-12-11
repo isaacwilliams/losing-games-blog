@@ -74,7 +74,7 @@ This is the god's base attitude to the peoples and settlements within the area i
 
 Roll with a -1 modifier if there are any cities or heavy industry within the area.
 
-Roll with a +1 modifier if the people in the area are particularly pious (beyond the base demanded by the god's HD).
+Roll with a +1 modifier if the people in the area are particularly pious (beyond the what is demanded by the god's HD).
 
 | 2d6  | Attitude          | Detail
 |------|-------------------|-------------------------
