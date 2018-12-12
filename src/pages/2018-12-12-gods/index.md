@@ -20,16 +20,13 @@ The further away from settlements and civilised places you travel, the more a go
     "Power": "{3d6} HD",
     "Attitude": "2d6:Attitude",
     "Domain": "d10:Domain (d10)",
-    "Form": "d8:Form (d8)",
+    "Form": "d8:Form",
     "Ritual": "d6:Ritual (d6)",
     "Ritual focus": "d12:Ritual focus (d12)"
-}], ["Random animal", {
-    "~~resultType": "append",
-    "~~buttonStyle": "secondary",    
-    "Animal": "Animal"
 }]]' data='{
     "Animal": ["Ox","Chicken","Duck","Carp","Horse","Monkey","Crocodile","Ape","Deer","Eagle","Raven","Frog","Crab","Snake","Eel","Fox","Dog","Cat","Bat","Crane"],
-    "Attitude": ["","Wrathful","Hostile","Hostile","Hostile","Ambivalent","Ambivalent","Ambivalent","Benign","Benign","Benign","Friendly"]
+    "Attitude": ["","Wrathful","Hostile","Hostile","Hostile","Ambivalent","Ambivalent","Ambivalent","Benign","Benign","Benign","Friendly"],
+    "Form": ["Human, {Animal} features", "Human, twisted proportions", "Human, shaped by domain", "{Animal}, human features", "{Animal}, twisted proportions", "{Animal}, shaped by domain", "Monstrous", "Formless"]
 }'></table-roller>
 
 ## Making a god
