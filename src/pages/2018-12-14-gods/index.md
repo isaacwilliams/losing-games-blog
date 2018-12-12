@@ -13,6 +13,8 @@ Gods are the rulers of the places between where men dwell. The deep forests, cav
 
 Minor gods dot the Gloaming Lands. Each [settlement](/2018-12-10-settlements) will have a shrine and practice rituals to appease their local spirit and keep it at bay. Some gods have sympathy for the plight of man. Some are hostile. Most are ambivalent, concerned only with the preservation of their own power.
 
+The further away from settlements and civilised places you travel, the more a god will make it's power known. Travelers through the realm of a hostile god will be expected to bring offerings and complete the god's required rituals to pass without suffering the god's wrath. 
+
 <table-roller table="gods" buttons='[["What god is here?", {
     "Power": "{3d6} HD",
     "Attitude": "2d6:Attitude",
