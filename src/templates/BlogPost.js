@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import PageLayout from '../components/layout/PageLayout';
 import styled from 'styled-components';
 import rehypeReact from 'rehype-react';

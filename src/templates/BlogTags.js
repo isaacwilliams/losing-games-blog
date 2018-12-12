@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import { capitalize } from 'lodash';
 import styled from 'styled-components';
 import * as colors from '../components/styles/colors';
@@ -46,7 +46,7 @@ const PostTitle = styled(ListingTitle)`
     display: inline;
 `;
 
-const TagPageTitle = styled(PageTitle)`    
+const TagPageTitle = styled(PageTitle)`
     &:before, &:after {
         content: '⨳ ⨳ ⨳';
     }
