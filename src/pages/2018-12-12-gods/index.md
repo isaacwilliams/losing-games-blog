@@ -2,6 +2,7 @@
 date: "2018-12-12T20:22"
 title: "Gloaming Lands 3: Gods"
 tags: ["random tables", "gloaming lands", "setting", "rules"]
+image: "./deer-god.jpg"
 published: "true"
 ---
 

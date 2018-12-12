@@ -2,6 +2,7 @@
 date: "2018-12-10T13:15"
 title: "Gloaming Lands 2: Settlements"
 tags: ["random tables", "gloaming lands", "setting", "rules"]
+image: "./tokyo-rain.jpg"
 published: "true"
 ---
 
@@ -15,7 +16,7 @@ It is, however, not a bleak, picked-over post-apocalypse. The last true disaster
 
 These tables provide a set of tools for creating those settlements. The settlements themselves are lightly detailed, hopefully providing the GM and players with just enough to describe a location and hint at a hook or two.
 
-A future post will detail a quick procedure for generating a pointcrawl between settlements. 
+A future post will detail a quick procedure for generating a pointcrawl between settlements.
 
 <table-roller table="settlements,sizes,names" buttons='[["What is this place?", {
     "Name": "d10:Structure (d10)",
@@ -92,7 +93,7 @@ For all settlements, Roll 1d20 for each column.
 
 ### Settlement names
 
-Roll d10 for the structure of the name, then a d20 for each column indicated by the structure. Names will probably need a bit of massaging for mouthfeel. 
+Roll d10 for the structure of the name, then a d20 for each column indicated by the structure. Names will probably need a bit of massaging for mouthfeel.
 
 <div data-table-marker="names"></div>
 
