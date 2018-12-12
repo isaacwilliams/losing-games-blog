@@ -51,7 +51,13 @@ Stat a god as a magic user of level equivalent to it's HD.
 | 16-17 | Castle        | Deeply ingrained into everyday life  | On every corner                   |
 | 18    | Mountain      | Unceasing rituals                    | Settlements are just huge shrines |
 
+**Optional rule for more variety:** First roll, 3d6 for HD. Then calculate a -3 to +3 bonus from the HD as if it were a regular stat. Roll 3d6 for Size, Rituals and Shrines individually, applying this bonus to the rolls.
+
 ### God details
+
+#### Domain
+
+This is what the god has control over within its realm. Gods have a great interest in the control and preservation of the things within it's domain. This also is a guide as to form of the god's blessings and wrath.
 
 #### Rituals
 
@@ -76,7 +82,7 @@ Each god has a ritual, and a focus of that ritual. The exact details of this rit
 
 ### God attitude
 
-This is the god's base attitude to the peoples and settlements within the area it rules.
+Roll 2d6 for the god's attitude. This is the god's base disposition to the peoples and settlements within the area it rules.
 
 Roll with a -1 modifier if there are any cities or heavy industry within the area.
 
