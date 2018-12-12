@@ -31,9 +31,9 @@ The further away from settlements and civilised places you travel, the more a go
     "Attitude": ["","Wrathful","Hostile","Hostile","Hostile","Ambivalent","Ambivalent","Ambivalent","Benign","Benign","Benign","Friendly"]
 }'></table-roller>
 
-## Table of Gods
+## Making a god
 
-### God Power
+### Power
 
 Roll 3d6 for a god's HD.
 
@@ -53,7 +53,23 @@ Stat a god as a magic user of level equivalent to it's HD.
 
 **Optional rule for more variety:** First roll, 3d6 for HD. Then calculate a -3 to +3 bonus from the HD as if it were a regular stat. Roll 3d6 for Size, Rituals and Shrines individually, applying this bonus to the rolls.
 
-### God details
+### Attitude
+
+Roll 2d6 for the god's attitude. This is the god's base disposition to the peoples and settlements within the area it rules.
+
+Roll with a -1 modifier if there are any cities or heavy industry within the area.
+
+Roll with a +1 modifier if the people in the area are particularly pious (beyond the what is demanded by the god's HD).
+
+| 2d6  | Attitude          | Detail
+|------|-------------------|-------------------------
+| 2    | Wrathful          | The realm is blighted by the god's domain.
+| 3-5  | Hostile           | The god will blight the realm when their rituals are not observed.
+| 6-8  | Ambivalent        | The god mostly ignores the people of it's realm.
+| 9-11 | Benign            | The god will grant blessings when their rituals are observed.
+| 12   | Friendly          | The realm is blessed by the god's domain.
+
+### Details
 
 #### Domain
 
@@ -79,22 +95,6 @@ Each god has a ritual, and a focus of that ritual. The exact details of this rit
 | 10   | Wisdom, Learning      |                             |              | Knowledge          
 | 11   |                       |                             |              | Music              
 | 12   |                       |                             |              | Time               
-
-### God attitude
-
-Roll 2d6 for the god's attitude. This is the god's base disposition to the peoples and settlements within the area it rules.
-
-Roll with a -1 modifier if there are any cities or heavy industry within the area.
-
-Roll with a +1 modifier if the people in the area are particularly pious (beyond the what is demanded by the god's HD).
-
-| 2d6  | Attitude          | Detail
-|------|-------------------|-------------------------
-| 2    | Wrathful          | The realm is blighted by the god's domain.
-| 3-5  | Hostile           | The god will blight the realm when their rituals are not observed.
-| 6-8  | Ambivalent        | The god mostly ignores the people of it's realm.
-| 9-11 | Benign            | The god will grant blessings when their rituals are observed.
-| 12   | Friendly          | The realm is blessed by the god's domain.
 
 ## Example gods
 
