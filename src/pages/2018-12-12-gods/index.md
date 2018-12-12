@@ -57,7 +57,7 @@ Roll 2d6 for the god's attitude. This is the god's base disposition to the peopl
 
 Roll with a -1 modifier if there are any cities or heavy industry within the area.
 
-Roll with a +1 modifier if the people in the area are particularly pious (beyond the what is demanded by the god's HD).
+Roll with a +1 modifier if the people in the area are particularly pious (beyond what is demanded by the god's HD).
 
 | 2d6  | Attitude          | Detail
 |------|-------------------|-------------------------
@@ -71,7 +71,7 @@ Roll with a +1 modifier if the people in the area are particularly pious (beyond
 
 #### Domain
 
-This is what the god has control over within its realm. Gods have a great interest in the control and preservation their domain. This is also a guide as to form of the god's blessings and wrath.
+This is what the god has control over within its realm. Gods have a great interest in the control and preservation their domain. This is also a guide as to the form of the god's blessings and wrath.
 
 #### Rituals
 
