@@ -59,7 +59,7 @@ const RichContent = styled.div`
         text-align: center;
         font-size: 0.9rem;
         color: grey;
-        border: 1px solid lightgrey;
+        border: 1px solid #eee;
         border-top: 0;
 
         a {
