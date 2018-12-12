@@ -46,7 +46,7 @@ const PostTitle = styled(ListingTitle)`
     display: inline;
 `;
 
-const TagPageTitle = styled(PageTitle)`
+const TagPageTitle = styled(PageTitle)`    
     &:before, &:after {
         content: '⨳ ⨳ ⨳';
     }
@@ -65,15 +65,23 @@ export const PostDate = styled.div`
     `}
 `;
 
+const TagCount = styled.div`
+    color: grey;
+    text-align: center;
+    margin-top: 0.25rem;
+`;
+
 const BlogTags = ({ data, pageContext }) => {
     const posts = data.allMarkdownRemark.edges;
-    const postsName = posts.length === 1 ? 'post' : 'posts';
-    const pageTitle = `${capitalize(pageContext.tag)} (${posts.length} ${postsName})`;
+    const tagCount = `${posts.length} ${posts.length === 1 ? 'post' : 'posts'}`;
 
     return (
-        <PageLayout isIndexPage>
+        <PageLayout>
             <ListingContainer>
-                <TagPageTitle>{pageTitle}</TagPageTitle>
+                <PageHeader>
+                    <TagPageTitle>{capitalize(pageContext.tag)}</TagPageTitle>
+                    <TagCount>{tagCount}</TagCount>
+                </PageHeader>
                 {posts.map(({ node: post }) => (
                     <ListingItem key={post.id}>
                         <div>

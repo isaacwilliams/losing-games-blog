@@ -20,7 +20,7 @@ const BlogTagsIndex = ({ data }) => {
     const tags = data.allMarkdownRemark.group;
 
     return (
-        <PageLayout isIndexPage>
+        <PageLayout>
             <ListingContainer>
                 {tags.map(({ fieldValue, totalCount }) => (
                     <ListingItem key={fieldValue}>
