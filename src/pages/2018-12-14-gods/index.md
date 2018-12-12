@@ -128,6 +128,6 @@ Each shrine contains a large, still pool of holy water, which is filled fresh fr
 
 **Kree-ook, devourer of all** appears as a massive drunken frog, as big as a cart. His tongue is ridiculously long, and he keeps it wrapped around his body like a scarf.
 
-The shrines within **Kree-ook's** realm resemble beautiful, ornate, loading docks, built all around at the edges of White Monkey Lake. Every week the people of the realm bring forth vast quantities of rice wine and roll the bottles down into the lake. The people of this region will pay a very good price for strong liquor, as **Kree-ook** can never have too much.
+The shrines within **Kree-ook's** realm resemble beautiful, ornate, loading docks, built all around at the edges of White Monkey Lake. Every week the people of the realm bring forth vast quantities of rice wine and roll the bottles down into the lake. The people of this region will pay a very good price for strong liquor. They can never make enough to fully sate **Kree-ook's** thirst.
 
 If the people fail to bring **Kree-ook** the wine he demands, plagues of frogs ascend from the lake, destroying crops in their wake.
