@@ -57,7 +57,7 @@ Stat a god as a magic user of level equivalent to it's HD.
 
 #### Domain
 
-This is what the god has control over within its realm. Gods have a great interest in the control and preservation of the things within it's domain. This also is a guide as to form of the god's blessings and wrath.
+This is what the god has control over within its realm. Gods have a great interest in the control and preservation their domain. This is also a guide as to form of the god's blessings and wrath.
 
 #### Rituals
 
