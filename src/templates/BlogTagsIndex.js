@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import { kebabCase, capitalize } from 'lodash';
+
+import TagLink from '../components/shared/TagLink';
 
 import PageLayout from '../components/layout/PageLayout';
 
@@ -25,9 +26,7 @@ const BlogTagsIndex = ({ data }) => {
                 {tags.map(({ fieldValue, totalCount }) => (
                     <ListingItem key={fieldValue}>
                         <TagTitle>
-                            <Link to={`/tags/${kebabCase(fieldValue)}/`}>
-                                {capitalize(fieldValue)}
-                            </Link>
+                            <TagLink tag={fieldValue} />
                             {' '}
                             ({totalCount})
                         </TagTitle>

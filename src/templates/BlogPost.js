@@ -5,17 +5,17 @@ import styled from 'styled-components';
 import rehypeReact from 'rehype-react';
 import { get } from 'lodash/fp';
 
+import TagLink from '../components/shared/TagLink';
+
 import PageTitle from '../components/page/PageTitle';
 import PageHeader from '../components/page/PageHeader';
 import RichContent from '../components/shared/RichContent';
+import BlogPostTagsList from '../components/page/BlogPostTagsList';
 
 import LazyTableRoller from '../apps/tableRoller/LazyTableRoller';
 import LazyPortraitGenerator from '../apps/portraitGenerator/LazyPortraitGenerator';
 
 const getImageUrl = get(['frontmatter', 'image', 'childImageSharp', 'fluid', 'src']);
-
-const PostContainer = styled.article`
-`
 
 const PostDate = styled.div`
     color: grey;
@@ -36,9 +36,11 @@ const Template = ({ data }) => {
 
     const imageUrl = getImageUrl(post);
 
+    const tags = post.frontmatter.tags || [];
+
     return (
         <PageLayout>
-            <PostContainer>
+            <article>
                 <Helmet title={`Losing Games - ${post.frontmatter.title}`} meta={[
                     { name: 'og:image', 'content': imageUrl },
                     { name: 'og:title', content: `Losing Games - ${post.frontmatter.title}` },
@@ -56,7 +58,9 @@ const Template = ({ data }) => {
                 <RichContent>
                     {renderAst(post.htmlAst)}
                 </RichContent>
-            </PostContainer>
+
+                <BlogPostTagsList tags={tags} />
+            </article>
         </PageLayout>
     );
 }
@@ -69,6 +73,7 @@ export const pageQuery = graphql`
             frontmatter {
                 date(formatString: "MMMM D, YYYY")
                 title
+                tags
                 image {
                     childImageSharp {
                         fluid(maxWidth: 800, srcSetBreakpoints: [800]) {
