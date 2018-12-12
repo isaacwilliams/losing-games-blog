@@ -1,9 +1,16 @@
 ---
 date: "2018-11-24T22:12"
-title: "Devices for Knave"
+title: "Devices — Spells for a classless system"
 published: "false"
 ---
-Devices are ancient artefacts that possess great power. They act as spells, providing the wielder with extraordinary abilities. Devices are partly alive.
+
+I've been running a game using rules derived from the [GLOG](http://goblinpunch.blogspot.com/2016/05/the-glog.html), but without class templates. The goal of my house rules are to make character creation very fast and completely randomizable. 
+
+These are the rules I've been using to re-introduce spells, in a manner inspired by [Knave's](https://www.drivethrurpg.com/product/250888/Knave) spell-as-items. They're basically a straight copy-paste of the GLOG [spell-casting rules](https://drive.google.com/file/d/0BxVHEMMjLlZ4UWYzX3o1UnEtd0U/view). The only changes are re-contextualising them as a physical object instead of a spell, and some additional rules for levelless casting and improving the devices.
+
+# Devices
+
+Devices are ancient artefacts that possess great power. They act as spells, providing the wielder with extraordinary abilities.
 
 ## Device Tier
 
@@ -35,23 +42,37 @@ If you use a device of greater tier than your level, roll **danger dice** equal 
 
 ## Mishaps and disasters
 
-When you roll doubles when using a device, it causes a Mishap. When triples (or more) are rolled, it causes a Disaster. Roll on the mishap or disaster tables for the effect.
+When you roll doubles when using a device, it causes a Mishap. When triples (or more) are rolled, it causes a Disaster. Roll on the following tables for the effects.
+
+<table-roller table="mishaps,disasters" buttons='[["Random Mishap", {
+    "Mishap": "d6:Mishap Effect"
+}], ["Random Disaster", {
+    "Disaster": "d4:Disaster Effect"
+}]]'></table-roller>
 
 ### Mishaps
 
-1. All of the Device’s charges are expended
-2. Wielder takes 1d6 damage
-3. Wielder takes a random mutation for 1d6 rounds, then Saves. Permanent if failed.
-4. Device effects another random target within range
-5. Device is damaged. Cannot be used again until repaired (takes 1d6 hours).
-6. Device overcharges. For each 1-3 rolled, roll an additional charge die, and add to the devices effect (additional doubles/triples count towards mishaps/disasters). Then expend all device charges.
+<div data-table-marker="mishaps"></div>
+
+| d6 | Mishap Effect
+|----|---------------------------------
+| 1  | All of the Device’s charges are expended
+| 2  | Wielder takes 1d6 damage
+| 3  | Wielder takes a random mutation for 1d6 rounds, then Saves. Permanent if failed.
+| 4  | Device effects another random target within range
+| 5  | Device is damaged. Cannot be used again until repaired (takes 1d6 hours).
+| 6  | Device overcharges. For each 1-3 rolled, roll an additional charge die, and add to the devices effect (additional doubles/triples count towards mishaps/disasters). Then expend all device charges.
 
 ### Disasters
 
-1. Device explodes, causing [device tier]d6 damage to all within 10’
-2. Device is badly damaged. Can only be repaired using the parts of another Device.
-3. Device causes a reverse effect. Double any  The GM should interpret this maliciously.
-4. Wielder takes 1d6 random permanent mutations. Save for half.
+<div data-table-marker="disasters"></div>
+
+| d4 | Disaster Effect 
+|----|---------------------------------
+| 1  | Device explodes, causing [device tier]d6 damage to all within 10’
+| 2  | Device is badly damaged. Can only be repaired using the parts of another Device.
+| 3  | Device causes a reverse effect. Double any  The GM should interpret this maliciously.
+| 4  | Wielder takes 1d6 random permanent mutations. Save for half.
 
 ## Increasing a Device’s tier
 
