@@ -29,7 +29,7 @@ export const BACKGROUNDS = [
     ['Trap thief', 'Block of cheese', 'Glue'],
     ['Vagabond', 'Tent', 'Treasure map, dubious'],
     ['Grain farmer', 'Spear (heavy, d10)', 'Whistle'],
-    ['Message runner', 'Bedroom', 'Documents, sealed'],
+    ['Message runner', 'Bedroll', 'Documents, sealed'],
     ['Troubadour', 'Musical instrument', 'Mirror'],
     ['Ale brewer', 'Small barrel of ale', 'Set of loaded dice'],
     ['Sap tapper', 'Bucket', 'Wooden spikes'],
