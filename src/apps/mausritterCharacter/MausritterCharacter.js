@@ -14,7 +14,13 @@ import {
     ColumnTitle
 } from '../glaiveCharacter/components';
 
-import { BACKGROUNDS, FIRST_NAMES, LAST_NAMES } from './mouseritterConstants';
+import {
+    BACKGROUNDS,
+    FIRST_NAMES,
+    LAST_NAMES,
+    COAT_COLORS,
+    COAT_PATTERNS,
+} from './mouseritterConstants';
 
 const pick = (array) => (
     array[Math.floor(Math.random() * array.length)]
@@ -37,7 +43,9 @@ const rollCharacter = () => {
     const hp = rollHp();
     const pips = rollPips();
 
-    const name = `${pick(FIRST_NAMES)} ${pick(LAST_NAMES)}`
+    const name = `${pick(FIRST_NAMES)} ${pick(LAST_NAMES)}`;
+
+    const coat = `${pick(COAT_COLORS)}, ${pick(COAT_PATTERNS)}`;
 
     const [background, backgroundItemA, backgroundItemB] = getBackground(hp, pips);
     const [_, consolationItemA, consolationItemB] = getBackground(rollHp(), rollPips());
@@ -46,6 +54,7 @@ const rollCharacter = () => {
 
     return {
         name,
+        coat,
         stats: {
             str,
             dex,
@@ -64,7 +73,7 @@ const rollCharacter = () => {
 }
 
 const MausritterCharacter = () => {
-    const [{ name, stats, hp, pips, background, items }, setCharacter] = useState(rollCharacter());
+    const [{ name, coat, stats, hp, pips, background, items }, setCharacter] = useState(rollCharacter());
 
     return (
         <CharacterAppWrapper>
@@ -83,6 +92,7 @@ const MausritterCharacter = () => {
                 </Header>
 
                 <p>Background: <strong>{background}</strong></p>
+                <p>Coat: <strong>{coat}</strong></p>
             </CharacterDetails>
 
             <ColumnContainer>

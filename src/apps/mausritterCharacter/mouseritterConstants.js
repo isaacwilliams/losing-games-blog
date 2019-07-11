@@ -163,3 +163,21 @@ export const LAST_NAMES = [
     'Winterholme',
     'Witter',
 ];
+
+export const COAT_COLORS = [
+    'Chocolate',
+    'Black',
+    'White',
+    'Tan',
+    'Grey',
+    'Blue',
+];
+
+export const COAT_PATTERNS = [
+    'solid',
+    'solid',
+    'patchy',
+    'banded',
+    'marbled',
+    'flecked',
+];
