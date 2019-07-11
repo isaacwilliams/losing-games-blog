@@ -6,7 +6,7 @@ export const frontmatter = {
     title: 'Mausritter character',
     path: '/tools/mausritter-character',
     date: '2019-07-11',
-    description: 'Character auto-roller mouse adventurers',
+    description: 'Character auto-roller for mouse adventurers',
 }
 
 export default () => (
