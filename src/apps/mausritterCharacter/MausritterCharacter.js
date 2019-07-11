@@ -20,6 +20,8 @@ import {
     LAST_NAMES,
     COAT_COLORS,
     COAT_PATTERNS,
+    PHYSICAL_DETAIL,
+    BIRTH_SIGNS,
 } from './mouseritterConstants';
 
 const pick = (array) => (
@@ -44,8 +46,9 @@ const rollCharacter = () => {
     const pips = rollPips();
 
     const name = `${pick(FIRST_NAMES)} ${pick(LAST_NAMES)}`;
-
     const coat = `${pick(COAT_COLORS)}, ${pick(COAT_PATTERNS)}`;
+    const physicalDetail = pick(PHYSICAL_DETAIL);
+    const [birthsign, disposition] = pick(BIRTH_SIGNS);
 
     const [background, backgroundItemA, backgroundItemB] = getBackground(hp, pips);
     const [_, consolationItemA, consolationItemB] = getBackground(rollHp(), rollPips());
@@ -55,6 +58,9 @@ const rollCharacter = () => {
     return {
         name,
         coat,
+        physicalDetail,
+        birthsign,
+        disposition,
         stats: {
             str,
             dex,
@@ -68,12 +74,24 @@ const rollCharacter = () => {
             backgroundItemB,
             statMax <= 9 ? consolationItemA : null,
             statMax <= 7 ? consolationItemB : null,
+            'Weapon of your choice'
         ]),
     }
 }
 
 const MausritterCharacter = () => {
-    const [{ name, coat, stats, hp, pips, background, items }, setCharacter] = useState(rollCharacter());
+    const [{
+        name,
+        coat,
+        physicalDetail,
+        birthsign,
+        disposition,
+        stats,
+        hp,
+        pips,
+        background,
+        items,
+    }, setCharacter] = useState(rollCharacter());
 
     return (
         <CharacterAppWrapper>
@@ -92,7 +110,16 @@ const MausritterCharacter = () => {
                 </Header>
 
                 <p>Background: <strong>{background}</strong></p>
-                <p>Coat: <strong>{coat}</strong></p>
+                <p>
+                    Bithsign: <strong>{birthsign}</strong>
+                    <br/>
+                    Disposition: <strong>{disposition}</strong>
+                </p>
+                <p>
+                    Coat: <strong>{coat}</strong>
+                    <br/>
+                    Physical detail: <strong>{physicalDetail}</strong>
+                </p>
             </CharacterDetails>
 
             <ColumnContainer>

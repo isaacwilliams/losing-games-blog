@@ -23,7 +23,7 @@ export const BACKGROUNDS = [
     ['Sparrow rider', 'Fishhook', 'Goggles'],
     ['Sewer guide', 'Metal file', 'Thread, spool'],
     ['Prison guard', 'Chain, 6"', 'Spear (heavy, d10)'],
-    ['Fungus farmer', 'Dried mushroom (as rations)"', 'Spore mask'],
+    ['Fungus farmer', 'Dried mushroom (as rations)', 'Spore mask'],
     ['Dam builder', 'Shovel', 'Wooden spikes'],
     ['Cartographer', 'Quill & ink', 'Compass'],
     ['Trap thief', 'Block of cheese', 'Glue'],
@@ -164,6 +164,15 @@ export const LAST_NAMES = [
     'Witter',
 ];
 
+export const BIRTH_SIGNS = [
+    ['Star', 'Brave / Reckless'],
+    ['Wheel', 'Industrious / Unimaginative'],
+    ['Acorn', 'Inquisitive / Stubborn'],
+    ['Storm', 'Generous / Wrathful'],
+    ['Moon', 'Wise / Mysterious'],
+    ['Mother', 'Nurturing / Worrying'],
+];
+
 export const COAT_COLORS = [
     'Chocolate',
     'Black',
@@ -180,4 +189,43 @@ export const COAT_PATTERNS = [
     'banded',
     'marbled',
     'flecked',
+];
+
+export const PHYSICAL_DETAIL = [
+    'Scarred body',
+    'Corpulent body',
+    'Skeletal body',
+    'Willowy body',
+    'Tiny body',
+    'Massive body',
+    'War paint',
+    'Foreign clothes',
+    'Elegant clothes',
+    'Patched clothes',
+    'Fashionable clothes',
+    'Unwashed clothes',
+    'Missing ear',
+    'Lumpy face',
+    'Beautiful face',
+    'Round face',
+    'Delicate face',
+    'Elongated face',
+    'Groomed fur',
+    'Dreadlocks',
+    'Dyed fur',
+    'Shaved fur',
+    'Frizzy fur',
+    'Silky fur',
+    'Night black eyes',
+    'Eyepatch',
+    'Blood red eyes',
+    'Wise eyes',
+    'Sharp eyes',
+    'Luminous eyes',
+    'Cropped tail',
+    'Whip-like tail',
+    'Tufted tail',
+    'Stubby tail',
+    'Prehensile tail',
+    'Curly tail',
 ];
