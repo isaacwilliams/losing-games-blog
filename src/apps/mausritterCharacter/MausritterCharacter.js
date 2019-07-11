@@ -109,17 +109,24 @@ const MausritterCharacter = () => {
                     </Controls>
                 </Header>
 
-                <p>Background: <strong>{background}</strong></p>
-                <p>
-                    Bithsign: <strong>{birthsign}</strong>
-                    <br/>
-                    Disposition: <strong>{disposition}</strong>
-                </p>
-                <p>
-                    Coat: <strong>{coat}</strong>
-                    <br/>
-                    Physical detail: <strong>{physicalDetail}</strong>
-                </p>
+                Background: <strong>{background}</strong>
+
+                <ColumnContainer>
+                    <Column>
+                        <p>
+                            Bithsign: <strong>{birthsign}</strong>
+                            <br/>
+                            Disposition: <strong>{disposition}</strong>
+                        </p>
+                    </Column>
+                    <Column>
+                        <p>
+                            Coat: <strong>{coat}</strong>
+                            <br/>
+                            Physical detail: <strong>{physicalDetail}</strong>
+                        </p>
+                    </Column>
+                </ColumnContainer>
             </CharacterDetails>
 
             <ColumnContainer>
@@ -131,7 +138,6 @@ const MausritterCharacter = () => {
                         <li>DEX: {stats.dex}</li>
                         <li>WIL: {stats.wil}</li>
                     </ul>
-
                     <ul>
                         <li>HP: {hp}</li>
                     </ul>
