@@ -15,6 +15,13 @@ import {
 } from '../glaiveCharacter/components';
 
 import {
+    FontImport,
+    Attr,
+    AttrName,
+    AttrVal,
+} from './mausritterCharacterComponents';
+
+import {
     BACKGROUNDS,
     FIRST_NAMES,
     LAST_NAMES,
@@ -95,6 +102,7 @@ const MausritterCharacter = () => {
 
     return (
         <CharacterAppWrapper>
+            <FontImport />
 
             <CharacterDetails>
                 <Header>
@@ -131,16 +139,22 @@ const MausritterCharacter = () => {
 
             <ColumnContainer>
                 <Column>
-                    <ColumnTitle>Attributes</ColumnTitle>
-
-                    <ul>
-                        <li>STR: {stats.str}</li>
-                        <li>DEX: {stats.dex}</li>
-                        <li>WIL: {stats.wil}</li>
-                    </ul>
-                    <ul>
-                        <li>HP: {hp}</li>
-                    </ul>
+                    <Attr>
+                        <AttrName>STR</AttrName>
+                        <AttrVal>{stats.str}</AttrVal>
+                    </Attr>
+                    <Attr>
+                        <AttrName>DEX</AttrName>
+                        <AttrVal>{stats.dex}</AttrVal>
+                    </Attr>
+                    <Attr>
+                        <AttrName>WIL</AttrName>
+                        <AttrVal>{stats.wil}</AttrVal>
+                    </Attr>
+                    <Attr>
+                        <AttrName>HP</AttrName>
+                        <AttrVal>{hp}</AttrVal>
+                    </Attr>
                 </Column>
                 <Column>
                     <ColumnTitle>Gear</ColumnTitle>
