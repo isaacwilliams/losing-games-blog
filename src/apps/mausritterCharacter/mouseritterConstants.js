@@ -184,7 +184,7 @@ export const COAT_COLORS = [
 
 export const COAT_PATTERNS = [
     'solid',
-    'solid',
+    'brindle',
     'patchy',
     'banded',
     'marbled',
