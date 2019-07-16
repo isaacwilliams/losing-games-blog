@@ -22,8 +22,7 @@ This is part of the tables from Mausritter — d66 one-line adventure seeds, or 
 ["Very random adventure", {
     "Creature": "d36:Creature",
     "Problem": "d36:Problem",
-    "Complication": "d36:Complication",
-    "Antagonist": "d36:Creature"
+    "Complication": "d36:Complication"
 }]
 ]'></table-roller>
 
