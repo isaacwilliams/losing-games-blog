@@ -5,17 +5,17 @@ tags: ["random tables", "mausritter", "adventure", "setting", "rules"]
 published: "false"
 ---
 
-<table-roller table="adventure-sites" buttons='[["Adventure site", {
+<table-roller table="adventure-sites" buttons='[["Random adventure site", {
     "History": "d20:History (d20)",
     "Ruination": "d12:Ruination (d12)",
     "Denizens": "d10:Denizens... (d10)",
-    "Searching for or guarding": "d8:...searching for or guarding (d8)",
+    "Searching for/guarding": "d8:...searching for/guarding (d8)",
     "Secret": "d6:Secret (d6)"
 }]]'></table-roller>
 
 <div data-table-marker="adventure-sites"></div>
 
-| Roll | History (d20)                    | Ruination (d12)         | Denizens... (d10)                     | ...searching for or guarding (d8)     | Secret (d6)                         |
+| Roll | History (d20)                    | Ruination (d12)         | Denizens... (d10)                     | ...searching for/guarding (d8)     | Secret (d6)                         |
 |------|----------------------------------|-------------------------|---------------------------------------|---------------------------------------|-------------------------------------|
 | 1    | Ancient bat cult temple          | Flooding                | Mice, driven mad or desperate         | A safe place to live or hide          | Monolith humming with arcane energy |
 | 2    | Long-abandoned watchtower        | Magical mishap          | Mice, magically altered               | Cache of fine food                    | Preserved precursor beast           |
