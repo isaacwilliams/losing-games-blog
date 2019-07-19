@@ -9,22 +9,22 @@ published: "false"
 ["Countryside", {
     "Hex type": "Countryside ",
     "Landmark": "Countryside",
-    "Twist": "Location Twist"
+    "Detail": "Location detail"
 }],
 ["Forest", {
     "Hex type": "Forest ",
     "Landmark": "Forest",
-    "Twist": "Location Twist"
+    "Detail": "Location detail"
 }],
 ["River", {
     "Hex type": "River ",
     "Landmark": "River",
-    "Twist": "Location Twist"
+    "Detail": "Location detail"
 }],
 ["Human", {
     "Hex type": "Human town ",
     "Landmark": "Human town",
-    "Twist": "Location Twist"
+    "Detail": "Location detail"
 }]
 ]' data='{
     "Type": ["Countryside", "Countryside", "Forest", "Forest", "River", "Human town"]
@@ -61,7 +61,7 @@ published: "false"
 
 <div data-table-marker="twists"></div>
 
-|d20|Location Twist         |
+|d20|Location detail         |
 |---|-----------------------|
 |1  |Ancient bat cult temple (What was summoned?)|
 |2  |Bandit hideout (Who do they prey on?)|
