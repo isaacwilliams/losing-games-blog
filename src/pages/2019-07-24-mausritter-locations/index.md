@@ -1,9 +1,11 @@
 ---
-date: "2019-07-24T17:29"
+date: "2019-07-26T13:54"
 title: "Mausritter: Locations"
 tags: ["random tables", "mausritter", "setting", "rules"]
-published: "false"
+published: "true"
 ---
+
+This is part two of the Mausritter series — a generator for location hex details, designed for quickly filling out a hex map with interesting locations. Hexcrawls in Mausritter are at a scale of 1 mile per hex. Each hex should contain one obvious landmark with an interesting detail.
 
 <table-roller table="landmarks,twists" buttons='[
 ["Countryside", {
@@ -57,7 +59,7 @@ published: "false"
 |19 |Stone wall             |Tangle of roots                   |Twisted roots                          |Underground car park|
 |20 |Tangle of fig roots    |Termite-riddled tree              |Wooden bridge                          |Woodshed            |
 
-### Location twists
+### Location details
 
 <div data-table-marker="twists"></div>
 
