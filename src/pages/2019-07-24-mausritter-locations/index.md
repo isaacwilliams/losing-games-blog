@@ -8,6 +8,9 @@ published: "true"
 This is part two of the Mausritter series — a generator for location hex details, designed for quickly filling out a hex map with interesting locations. Hexcrawls in Mausritter are at a scale of 1 mile per hex. Each hex should contain one obvious landmark with an interesting detail.
 
 <table-roller table="landmarks,twists" buttons='[
+["Random hex:", {
+    "~~buttonType": "label"
+}],
 ["Countryside", {
     "Hex type": "Countryside ",
     "Landmark": "Countryside",

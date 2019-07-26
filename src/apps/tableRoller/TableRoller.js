@@ -21,6 +21,7 @@ import {
     StyledTableRoller,
     StyledButtonsContainer,
     RollerButton,
+    RollerLabel,
     StyledResult,
     StyledResultValue,
     StyledResultTitle,
@@ -32,6 +33,14 @@ const TableRollerButtons = ({ buttons, rollResult }) => (
     <StyledButtonsContainer>
         {buttons.map(([title, fields], i) => {
             const buttonClass = fields['~~buttonStyle'];
+            const buttonType = fields['~~buttonType'];
+
+            if (buttonType === 'label') {
+                return (
+                    <RollerLabel className={buttonClass}>{title}</RollerLabel>
+                );
+            }
+
             return (
                 <RollerButton key={i} onClick={() => rollResult(fields)} className={buttonClass}>{title}</RollerButton>
             );

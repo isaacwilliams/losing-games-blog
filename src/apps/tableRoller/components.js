@@ -30,6 +30,11 @@ export const RollerButton = styled(Button)`
     }
 `
 
+export const RollerLabel = styled.span`
+    margin-right: 0.5rem;
+    color: #666;
+`
+
 export const StyledResult = styled.div`
     padding: 0.5rem;
 
