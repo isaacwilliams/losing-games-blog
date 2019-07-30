@@ -2,17 +2,28 @@
 date: "2019-07-30T17:29"
 title: "Mausritter: Settlements"
 tags: ["random tables", "mausritter", "settlements", "setting", "rules"]
+image: "./hirelings.png"
 published: "true"
 ---
 
-<table-roller table="sizes,settlements,names" buttons='[["What is this place?", {
+This generator creates the details for the many settlements that dot that mouse kingdoms. It's largely based on the [Gloaming Lands settlement](/2018-12-10-settlements/) generator I wrote a while ago, with thematic mousey tweaks.
+
+The intended use of this generator is in tandem with the Mausritter [location](/2019-07-24-mausritter-locations/) generator. In that case, ignore the result of the "location" field and roll on the an appropriate landmark column to figure out the location of a settlement.
+
+<div class="image-container">
+    <img src="./hirelings.png" title="" />
+</div>
+
+<table-roller table="sizes,settlements,names" buttons='[["Random settlement", {
     "Name": "d4:NameFormat",
     "Size": "2d6:lowest:Size",
+    "Location": "d20:Location",
     "Inhabitants": "d20:Inhabitants",
     "Notable feature": "d20:Notable feature",
     "Event": "d20:Event"
 }]]' data='{
-    "NameFormat": ["{Start A}{End A}", "{Start B}{End B}", "{Start A}{End B}", "{Start B}{End A}"]
+    "NameFormat": ["{Start A}{End A}", "{Start B}{End B}", "{Start A}{End B}", "{Start B}{End A}"],
+    "Location": ["Anthill","Beech, lightning split","Bone-white tree","Cow skeleton","Field of flowers","Field of wheat","Hedge row","Hollow tree stump","Huge flat rock","Lily-lined pond","Massive fallen tree","Old craggy oak","Old farmhouse","Quiet dirt road","Rabbit warren","Sparrow nest","Stand of pine trees","Steep hill","Stone wall","Tangle of fig roots","Abandoned shack","Bright clearing","Cascading waterfalls","Cliff face","Cold, fresh spring","Dense underbrush","Face in ancient oak","Fox hole","Grove of ferns","Hollow tree stump","Huge pine tree","Human walking track","Human-made clearing","Meandering brook","Overgrown ruins","Ring of stones","Rocky outcropping","Sunken hollow","Tangle of roots","Termite-riddled tree","Canal lock","Converging tributaries","Draping willow","Eroded riverbank","Fallen tree crossing","High waterfall","Huge boulder","Huge concrete dam","Isolated island","Muddy flats","Rocky rapids","Row of dead trees","Silty dam","Stepping-stones","Stone bridge","Stoney shallows","Submerged trash","Sunken barge","Twisted roots","Wooden bridge","Abandoned car","Apartment balcony ","Blackberry hedge","Busy road","Drainpipe outlet","Dumped furniture","Greenhouse","Mouse ruins","Newly built house","Overgrown garden bed","Pigeon nest","Pile of trash","Rocky riverbed","Shopping trolley","Stagnant pond","Steel bridge","Trash-filled skip","Tree-lined footpath","Underground car park","Woodshed"]
 }'></table-roller>
 
 ## Settlement details
@@ -21,7 +32,7 @@ published: "true"
 
 | d20 | Inhabitants                            | Notable feature                        | Event                                     |
 |-----|----------------------------------------|----------------------------------------|-------------------------------------------|
-| 1   | Suspicious of outsiders                | Maze of defensive, trap-filled tunnels | Disaster, everyone packing to leave       |
+| 1   | Shave elaborate patterns in their fur  | Maze of defensive, trap-filled tunnels | Disaster, everyone packing to leave       |
 | 2   | Intoxicated by strange plants          | Comfortable, well-appointed inn        | Wedding, streets decked in flowers        |
 | 3   | Refuse to do business with outsiders   | Shrine carved of black wood            | Preparing for grand seasonal feast        |
 | 4   | Curious for news from afar             | Mediative mushroom garden              | An illness has struck                     |

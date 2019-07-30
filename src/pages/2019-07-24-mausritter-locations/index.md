@@ -87,4 +87,4 @@ This is part two of the Mausritter series — a generator for location hex detai
 |17 |Repurposed human construction (How is it used?)|
 |18 |Noblemouse's castle (What does it defend against?)|
 |19 |Abandoned settlement... (What clues did they leave?)|
-|20 |Settlement... (Create the details)|
+|20 |Settlement... [(Create the details)](/2019-07-30-mausritter-settlements/) |
