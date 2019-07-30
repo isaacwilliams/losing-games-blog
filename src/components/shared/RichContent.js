@@ -178,6 +178,22 @@ const RichContent = styled.div`
         }
 
     }
+
+    .column-container {
+        display: flex;
+
+        > div {
+            margin-right: 20px;
+
+            &.column-2 {
+                flex-basis: 50%;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
 `;
 
 export default RichContent;
