@@ -1,9 +1,18 @@
 ---
-date: "2019-07-24T17:29"
+date: "2019-08-15T17:29"
 title: "Mausritter: Adventure sites"
 tags: ["random tables", "mausritter", "adventure", "setting", "rules"]
-published: "false"
+image: "./Moonlit_Cat.png"
+published: "true"
 ---
+
+<div class="image-container right">
+    <img src="./Moonlit_Cat.png" />
+</div>
+
+The civilised world holds on by a thread. The mouse kingdoms are dotted with the forgotten vestiges of past cultures. Even modern settlements can fall to disease, starvation or predation all too quickly. There are many places where lost wealth can be found by brave mouse adventurers.
+
+This set of tables creates seeds for adventure sites — the dangerous dungeons, caves and abandoned settlements that your party of mice must brave to bring back treasure.
 
 <table-roller table="adventure-sites" buttons='[["Random adventure site", {
     "History": "d20:History (d20)",
