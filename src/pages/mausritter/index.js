@@ -83,21 +83,30 @@ const Column = styled.div`
 `
 
 const MausritterButton = styled.a`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    height: 100%;
+    position: relative;
+    display: block;
 
     padding: 1em 1em;
 
+    border-radius: 3px;
+    box-shadow: 0 2px 0 black;
+
     text-align: center;
+    text-decoration: none;
     font-weight: 600;
 
     background: yellow;
     color: black;
 
-    text-decoration: none;
+    &:hover {
+        top: -1px;
+        box-shadow: 0 3px 0 black;
+    }
+
+    &:active {
+        top: 1px;
+        box-shadow: 0 1px 0 black;
+    }
 `
 
 const MausritterButtonSubtitle = styled.span`
@@ -160,7 +169,9 @@ const MausritterIndex = (props) => (
                                 Downloadable PDF
 
                                 <MausritterButtonSubtitle>
-                                    PWYW at Itch.io
+                                    Pay what you want
+                                    <br />
+                                    at Itch.io
                                 </MausritterButtonSubtitle>
                             </MausritterButton>
                         </Column>
@@ -170,9 +181,7 @@ const MausritterIndex = (props) => (
 
                                 <MausritterButtonSubtitle>
                                     Incudes item & condition sheets.
-                                </MausritterButtonSubtitle>
-
-                                <MausritterButtonSubtitle>
+                                    <br />
                                     $10 + S/H
                                 </MausritterButtonSubtitle>
                             </MausritterButton>
