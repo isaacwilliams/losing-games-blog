@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import * as colors from '../../components/styles/colors';
 import { fontDisplay } from '../../components/styles/fonts';
@@ -8,6 +8,14 @@ import PageLayout from '../../components/layout/PageLayout';
 import RichContent from '../../components/shared/RichContent';
 import PageTitle from '../../components/page/PageTitle';
 import PageHeader from '../../components/page/PageHeader';
+
+import MausritterCharacter from '../../apps/mausritterCharacter/MausritterCharacter';
+
+const fontBroken = css`
+    font-family: ff-brokenscript-bc-web, Vollkorn, serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+`;
 
 const MausritterPageHeader = styled(PageHeader)`
     padding-top: 4rem;
@@ -19,10 +27,10 @@ const MausritterPageHeader = styled(PageHeader)`
 `
 
 const MausritterPageTitle = styled(PageTitle)`
-    font-family: ff-brokenscript-bc-web, serif;
+    ${fontBroken}
+
     font-size: 5rem;
     line-height: 1em;
-    letter-spacing: 0.03em;
 
     &:before,
     &:after {
@@ -31,10 +39,9 @@ const MausritterPageTitle = styled(PageTitle)`
 `
 
 const MausritterTagline = styled.p`
-    font-family: ff-brokenscript-bc-web, serif;
+    ${fontBroken}
+
     font-size: 1.65rem;
-    line-height: 1em;
-    letter-spacing: 0.03em;
     text-align: center;
 
     &:before,
@@ -43,11 +50,16 @@ const MausritterTagline = styled.p`
     }
 `
 
-const MausritterSubtitle = styled.h2`
-    font-family: ff-brokenscript-bc-web, serif;
+const H2 = styled.h2`
+    ${fontBroken}
+    margin-bottom: 0.2rem;
     font-size: 1.65rem;
-    line-height: 1em;
-    letter-spacing: 0.03em;
+`
+
+const H3 = styled.h3`
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
 `
 
 const Image = styled.img`
@@ -60,6 +72,21 @@ const ContentContainer = styled.div`
     max-width: 60rem;
 `
 
+const ResourceList = styled.ul`
+    li {
+        margin-left: 1em;
+        list-style: disc;
+    }
+
+    a {
+        color: black;
+
+        &:hover {
+            background: yellow;
+        }
+    }
+`
+
 const ColumnContainer = styled.div`
     padding: 1em 0;
     display: flex;
@@ -69,20 +96,60 @@ const Column = styled.div`
     display: flex;
     flex-direction: column;
 
-    flex-basis: 48%;
-    padding-right: 2%;
+    flex-basis: calc(50% - 1rem);
+    padding-right: 0.5rem;
 
     &.center-align {
         justify-content: center;
     }
 
     &:last-child {
-        padding-left: 2%;
         padding-right: 0;
+        padding-left: 0.5rem;
     }
 `
 
-const MausritterButton = styled.a`
+const Column3 = styled(Column)`
+    flex-basis: calc(33.33% - 1rem);
+`
+
+const BuySection = styled.div`
+    margin-top: 3rem;
+`
+
+const DownloadSection = styled(ColumnContainer)`
+    font-size: 0.9em;
+
+    h4 {
+        margin-bottom: 0.5em;
+        font-weight: 600;
+    }
+
+    p {
+        margin-bottom: 0.5em;
+    }
+`;
+
+const DownloadButton = styled.a`
+    display: inline-block;
+    padding: 0.1em 0.8em 0.2em 0.8em;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    background: black;
+    color: white;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+`;
+
+
+const BuyButton = styled.a`
     position: relative;
     display: block;
 
@@ -109,7 +176,7 @@ const MausritterButton = styled.a`
     }
 `
 
-const MausritterButtonSubtitle = styled.span`
+const BuyButtonDescription = styled.span`
     display: block;
     font-size: 0.8em;
     font-weight: normal;
@@ -152,54 +219,132 @@ const MausritterIndex = (props) => (
 
                         <p>
                             <em>
-                                24 pages. Designed, written and illustrated by Isaac Williams.
+                                24 pages. Written and illustrated by Isaac Williams.
                             </em>
                         </p>
-
-                        <br/><br/>
                     </RichContent>
 
-                    <MausritterSubtitle>
-                        Get Mausritter
-                    </MausritterSubtitle>
+                    <BuySection>
+                        <H2>
+                            Get Mausritter
+                        </H2>
 
-                    <ColumnContainer>
-                        <Column>
-                            <MausritterButton href="#">
-                                Downloadable PDF
+                        <ColumnContainer>
+                            <Column>
+                                <BuyButton href="#">
+                                    Downloadable PDF
 
-                                <MausritterButtonSubtitle>
-                                    Pay what you want
-                                    <br />
-                                    at Itch.io
-                                </MausritterButtonSubtitle>
-                            </MausritterButton>
-                        </Column>
-                        <Column>
-                            <MausritterButton href="#">
-                                Print Zine
+                                    <BuyButtonDescription>
+                                        Pay what you want
+                                        <br />
+                                        at Itch.io
+                                    </BuyButtonDescription>
+                                </BuyButton>
+                            </Column>
+                            <Column>
+                                <BuyButton href="#">
+                                    Print Zine
 
-                                <MausritterButtonSubtitle>
-                                    Incudes item & condition sheets.
-                                    <br />
-                                    $10 + S/H
-                                </MausritterButtonSubtitle>
-                            </MausritterButton>
-                        </Column>
-                    </ColumnContainer>
+                                    <BuyButtonDescription>
+                                        Incudes item & condition sheets.
+                                        <br />
+                                        $10 + Postage
+                                    </BuyButtonDescription>
+                                </BuyButton>
+                            </Column>
+                        </ColumnContainer>
+                    </BuySection>
                 </Column>
             </ColumnContainer>
         </ContentContainer>
 
         <ContentContainer>
             <ColumnContainer>
-                <Column>
-                    <MausritterSubtitle>Player Resources</MausritterSubtitle>
-                </Column>
+                <Column3>
+                    <H2>Instant mouse</H2>
 
-                <Column>
-                    <MausritterSubtitle>GM Resources</MausritterSubtitle>
-                </Column>
+                    <RichContent>
+                        <p>
+                            Get playing right away with the instant mouse generator.
+                        </p>
+                        <p>
+                            <DownloadButton href="/tools/mausritter-character">Create a mouse</DownloadButton>
+                        </p>
+                    </RichContent>
+
+                    <Image src={require('./torchmouse.png')} style={{ width: '90%' }} />
+
+                </Column3>
+
+                <Column3>
+                    <H2>Downloads</H2>
+
+                    <DownloadSection>
+                        <Column>
+                            <Image src={require('./sheets-player.png')} />
+                        </Column>
+                        <Column>
+                            <h4>Player pack</h4>
+
+                            <p>
+                                Character, hireling, and player's reference sheet.
+                            </p>
+
+                            <p>
+                                <DownloadButton href="#">Download</DownloadButton>
+                            </p>
+                        </Column>
+                    </DownloadSection>
+
+                    <DownloadSection>
+                        <Column>
+                            <Image src={require('./sheets-gm.png')} />
+                        </Column>
+                        <Column>
+                            <h4>Gamemaster pack</h4>
+
+                            <p>
+                                Session tracking, reference sheet.
+                            </p>
+
+                            <p>
+                                <DownloadButton href="#">Download</DownloadButton>
+                            </p>
+                        </Column>
+                    </DownloadSection>
+
+                    <DownloadSection>
+                        <Column>
+                            <Image src={require('./sheets-items.png')} />
+                        </Column>
+                        <Column>
+                            <h4>Item cards</h4>
+
+                            <p>
+                                Cards for weapons, gear and conditions.
+                            </p>
+
+                            <p>
+                                <DownloadButton href="#">Download</DownloadButton>
+                            </p>
+                        </Column>
+                    </DownloadSection>
+                </Column3>
+
+                <Column3>
+                    <H2>GM Resources</H2>
+
+                    <RichContent>
+                        <p>Content generators</p>
+                    </RichContent>
+
+                    <ResourceList>
+                        <li><a href="../2019-07-24-mausritter-locations">Locations</a></li>
+                        <li><a href="../2019-07-30-mausritter-settlements">Settlements</a></li>
+                        <li><a href="../2019-08-05-mausritter-adventure-sites">Adventure sites</a></li>
+                        <li><a href="../2019-07-16-mausritter-adventures">Adventure hooks</a></li>
+                    </ResourceList>
+                </Column3>
             </ColumnContainer>
         </ContentContainer>
 

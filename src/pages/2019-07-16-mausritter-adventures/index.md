@@ -1,6 +1,6 @@
 ---
 date: "2019-07-16T17:29"
-title: "Mausritter: Adventure seeds"
+title: "Mausritter: Adventure hooks"
 tags: ["random tables", "mausritter", "adventure", "setting"]
 published: "true"
 ---
