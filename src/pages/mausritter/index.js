@@ -32,9 +32,9 @@ import {
 
 const MausritterIndex = (props) => (
     <PageLayout fullWidthContent>
-        <Helmet title={`Losing Games - Tools`} />
-
-        <link rel="stylesheet" href="https://use.typekit.net/jcg4vha.css" />
+        <Helmet title={`Losing Games — Mausritter`}>
+            <link rel="stylesheet" href="https://use.typekit.net/jcg4vha.css" />
+        </Helmet>
 
         <MausritterPageHeader>
             <MausritterPageTitle>Mausritter</MausritterPageTitle>

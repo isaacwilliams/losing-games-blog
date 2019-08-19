@@ -5,6 +5,8 @@ import RichContent from '../../components/shared/RichContent';
 import PageTitle from '../../components/page/PageTitle';
 import PageHeader from '../../components/page/PageHeader';
 
+import media from '../../components/styles/media';
+
 export const fontBroken = css`
     font-family: ff-brokenscript-bc-web, Vollkorn, serif;
     font-weight: 700;
@@ -18,6 +20,11 @@ export const MausritterPageHeader = styled(PageHeader)`
 
     background: url(${require('./pencil-background.png')});
     background-size: 400px auto;
+
+    ${media.phone`
+        padding-top: 2rem;
+        padding-bottom: 2.5rem;
+    `}
 `
 
 export const MausritterPageTitle = styled(PageTitle)`
@@ -30,6 +37,11 @@ export const MausritterPageTitle = styled(PageTitle)`
     &:after {
         content: '';
     }
+
+    ${media.phone`
+        padding-bottom: 0;
+        font-size: 3rem;
+    `}
 `
 
 export const MausritterTagline = styled.p`
@@ -42,6 +54,10 @@ export const MausritterTagline = styled.p`
     &:after {
         content: '';
     }
+
+    ${media.phone`
+        font-size: 1.4rem;
+    `}
 `
 
 export const H2 = styled.h2`
@@ -63,6 +79,7 @@ export const Image = styled.img`
 
 export const ContentContainer = styled.div`
     margin: 2rem auto;
+    padding: 0 2em;
     max-width: 60rem;
 `
 
@@ -84,6 +101,10 @@ export const ResourceList = styled.ul`
 export const ColumnContainer = styled.div`
     padding: 1em 0;
     display: flex;
+
+    ${media.phone`
+        flex-wrap: wrap;
+    `}
 `;
 
 export const Column = styled.div`
@@ -101,6 +122,14 @@ export const Column = styled.div`
         padding-right: 0;
         padding-left: 0.5rem;
     }
+
+    ${media.phone`
+        flex-basis: 100%;
+
+        padding-right: 0;
+        padding-left: 0 !important;
+        padding-bottom: 0.5em;
+    `}
 `
 
 export const Column3 = styled(Column)`
