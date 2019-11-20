@@ -13,7 +13,7 @@ import {
     MausritterPageTitle,
     MausritterTagline,
     ContentContainer,
-} from '../components';
+} from '../../../components/mausritter/components';
 
 const MausritterIndex = (props) => (
     <PageLayout fullWidthContent>

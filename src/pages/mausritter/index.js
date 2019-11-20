@@ -28,7 +28,7 @@ import {
     DownloadButton,
     BuyButton,
     BuyButtonDescription,
-} from './components';
+} from '../../components/mausritter/components';
 
 const MausritterIndex = (props) => (
     <PageLayout fullWidthContent>
