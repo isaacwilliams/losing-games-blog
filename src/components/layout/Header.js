@@ -61,6 +61,7 @@ const HeaderNav = styled.nav`
 
         li {
             margin-right: 1em;
+            margin-left: 1em;
             font-size: 0.8rem;
         }
     }
@@ -89,10 +90,12 @@ const Header = ({ siteTitle, isIndexPage }) => {
                     <HeaderNav>
                         <ul>
                             <li>
+                                <NavLink to="/mausritter">Mausritter</NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/tools">Tools</NavLink>
                             </li>
                         </ul>
-
                         <DiceRoller />
                     </HeaderNav>
                 </HeaderAlignment>

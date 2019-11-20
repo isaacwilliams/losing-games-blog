@@ -4,15 +4,21 @@ import Header from './Header';
 import Footer from './Footer';
 import ContentContainer from './ContentContainer';
 
-const PageLayout = ({ children, isIndexPage }) => (
+const PageLayout = ({ children, isIndexPage, fullWidthContent }) => (
     <SiteContainer>
         {({ data }) => {
             return (
                 <>
                     <Header siteTitle={data.site.siteMetadata.title} isIndexPage={isIndexPage} />
-                    <ContentContainer>
-                        {children}
-                    </ContentContainer>
+                    {fullWidthContent ? (
+                        <div>
+                            {children}
+                        </div>
+                    ) : (
+                        <ContentContainer>
+                            {children}
+                        </ContentContainer>
+                    )}
                     <Footer />
                 </>
             );
