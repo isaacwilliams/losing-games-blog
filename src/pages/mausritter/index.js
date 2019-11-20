@@ -54,11 +54,11 @@ const MausritterIndex = (props) => (
                         </p>
 
                         <p>
-                            Character creation is classless and very quick quick, designed to get you playing as soon as possible. Your mouse is defined by their abilty scores and the gear they carry. A slot and card-based inventory system makes managing your gear both easy and interesting.
+                            Character creation is classless and very quick, designed to get you playing as soon as possible. Your mouse is defined by their abilty scores and the gear they carry. A tactile card-based inventory system makes managing your gear a fun challenge.
                         </p>
 
                         <p>
-                            Mausritter is built on the chasis of Into the Odd, with new rules for setting, character generation and mouse-scale adventures.
+                            Mausritter is built on the chasis of Into the Odd, with new rules for setting, character generation, magical artefacts, and mouse-scale adventures.
                         </p>
 
                         <p>
@@ -79,7 +79,7 @@ const MausritterIndex = (props) => (
 
                         <ColumnContainer>
                             <Column>
-                                <BuyButton href="#">
+                                <BuyButton href="https://losing-games.itch.io/mausritter">
                                     Downloadable PDF
 
                                     <BuyButtonDescription>
@@ -90,13 +90,13 @@ const MausritterIndex = (props) => (
                                 </BuyButton>
                             </Column>
                             <Column>
-                                <BuyButton href="#">
+                                <BuyButton href="https://losing-games.itch.io/mausritter/purchase?reward_id=3073">
                                     Print Zine
 
                                     <BuyButtonDescription>
                                         Incudes item & condition sheets.
                                         <br />
-                                        $10 + Postage
+                                        $15 at Itch.io
                                     </BuyButtonDescription>
                                 </BuyButton>
                             </Column>
@@ -132,14 +132,14 @@ const MausritterIndex = (props) => (
                             <Image src={require('./sheets-player.png')} />
                         </Column>
                         <Column>
-                            <h4>Player pack</h4>
+                            <h4>Character sheets</h4>
 
                             <p>
-                                Character, hireling, and player's reference sheet.
+                                Player mouse and hireling sheets.
                             </p>
 
                             <p>
-                                <DownloadButton href="#">Download</DownloadButton>
+                                <DownloadButton href={require('./mausritter-character-sheets.pdf')}>Download</DownloadButton>
                             </p>
                         </Column>
                     </DownloadSection>
@@ -149,14 +149,14 @@ const MausritterIndex = (props) => (
                             <Image src={require('./sheets-gm.png')} />
                         </Column>
                         <Column>
-                            <h4>Gamemaster pack</h4>
+                            <h4>Gamemaster sheet</h4>
 
                             <p>
-                                Session tracking, reference sheet.
+                                Track time and character status.
                             </p>
 
                             <p>
-                                <DownloadButton href="#">Download</DownloadButton>
+                                <DownloadButton href={require('./mausritter-gm-session-sheet.pdf')}>Download</DownloadButton>
                             </p>
                         </Column>
                     </DownloadSection>
@@ -173,7 +173,7 @@ const MausritterIndex = (props) => (
                             </p>
 
                             <p>
-                                <DownloadButton href="#">Download</DownloadButton>
+                                <DownloadButton href={require('./mausritter-item-condition-sheets.pdf')}>Download</DownloadButton>
                             </p>
                         </Column>
                     </DownloadSection>
