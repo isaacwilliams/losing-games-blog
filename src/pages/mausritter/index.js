@@ -54,7 +54,7 @@ const MausritterIndex = (props) => (
                         </p>
 
                         <p>
-                            Character creation is classless and very quick, designed to get you playing as soon as possible. Your mouse is defined by their abilty scores and the gear they carry. A tactile card-based inventory system makes managing your gear a fun challenge.
+                        Character creation is speedy and simple, designed to get you playing as soon as possible. Your mouse is defined by their randomly assigned background, ability scores, and the gear they carry. A tactile card-based inventory system makes managing your gear a fun challenge.
                         </p>
 
                         <p>
@@ -62,7 +62,7 @@ const MausritterIndex = (props) => (
                         </p>
 
                         <p>
-                            GMs are provided with procedures for running a mouse-scale sandbox, along with a beastiary and numerous tables for quickly creating adventures in the mouse kingdoms.
+                            GMs are provided with procedures for running a mouse-scale sandbox, along with a bestiary and numerous tables for quickly creating adventures in the mouse kingdoms.
                         </p>
 
                         <p>
