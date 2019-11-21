@@ -122,7 +122,7 @@ const MausritterCharacter = () => {
                 <ColumnContainer>
                     <Column>
                         <p>
-                            Bithsign: <strong>{birthsign}</strong>
+                            Birthsign: <strong>{birthsign}</strong>
                             <br/>
                             Disposition: <strong>{disposition}</strong>
                         </p>
