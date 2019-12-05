@@ -50,3 +50,9 @@ export const StyledResultTitle = styled.span`
     font-weight: 600;
     margin-right: 0.25rem;
 `
+
+export const StyledResultDivider = styled.div`
+    margin-top: 0.7rem;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid lightgrey;
+`

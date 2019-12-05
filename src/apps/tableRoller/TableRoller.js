@@ -25,6 +25,7 @@ import {
     StyledResult,
     StyledResultValue,
     StyledResultTitle,
+    StyledResultDivider,
 } from './components';
 
 import AppErrorBoundary, { ErrorContainer } from '../AppErrorBoundry';
@@ -50,13 +51,16 @@ const TableRollerButtons = ({ buttons, rollResult }) => (
 
 const TableRollerResult = ({ result }) => (
     <StyledResult>
-        {toPairs(result)
-            .map(([key, value], i) => (
-            <StyledResultValue key={i}>
-                <StyledResultTitle>{key}: </StyledResultTitle>
-                <span>{value}</span>
-            </StyledResultValue>
-        ))}
+        {toPairs(result).map(([key, value], i) => {
+            if (value === 'DIVIDER') return <StyledResultDivider />;
+
+            return (
+                <StyledResultValue key={i}>
+                    <StyledResultTitle>{key}: </StyledResultTitle>
+                    <span>{value}</span>
+                </StyledResultValue>
+            );
+        })}
     </StyledResult>
 );
 

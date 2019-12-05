@@ -1,5 +1,5 @@
 ---
-date: "2019-08-28T17:29"
+date: "2019-11-28T17:29"
 title: "Mausritter Megapost"
 tags: ["mausritter", "rules", "release"]
 image: "./mausritter-zines.jpg"

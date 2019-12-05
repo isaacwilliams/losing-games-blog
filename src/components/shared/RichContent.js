@@ -176,7 +176,12 @@ const RichContent = styled.div`
                 border-bottom: 1px solid #eee;
             }
         }
+    }
 
+    .table-wide {
+        table {
+            min-width: 100%;
+        }
     }
 
     .column-container {
