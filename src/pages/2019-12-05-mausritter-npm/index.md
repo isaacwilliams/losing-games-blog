@@ -12,7 +12,7 @@ published: "true"
 
 The mouse kingdoms are not called that for nothing. Mice of many varieties and social castes can be found throughout the kingdoms, each one with their own goals, desires and oddities.
 
-These tables and random generator can help populate the lands. Spark ideas for a patron in need of the player's help, or give just enough details for the mayor of the settlement the players have wandered in to.
+These tables and random generator can help populate the lands. Spark ideas for a [patron in need](/2019-07-16-mausritter-adventures/) of the player's help, or give just enough details for the mayor of the [settlement](/2019-07-30-mausritter-settlements/) the players have wandered in to.
 
 <table-roller table="characteristics" buttons='[["Random mouse", {
     "Name": "{FirstName} {LastName}",
