@@ -27,7 +27,7 @@ These tables and random generator can help populate the lands. Spark ideas for a
 }]]' data='{
     "SocialPosition": [
         "Poor (can pay 1d6p for service)",
-        "Common (can pay 1d6p for service)",
+        "Common (can pay 1d6p x 10p for service)",
         "Common (can pay 1d6 x 10p service)",
         "Burghermouse (can pay 1d6 x 50p service)",
         "Guildmouse (can pay 1d4 x 100p for service)",

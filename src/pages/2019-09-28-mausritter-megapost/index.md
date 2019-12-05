@@ -45,6 +45,7 @@ All of the GM-facing tools and tables are available as online generators:
 - [Friendly mouse settlements](/2019-07-30-mausritter-settlements/)
 - [Dangerous adventure sites](/2019-08-05-mausritter-adventure-sites/)
 - [Adventure seeds](/2019-07-16-mausritter-adventures/)
+- [Non-player mice](/2019-12-05-mausritter-npm/)
 
 There's also an [online generator](/mausritter/mouse) for player mice, to get your players into the game instantly.
 

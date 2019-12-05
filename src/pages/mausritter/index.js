@@ -191,6 +191,7 @@ const MausritterIndex = (props) => (
                         <li><a href="../2019-07-30-mausritter-settlements">Settlements</a></li>
                         <li><a href="../2019-08-05-mausritter-adventure-sites">Adventure sites</a></li>
                         <li><a href="../2019-07-16-mausritter-adventures">Adventure hooks</a></li>
+                        <li><a href="../2019-12-05-mausritter-npm">Non-player mice</a></li>
                     </ResourceList>
                 </Column3>
             </ColumnContainer>
