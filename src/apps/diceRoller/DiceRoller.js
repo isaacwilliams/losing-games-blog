@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { roll } from 'droll';
+import media from '../../components/styles/media';
 
 import RollerForm from './DiceRollerForm';
 import RollerResult from './DiceRollerResult';
@@ -8,6 +9,8 @@ import RollerResult from './DiceRollerResult';
 const RollerContainer = styled.div`
     position: relative;
     height: 1em;
+
+    ${media.phone`display: none;`}
 `;
 
 class DiceRoller extends Component {

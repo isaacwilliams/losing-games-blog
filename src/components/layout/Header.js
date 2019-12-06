@@ -49,7 +49,7 @@ const SiteTitle = styled.h1`
 const HeaderAlignment = styled.div`
     display: flex;
     justify-content: space-between;
-    ${media.phone`margin-right: -1rem;`}
+    ${media.phone`margin-right: -2rem;`}
 `
 
 const HeaderNav = styled.nav`
