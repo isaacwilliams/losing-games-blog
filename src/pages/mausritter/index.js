@@ -142,7 +142,7 @@ const MausritterIndex = (props) => (
                                 <DownloadButton href={require('./mausritter-character-sheets.pdf')}>Download</DownloadButton>
                             </p>
                             <p>
-                                Or, a more <a href={require('./mausritter-character-sheet-kid-friendly.pdf')}>kid-friendly version</a>
+                                Or, a more <a className="link" href={require('./mausritter-character-sheet-kid-friendly.pdf')}>kid-friendly version</a>
                             </p>
                         </Column>
                     </DownloadSection>

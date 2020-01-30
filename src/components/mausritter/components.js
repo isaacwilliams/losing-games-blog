@@ -151,6 +151,14 @@ export const DownloadSection = styled(ColumnContainer)`
     p {
         margin-bottom: 0.5em;
     }
+
+    .link {
+        color: black;
+
+        &:hover {
+            background: yellow;
+        }
+    }
 `;
 
 export const DownloadButton = styled.a`
