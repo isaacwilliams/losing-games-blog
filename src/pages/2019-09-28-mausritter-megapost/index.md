@@ -51,4 +51,8 @@ There's also an [online generator](/mausritter/mouse) for player mice, to get yo
 
 ## Reviews
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PeyNVLtKDuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+> This is a really great game in terms of how much it gives you for it's size. It's highly dense, and it's not vague... this gives you stuff to use, and a lot of the stuff is really good... Mice are not apex predators: they're at the bottom of the food chain, which is a really OSR place to be in — [Questing Beast](https://www.youtube.com/watch?v=PeyNVLtKDuc)
+
 > The OSR has a bit of a reputation for producing rehashes of OD&D/BX and/or Keep on the Borderlands, and edgelord "body-horror lair of the tiddy-hydra" stuff. So it can be hard to draw outsiders' attention to great work that they might enjoy. Mausritter is one of the games I will now point to as an example of what the OSR is capable of — [Glaucus Hauriant](https://glaucushauriant.blogspot.com/2019/11/a-review-of-mausritter.html)

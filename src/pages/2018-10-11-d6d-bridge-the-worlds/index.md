@@ -2,7 +2,7 @@
 date: "2018-10-11T15:10"
 title: "One page game: d6D"
 image: "./d6D-sheet-0.9.png"
-tags: ["rules"]
+tags: ["rules", "release", "roll-and-write"]
 published: "true"
 ---
 
