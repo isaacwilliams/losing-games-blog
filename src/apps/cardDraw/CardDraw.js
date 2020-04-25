@@ -61,8 +61,10 @@ const DrawHistoryCard = styled.li`
 const ALPHA = 'abcdefghijklmnopqrstuvwxyz';
 
 const getLocationSeed = () => {
-    const hash = document.location.hash;
-    return hash && hash.replace('#', '');
+    if (typeof window !== `undefined`) {
+        const hash = window.document.location.hash;
+        return hash && hash.replace('#', '');
+    }
 };
 
 const createSeed = (suffix = '') => {
@@ -92,7 +94,9 @@ const CardDraw = (props) => {
 
     useEffect(() => {
         shuffleDeck(seed);
-        document.location.hash = seed;
+        if (typeof window !== `undefined`) {
+            window.document.location.hash = seed;
+        }
     }, [seed]);
 
     return (
