@@ -184,6 +184,26 @@ const MausritterIndex = (props) => (
 
                 <Column3>
                     <H2>GM Resources</H2>
+                                
+                    <H3>
+                        Honey in the Rafters
+                    </H3>
+                        
+                    <p>
+                        <Image src={require('./hr-pamphlet-screen.jpg')} />
+                    </p>
+                    
+                    <RichContent>
+                        <p>
+                            <em>It stands in the garden of an abandoned human-made shack. Blackened by magic and radiating strange energy. The cursed sunflower calls to all who come near. </em>
+                        </p>
+                        <p>
+                            Face the dangers of the cursed sunflower in this 2 page, black-and-white adventure location for Mausritter.
+                        </p>
+                        <p>
+                            <DownloadButton href="https://losing-games.itch.io/mausritter-honey-in-the-rafters">Get it now</DownloadButton>
+                        </p>
+                    </RichContent>
 
                     <H3>
                         Sandbox content generators
