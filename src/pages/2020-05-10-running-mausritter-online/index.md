@@ -2,6 +2,7 @@
 date: "2020-05-09T19:09"
 title: "Running Mausritter online"
 tags: ["mausritter"]
+image: "./spreadsheet-example.png"
 published: "true"
 ---
 
@@ -57,9 +58,3 @@ I've created digital cards for [all the basic items and condition cards](./mausr
 **Pros:** Fun and tactile. Players can place cards in their inventory as if they were playing physically. Sharing a item between players is as easy as dragging the card to another character sheet. Milanote can also be used as an online table for maps and other player-facing material.
 
 **Cons:** Players will need to sign up and familiarise themselves with a tool they probably don't already use. Creating new item cards requires an image editor (or using a substitute card and creating a note show explain what it is). Milanote's free plan is somewhat limited, though should be fine for this purpose.
-
-
-
-
-
-
