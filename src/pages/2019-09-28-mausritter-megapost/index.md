@@ -49,6 +49,10 @@ All of the GM-facing tools and tables are available as online generators:
 
 There's also an [online generator](/mausritter/mouse) for player mice, to get your players into the game instantly.
 
+## Resources
+
+- [Adventure location: Honey in the Rafters](/2020-05-09-mausritter-honey-in-the-rafters)
+
 ## Reviews
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PeyNVLtKDuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
