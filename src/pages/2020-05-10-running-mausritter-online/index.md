@@ -5,9 +5,9 @@ tags: ["mausritter"]
 published: "true"
 ---
 
-This post is going to be a fairly practical guide on how to options for handling Mausritter's unique inventory system in online play. This won't cover voice/video chat and rolling dice (a lot of people like [Roll20](https://roll20.net/) but I find it a bit clunky. [Discord](https://discord.com) is solid, but has no visual component. My group uses a combination of Google Hangouts and [Rolz](https://rolz.org/))
+This post is going to be a fairly practical guide on how to options for handling Mausritter's unique inventory system in online play. This won't cover voice/video chat and rolling dice (a lot of people like [Roll20](https://roll20.net/) but I find it a bit clunky. [Discord] is solid, but has no visual component. My group uses a combination of Google Hangouts and [Rolz](https://rolz.org/))
 
-One of Mausritter's main selling points as an RPG ruleset is the inclusion of physical tokens for your character's inventory. These are great fun in person, and make for a inventory system that players actually _want_ to pay attention to. But with the world forced to play RPGs remotely now, how to play Mausritter?
+One of Mausritter's main features as an RPG ruleset is the inclusion of physical tokens for your character's inventory. These are great fun in person, and make for a inventory system that players actually _want_ to pay attention to. But with the world forced to play RPGs remotely now, how to play Mausritter?
 
 There's a few options here. None are perfect, but they're all usable.
 
