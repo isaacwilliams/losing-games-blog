@@ -1,7 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import seedRandom from 'seed-random';
+import { drop, uniq } from 'lodash/fp';
 
 import { colors } from '../portraitGenerator/portraitConstants';
+
+export const SHUFFLE_MODES = [
+    { id: 'standard', name: 'Standard' },
+    { id: 'quiet-year', name: 'The Quiet Year (ordered suites)' },
+    { id: 'quiet-year-short', name: 'The Quiet Year (short game)' },
+];
 
 const SUITE_CARDS = [
     '1',
@@ -28,11 +35,9 @@ export const CARDS = [
     ...makeSuit('club'),
 ];
 
-const shuffleCards = (seed) => {
-    const random = seedRandom(seed);
-
+const shuffleArray = (random, array) => {
     let shuffledCards = [];
-    let cards = [...CARDS];
+    let cards = array;
 
     while (cards.length) {
         const pullIndex = Math.floor(random() * cards.length);
@@ -41,17 +46,54 @@ const shuffleCards = (seed) => {
         shuffledCards = [...shuffledCards, ...pulledCards];
     };
 
-    const includeJoker = seed.endsWith('_joker');
-    if (includeJoker) {
-        const jokerInsertPoint = shuffledCards.length - Math.floor(random() * 10);
-        shuffledCards.splice(jokerInsertPoint, 0, 'joker_red');
-    }
-
     return shuffledCards;
 };
 
-const deckBackColor = (seed) => {
+const shuffleStandard = (random) => (
+    shuffleArray(random, [...CARDS])
+);
+
+const shuffleQuietYear = (random) => ([
+    ...shuffleArray(random, makeSuit('heart')),
+    ...shuffleArray(random, makeSuit('diamond')),
+    ...shuffleArray(random, makeSuit('club')),
+    ...shuffleArray(random, makeSuit('spade')),
+]);
+
+const shuffleQuietYearShort = (random) => {
+    const hearts = drop(4, shuffleArray(random, makeSuit('heart')));
+    const diamonds = drop(3, shuffleArray(random, makeSuit('diamond')).filter(card => card !== 'diamond_king'));
+    const clubs = drop(4, shuffleArray(random, makeSuit('club')));
+    let spades = drop(4, shuffleArray(random, makeSuit('spade')));
+
+    while (spades.indexOf('spade_king') === -1) {
+        spades = drop(4, shuffleArray(random, makeSuit('spade')));
+    }
+
+    return [
+        ...hearts,
+        ...diamonds,
+        ...clubs,
+        ...spades
+    ];
+};
+
+const shuffleCards = (seed, mode) => {
     const random = seedRandom(seed);
+
+    switch (mode) {
+        case 'quiet-year':
+            return shuffleQuietYear(random);
+        case 'quiet-year-short':
+            return shuffleQuietYearShort(random);
+        case 'standard':
+        default:
+            return shuffleStandard(random);
+    }
+};
+
+const deckBackColor = (seed, mode) => {
+    const random = seedRandom(`${seed}${mode}`);
 
     return colors[Math.floor(random() * colors.length)];
 };
@@ -70,11 +112,11 @@ const useDeck = () => {
         setDraw([...draw, drawnCard]);
     };
 
-    const shuffleDeck = (seed) => {
+    const shuffleDeck = (seed, mode) => {
         console.log('SHUFFLING', seed);
         setDraw([]);
-        setDeck(shuffleCards(seed));
-        setCardBack(deckBackColor(seed));
+        setDeck(shuffleCards(seed, mode));
+        setCardBack(deckBackColor(seed, mode));
     };
 
     return [

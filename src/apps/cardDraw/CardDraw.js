@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { shuffle, last, drop, reverse } from 'lodash/fp';
+import { last } from 'lodash/fp';
+import _ from 'lodash';
 import styled from 'styled-components';
 
 import Button from '../../components/shared/Button';
 
-import useDeck, { CARDS } from './useDeck';
+import useDeck, { CARDS, SHUFFLE_MODES } from './useDeck';
+import {
+    createSeed,
+    getLocationSeed,
+    getLocationMode,
+} from './seedUtils';
 
 const cardSvg = require('./svg-cards.svg');
 
@@ -15,13 +21,18 @@ const DrawButtonsContainer = styled.div`
     margin-bottom: 1rem;
 `;
 
-const Seed = styled.span`
-    margin-left: 1rem;
+const ShuffuleUtils = styled.div`
     color: grey;
+    font-size: 0.9rem;
 
     strong {
         font-weight: bold;
     }
+`;
+
+const ShuffleInput = styled.span`
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 `;
 
 const DrawDeckContainer = styled.div`
@@ -31,10 +42,33 @@ const DrawDeckContainer = styled.div`
 `;
 
 const DrawDeck = styled.div`
+    position: relative;
     display: flex;
 
     &.empty {
-        opacity: 0.2;
+        svg {
+            opacity: 0.2;
+        }
+    }
+`;
+
+const CardCountOverlay = styled.div`
+    position: absolute;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    div {
+        background: white;
+        border-radius: 0.3rem;
+        padding: 0.5rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 `;
 
@@ -58,27 +92,17 @@ const DrawHistoryCard = styled.li`
     }
 `;
 
-const ALPHA = 'abcdefghijklmnopqrstuvwxyz';
-
-const getLocationSeed = () => {
-    if (typeof window !== `undefined`) {
-        const hash = window.document.location.hash;
-        return hash && hash.replace('#', '');
-    }
-};
-
-const createSeed = (suffix = '') => {
-    let seed = '';
-
-    while (seed.length < 6) {
-        seed = seed + ALPHA[Math.floor(Math.random() * ALPHA.length)];
-    }
-
-    return `${seed}${suffix}`;
-};
-
 const CardDraw = (props) => {
     const [seed, setSeed] = useState(getLocationSeed() || createSeed());
+    const [shuffleMode, setShuffleMode] = useState(getLocationMode() || SHUFFLE_MODES[0].id);
+
+    useEffect(() => {
+        shuffleDeck(seed, shuffleMode);
+
+        if (typeof window !== `undefined`) {
+            window.document.location.hash = `seed=${seed}&mode=${shuffleMode}`;
+        }
+    }, [seed, shuffleMode]);
 
     const [
         deck,
@@ -88,24 +112,31 @@ const CardDraw = (props) => {
         shuffleDeck,
     ] = useDeck();
 
-    const newSeed = () => {
-        setSeed(createSeed(seed.endsWith('_joker') ? '_joker' : ''));
-    };
-
-    useEffect(() => {
-        shuffleDeck(seed);
-        if (typeof window !== `undefined`) {
-            window.document.location.hash = seed;
-        }
-    }, [seed]);
-
     return (
         <div>
             <DrawButtonsContainer>
                 <div>
-                    <Button onClick={newSeed}>Shuffle</Button>
+                    <div>
+                        <Button onClick={() => setSeed(createSeed())}>Shuffle</Button>
+                    </div>
 
-                    <Seed>Seed: <strong>{seed}</strong></Seed>
+                    <ShuffuleUtils>
+                        Shuffle type:
+                        <ShuffleInput>
+                            <select value={shuffleMode} onChange={(e) => setShuffleMode(e.target.value)}>
+                                {SHUFFLE_MODES.map(({ id, name }) => (
+                                    <option key={id} value={id}>{name}</option>
+                                ))}
+                            </select>
+                        </ShuffleInput>
+
+                        Seed:
+                        <ShuffleInput>
+                            <input type="text"
+                                    value={seed}
+                                    onChange={e => setSeed(e.target.value)} />
+                        </ShuffleInput>
+                    </ShuffuleUtils>
                 </div>
                 <Button onClick={drawCard}>Draw</Button>
             </DrawButtonsContainer>
@@ -115,6 +146,12 @@ const CardDraw = (props) => {
                     <svg width={169} height={244}>
                         <use xlinkHref={`${cardSvg}#back`} x="0" y="0" fill={deckBackColor}/>}
                     </svg>
+
+                    <CardCountOverlay>
+                        <div>
+                            {deck.length} {deck.length === 1 ? 'card' : 'cards'}
+                        </div>
+                    </CardCountOverlay>
                 </DrawDeck>
 
                 <DrawCard>
