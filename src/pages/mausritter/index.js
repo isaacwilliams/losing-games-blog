@@ -89,17 +89,7 @@ const MausritterIndex = (props) => (
                                     </BuyButtonDescription>
                                 </BuyButton>
                             </Column>
-                            <Column>
-                                <BuyButton href="https://losing-games.itch.io/mausritter/purchase?reward_id=3073">
-                                    Print Zine
-
-                                    <BuyButtonDescription>
-                                        Incudes item & condition sheets.
-                                        <br />
-                                        $15 at Itch.io
-                                    </BuyButtonDescription>
-                                </BuyButton>
-                            </Column>
+                            <Column />
                         </ColumnContainer>
                     </BuySection>
                 </Column>
@@ -184,15 +174,15 @@ const MausritterIndex = (props) => (
 
                 <Column3>
                     <H2>GM Resources</H2>
-                                
+
                     <H3>
                         Honey in the Rafters
                     </H3>
-                        
+
                     <p>
                         <Image src={require('./hr-pamphlet-screen.jpg')} />
                     </p>
-                    
+
                     <RichContent>
                         <p>
                             <em>It stands in the garden of an abandoned human-made shack. Blackened by magic and radiating strange energy. The cursed sunflower calls to all who come near. </em>
