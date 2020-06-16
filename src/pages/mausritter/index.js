@@ -111,7 +111,6 @@ const MausritterIndex = (props) => (
                     </RichContent>
 
                     <Image src={require('./torchmouse.png')} style={{ width: '90%' }} />
-
                 </Column3>
 
                 <Column3>
@@ -170,6 +169,17 @@ const MausritterIndex = (props) => (
                             </p>
                         </Column>
                     </DownloadSection>
+
+                    <H2>Community</H2>
+
+                    <RichContent>
+                        <p>
+                            Need help with rules or want to find resources for your game? Join the Mausritter Discord community.
+                        </p>
+                        <p>
+                            <DownloadButton href="https://discord.gg/v4wmKsv">Join the Mausritter Discord</DownloadButton>
+                        </p>
+                    </RichContent>
                 </Column3>
 
                 <Column3>
