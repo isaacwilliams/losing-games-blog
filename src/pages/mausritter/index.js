@@ -174,7 +174,7 @@ const MausritterIndex = (props) => (
 
                     <RichContent>
                         <p>
-                            Need help with rules or want to find resources for your game? Join the Mausritter Discord community.
+                            Need help with rules or want to find resources for your game? Join the very friendly Mausritter Discord community.
                         </p>
                         <p>
                             <DownloadButton href="https://discord.gg/v4wmKsv">Join the Mausritter Discord</DownloadButton>
