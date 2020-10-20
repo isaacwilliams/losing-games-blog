@@ -9,8 +9,8 @@ import { fontImport, fontBody } from '../styles/fonts';
 import * as colors from '../styles/colors';
 
 const GlobalStyle = createGlobalStyle`
-    ${reset}
-    ${fontImport}
+    ${reset};
+    ${fontImport};
 
     body {
         ${fontBody}
