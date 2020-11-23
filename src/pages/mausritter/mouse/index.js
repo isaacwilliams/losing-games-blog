@@ -12,13 +12,13 @@ import {
     MausritterPageHeader,
     MausritterPageTitle,
     MausritterTagline,
-    ContentContainer,
+    MausritterHasMoved,
 } from '../../../components/mausritter/components';
 
 const MausritterIndex = (props) => (
     <PageLayout fullWidthContent>
         <Helmet title={`Losing Games — Mausritter character generator`}>
-            <link rel="stylesheet" href="https://use.typekit.net/jcg4vha.css" />
+            <meta httpEquiv="refresh" content="0;url=https://mausritter.com/mouse" />
         </Helmet>
 
         <MausritterPageHeader>
@@ -26,9 +26,7 @@ const MausritterIndex = (props) => (
             <MausritterTagline>Instant mouse generator</MausritterTagline>
         </MausritterPageHeader>
 
-        <ContentContainer>
-            <MausritterCharacter />
-        </ContentContainer>
+        <MausritterHasMoved linkTo="https://mausritter.com/mouse" />
 
     </PageLayout>
 );

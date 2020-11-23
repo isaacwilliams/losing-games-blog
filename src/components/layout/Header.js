@@ -79,6 +79,18 @@ const NavLink = styled(Link)`
     }
 `;
 
+const NavLinkExternal = styled.a`
+    position: relative;
+
+    &:before {
+        position: absolute;
+        left: -1em;
+        content: '✧';
+        text-decoration: none;
+        color: black;
+    }
+`;
+
 const Header = ({ siteTitle, isIndexPage }) => {
     return (
         <HeaderContainer>
@@ -90,10 +102,10 @@ const Header = ({ siteTitle, isIndexPage }) => {
                     <HeaderNav>
                         <ul>
                             <li>
-                                <NavLink to="/mausritter">Mausritter</NavLink>
+                                <NavLink to="/tools">Tools</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/tools">Tools</NavLink>
+                                <NavLinkExternal href="https://mausritter.com">Mausritter</NavLinkExternal>
                             </li>
                         </ul>
                         <DiceRoller />

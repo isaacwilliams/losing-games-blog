@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 
 import PageLayout from '../../components/layout/PageLayout';
@@ -58,157 +59,18 @@ export const MausritterTagline = styled.p`
     ${media.phone`
         font-size: 1.4rem;
     `}
-`
-
-export const H2 = styled.h2`
-    ${fontBroken}
-    margin-bottom: 0.2rem;
-    font-size: 1.65rem;
-`
-
-export const H3 = styled.h3`
-    font-weight: 600;
-    margin-top: 0.5rem;
-    margin-bottom: 0.1rem;
-`
-
-export const Image = styled.img`
-    width: 100%;
-    height: auto;
 `;
 
 export const ContentContainer = styled.div`
-    margin: 2rem auto;
+    margin: 4rem auto;
     padding: 0 2em;
     max-width: 60rem;
-`
-
-export const ResourceList = styled.ul`
-    li {
-        margin-left: 1em;
-        list-style: disc;
-    }
-
-    a {
-        color: black;
-
-        &:hover {
-            background: yellow;
-        }
-    }
-`
-
-export const ColumnContainer = styled.div`
-    padding: 1em 0;
-    display: flex;
-
-    ${media.phone`
-        flex-wrap: wrap;
-    `}
-`;
-
-export const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    flex-basis: calc(50% - 1rem);
-    padding-right: 0.5rem;
-
-    &.center-align {
-        justify-content: center;
-    }
-
-    &:last-child {
-        padding-right: 0;
-        padding-left: 0.5rem;
-    }
-
-    ${media.phone`
-        flex-basis: 100%;
-
-        padding-right: 0;
-        padding-left: 0 !important;
-        padding-bottom: 0.5em;
-    `}
-`
-
-export const Column3 = styled(Column)`
-    flex-basis: calc(33.33% - 1rem);
-`
-
-export const BuySection = styled.div`
-    margin-top: 3rem;
-`
-
-export const DownloadSection = styled(ColumnContainer)`
-    font-size: 0.9em;
-
-    h4 {
-        margin-bottom: 0.5em;
-        font-weight: 600;
-    }
-
-    p {
-        margin-bottom: 0.5em;
-    }
-
-    .link {
-        color: black;
-
-        &:hover {
-            background: yellow;
-        }
-    }
-`;
-
-export const DownloadButton = styled.a`
-    display: inline-block;
-    padding: 0.1em 0.8em 0.2em 0.8em;
-
-    border-radius: 3px;
-
-    text-decoration: none;
-    font-weight: 600;
-
-    background: black;
-    color: white;
-
-    &:hover {
-        background: black;
-        color: white;
-    }
-`;
-
-
-export const BuyButton = styled.a`
-    position: relative;
-    display: block;
-
-    padding: 1em 1em;
-
-    border-radius: 3px;
-    box-shadow: 0 2px 0 black;
-
     text-align: center;
-    text-decoration: none;
-    font-weight: 600;
+    font-size: 1.4rem;
+`;
 
-    background: yellow;
-    color: black;
-
-    &:hover {
-        top: -1px;
-        box-shadow: 0 3px 0 black;
-    }
-
-    &:active {
-        top: 1px;
-        box-shadow: 0 1px 0 black;
-    }
-`
-
-export const BuyButtonDescription = styled.span`
-    display: block;
-    font-size: 0.8em;
-    font-weight: normal;
-`
+export const MausritterHasMoved = ({ linkTo = 'https://mausritter.com' }) => (
+    <ContentContainer>
+        This page has moved, and can now be found at <a href={linkTo}>mausritter.com</a>
+    </ContentContainer>
+);
