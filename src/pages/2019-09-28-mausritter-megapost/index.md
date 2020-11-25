@@ -2,23 +2,35 @@
 date: "2019-11-28T17:29"
 title: "Mausritter Megapost"
 tags: ["mausritter", "rules", "release"]
-image: "./mausritter-zines.jpg"
+image: "./mausritter-box.jpeg"
 published: "true"
 ---
 
+
 <div class="image-container">
-    <img src="./mausritter-zines.jpg" />
+    <img src="./mausritter-box.jpeg" />
 </div>
 
-[Mausritter](/mausritter), my sword-and-whiskers hack of Into the Odd is out in the wild!
+[Mausritter](https://mausritter.com), my sword-and-whiskers hack of Into the Odd is out in the wild!
 
 Mausritter began as my home game after my group gave up on a Mice & Mystics, and decided that we'd prefer to just be playing D&D (but keep the cute mice). I chose Into the Odd as the chassis to build it off, wrote up a background table and intro adventure, and started playing.
 
 The game is very light on rules, but there's plenty of content and advice packed into the the book — enough for at least one short campaign.
 
+**Update (25/11/2020):** [Mausritter has been significantly expanded to 48 pages](/2020-11-25-mausritter-expanded), and now provides almost twice the GM-facing material as the original edition.
+
+In addition, there is now a [standalone website for Mausritter](https://mausritter.com), which will serve as an growing platform for mouse-scale content, both from myself and from other people!
+
 ## Get the game
 
-Mausritter is available for $3 (or free) from [Itch.io](https://losing-games.itch.io/mausritter). I put together a small run of 25 print zines at release, which sold out within a day. I'm planning another print run in the near future.
+Mausritter is available for $8 (or free) from [Itch.io](https://losing-games.itch.io/mausritter). ~~I put together a small run of 25 print zines at release, which sold out within a day. I'm planning another print run in the near future.~~
+
+**Update (25/11/2020):** Mausritter is back in print, in a lovely [hardcover book form and box set from Games Omnivorous](https://gamesomnivorous.com), and has been significantly expanded since this post was written.
+
+<div class="image-container">
+    <img src="./mausritter-zines.jpg" />
+</div>
+
 
 ## Inspirations and thanks
 
