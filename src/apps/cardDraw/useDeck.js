@@ -7,6 +7,7 @@ import { colors } from '../portraitGenerator/portraitConstants';
 export const SHUFFLE_MODES = [
     { id: 'standard', name: 'Standard' },
     { id: 'standard-jokers', name: 'Standard (including Jokers)' },
+    { id: 'a-year-in', name: 'A Year In... (10 cards discarded)' },
     { id: 'quiet-year', name: 'The Quiet Year (ordered suites)' },
     { id: 'quiet-year-short', name: 'The Quiet Year (short game)' },
 ];
@@ -54,6 +55,8 @@ const shuffleStandard = (random) => shuffleArray(random, [...CARDS]);
 
 const shuffleStandardJokers = (random) => shuffleArray(random, [...CARDS, 'joker_black', 'joker_red']);
 
+const shuffleAYearIn = (random) => drop(10, shuffleArray(random, [...CARDS]));
+
 const shuffleQuietYear = (random) => ([
     ...shuffleArray(random, makeSuit('heart')),
     ...shuffleArray(random, makeSuit('diamond')),
@@ -85,6 +88,8 @@ const shuffleCards = (seed, mode) => {
     switch (mode) {
         case 'standard-jokers':
             return shuffleStandardJokers(random);
+        case 'a-year-in':
+            return shuffleAYearIn(random);
         case 'quiet-year':
             return shuffleQuietYear(random);
         case 'quiet-year-short':
