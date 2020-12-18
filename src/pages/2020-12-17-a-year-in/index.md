@@ -14,7 +14,7 @@ I've just released another new game, my third (and last) for the year!
 
 Like [*Kingdom Dice*](/2020-04-19-roll-and-writes), *A Year In...* began development while in Coronavirus lockdown, very soon after the completion of Kingdom Dice. It was supposed to be another quick 2-3 week development, but blew out when the systems felt *fun* but not *complete*. Then development of the [Mausritter expanded book](/2020-11-25-mausritter-expanded) grew to take all my time and *A Year In...* was shelved. With Mausritter finally finished, I decided to knuckle down and develop *A Year In...* from interesting to good. 
 
-[Download *A Year In...* for free here](https://losing-games.itch.io/kingdom-dice).
+[Download *A Year In...* for free here](https://losing-games.itch.io/a-year-in).
 
 <div class="image-container">
     <img src="./a-year-in-2.png" />
