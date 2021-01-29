@@ -10,6 +10,8 @@ Good art for games can be hard to find. It's great if you can create or commissi
 
 Careful selection, curation and use of public domain art is a skill in itself. You'll often need to adjust, modify or treat the artwork to work for your purposes. Browsing these galleries for the perfect piece for your needs can be overwhelming but rewarding. Take from the past and make it your own!
 
+I've tried to only include collections that are are public-domain, meaning you can freely use for commercial purposes. However, check the specific usage limitations for each collection as these may change, or you may stumble onto an image that sits outside a gallery's free-to-use collections.
+
 ## Old Book Illustrations
 
 <div class="image-container">
