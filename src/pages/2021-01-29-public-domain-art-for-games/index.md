@@ -1,8 +1,8 @@
 ---
 date: "2021-01-29"
 title: "Public domain art for games and zines"
-tags: ["rules", "roll-and-write"]
-image: "./a-year-in-mockup.png"
+tags: ["review", "resource"]
+image: "./monstrous-eagle-1600.jpg"
 published: "true"
 ---
 
