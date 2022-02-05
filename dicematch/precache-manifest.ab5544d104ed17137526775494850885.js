@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0243f4c61ea85a181fd3",
+    "revision": "e00cf1a79296241738d9",
     "url": "/dicematch/static/css/main.f2eea392.chunk.css"
   },
   {
-    "revision": "0243f4c61ea85a181fd3",
-    "url": "/dicematch/static/js/main.63be93ec.chunk.js"
+    "revision": "e00cf1a79296241738d9",
+    "url": "/dicematch/static/js/main.b4f65bc3.chunk.js"
   },
   {
     "revision": "ab9b5f51ac2d4afdfe24",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/dicematch/static/media/dicematch-logo-wide.715a1ddf.svg"
   },
   {
-    "revision": "16c320ea50252b588ae12824ee40112f",
+    "revision": "40165978a40c0af1bb5dce00c23b7693",
     "url": "/dicematch/index.html"
   }
 ];
