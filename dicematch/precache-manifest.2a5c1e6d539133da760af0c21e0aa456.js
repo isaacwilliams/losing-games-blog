@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/dicematch/static/media/dicematch-logo-wide.715a1ddf.svg"
   },
   {
-    "revision": "1aa8d4e43a0105970a43433ef1f445cd",
+    "revision": "957c54f6894f7df859b92f1a04de260c",
     "url": "/dicematch/index.html"
   }
 ];
