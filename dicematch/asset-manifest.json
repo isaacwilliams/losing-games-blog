@@ -1,16 +1,17 @@
 {
   "main.css": "/dicematch/static/css/main.f2eea392.chunk.css",
-  "main.js": "/dicematch/static/js/main.b4f65bc3.chunk.js",
-  "main.js.map": "/dicematch/static/js/main.b4f65bc3.chunk.js.map",
+  "main.js": "/dicematch/static/js/main.a8a4058a.chunk.js",
+  "main.js.map": "/dicematch/static/js/main.a8a4058a.chunk.js.map",
   "runtime~main.js": "/dicematch/static/js/runtime~main.979d6832.js",
   "runtime~main.js.map": "/dicematch/static/js/runtime~main.979d6832.js.map",
-  "static/js/2.68d6b1d6.chunk.js": "/dicematch/static/js/2.68d6b1d6.chunk.js",
-  "static/js/2.68d6b1d6.chunk.js.map": "/dicematch/static/js/2.68d6b1d6.chunk.js.map",
+  "static/js/2.bd1e11d7.chunk.js": "/dicematch/static/js/2.bd1e11d7.chunk.js",
+  "static/js/2.bd1e11d7.chunk.js.map": "/dicematch/static/js/2.bd1e11d7.chunk.js.map",
   "index.html": "/dicematch/index.html",
-  "precache-manifest.866ac8a3afcddf09e82193756f9dd9b6.js": "/dicematch/precache-manifest.866ac8a3afcddf09e82193756f9dd9b6.js",
+  "precache-manifest.9486a4b445d1459676c0afdce7a77749.js": "/dicematch/precache-manifest.9486a4b445d1459676c0afdce7a77749.js",
   "service-worker.js": "/dicematch/service-worker.js",
   "static/css/main.f2eea392.chunk.css.map": "/dicematch/static/css/main.f2eea392.chunk.css.map",
   "static/media/dicematch-logo-wide.svg": "/dicematch/static/media/dicematch-logo-wide.715a1ddf.svg",
   "static/media/icon-help.svg": "/dicematch/static/media/icon-help.c70881f6.svg",
+  "static/media/icon-lock.svg": "/dicematch/static/media/icon-lock.4e036c67.svg",
   "static/media/icon-settings.svg": "/dicematch/static/media/icon-settings.9693a6fc.svg"
 }

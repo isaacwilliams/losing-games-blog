@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "e00cf1a79296241738d9",
+    "revision": "09e7b68bf2ba872a05cd",
     "url": "/dicematch/static/css/main.f2eea392.chunk.css"
   },
   {
-    "revision": "e00cf1a79296241738d9",
-    "url": "/dicematch/static/js/main.b4f65bc3.chunk.js"
+    "revision": "09e7b68bf2ba872a05cd",
+    "url": "/dicematch/static/js/main.a8a4058a.chunk.js"
   },
   {
     "revision": "ab9b5f51ac2d4afdfe24",
     "url": "/dicematch/static/js/runtime~main.979d6832.js"
   },
   {
-    "revision": "682fabb2af67a01b48af",
-    "url": "/dicematch/static/js/2.68d6b1d6.chunk.js"
+    "revision": "19f61879894986d6dd52",
+    "url": "/dicematch/static/js/2.bd1e11d7.chunk.js"
   },
   {
     "revision": "c70881f6290e7023f6a35a29a3af9d0c",
@@ -28,7 +28,11 @@ self.__precacheManifest = [
     "url": "/dicematch/static/media/dicematch-logo-wide.715a1ddf.svg"
   },
   {
-    "revision": "957c54f6894f7df859b92f1a04de260c",
+    "revision": "4e036c67929ab99657b8af48172e5da2",
+    "url": "/dicematch/static/media/icon-lock.4e036c67.svg"
+  },
+  {
+    "revision": "55fb477cc89107e60300e7881b14b56d",
     "url": "/dicematch/index.html"
   }
 ];
